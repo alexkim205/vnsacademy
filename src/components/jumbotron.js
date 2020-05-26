@@ -6,6 +6,7 @@ import { WHITE, DARK_PURPLE } from "../constants/theme";
 
 const Container = styled.div`
   display: flex;
+  box-sizing: border-box;
   justify-content: ${({ center }) => (center ? "center" : "flex-start")};
   align-items: ${({ center }) => (center ? "center" : "flex-end")};
   width: 100%;
