@@ -10,10 +10,14 @@ const Container = styled.div`
   justify-content: ${({ center }) => (center ? "center" : "flex-start")};
   align-items: ${({ center }) => (center ? "center" : "flex-end")};
   width: 100%;
-  padding: 1em 3em;
+  padding: 1em 1.5em;
   height: 500px;
   background-color: ${DARK_PURPLE};
   color: ${WHITE};
+
+  ${breakpoint.down("m")`
+    height: 400px;
+  `}
 
   .content {
     max-width: 850px;
