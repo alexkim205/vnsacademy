@@ -1,50 +1,29 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+import { useLocation } from "@reach/router";
+// import { useStaticQuery, graphql } from "gatsby";
 
 import Navbar from "./navbar";
+import Jumbotron from "./jumbotron";
 import "./layout.css";
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+const Layout = ({ title, children }) => {
+  const isMainPage = useLocation().pathname === "/";
 
   return (
-    <>
-      <Navbar />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <Fragment>
+      <header>
+        <Navbar />
+        <Jumbotron center={isMainPage} title={title} />
+      </header>
+      <main>{children}</main>
+      <footer>2001 - 2020 © VnS Academy</footer>
+    </Fragment>
   );
 };
 
 Layout.propTypes = {
+  title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 

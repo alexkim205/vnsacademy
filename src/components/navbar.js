@@ -2,11 +2,15 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { WHITE, DARK_PURPLE } from "../constants/theme";
+import { WHITE, DARK_PURPLE, BUTTON_SHADOW } from "../constants/theme";
 
 const ContainerNav = styled.nav`
-  width: 100%;
   display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 100%;
   padding: 1.5em;
   box-sizing: border-box;
   flex-direction: row;
@@ -25,8 +29,8 @@ const BaseLink = styled(Link)`
   text-transform: uppercase;
   text-decoration: none;
   margin: 0 1em;
-  padding: 0.8em  1.5em;
-  font-size: 0.8em;
+  padding: 0.6em 1.5em;
+  font-size: 0.9em;
 
   &:first-child,
   &:last-child {
@@ -34,7 +38,14 @@ const BaseLink = styled(Link)`
   }
 
   &:hover {
-    
+    text-decoration: underline;
+  }
+
+  &:active,
+  &:focused,
+  &:visited {
+    text-decoration: none;
+    outline: none;
   }
 `;
 
@@ -46,9 +57,17 @@ const ButtonLink = styled(BaseLink)`
   background-color: ${WHITE};
   color: ${DARK_PURPLE};
   border-radius: 3px;
+  box-shadow: ${BUTTON_SHADOW};
+  transition: 0.1s all;
+
+  &:hover {
+    transform: translate(0, 1px);
+    text-decoration: none;
+    box-shadow: none;
+  }
 `;
 
-const Navbar = ({}) => {
+const Navbar = () => {
   return (
     <ContainerNav>
       <NavLink to="/" active="active">

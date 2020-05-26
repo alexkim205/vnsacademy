@@ -981,6 +981,11 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@humblebee/styled-components-breakpoint@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@humblebee/styled-components-breakpoint/-/styled-components-breakpoint-2.1.4.tgz#9a3c31ec12f98b337706bd009362c4df2fff2f2a"
+  integrity sha512-apaHqpY49nEMwIAjoFmedlVocgaQdGY1iQrUpf0G5Cdjw6WLGrrWaWpR6Ne9Mhab7pIe1cjeDqS35C5TTLIpFQ==
+
 "@jest/types@^25.5.0":
   version "25.5.0"
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-25.5.0.tgz#4d6a4793f7b9599fc3680877b856a97dbccf2a9d"
