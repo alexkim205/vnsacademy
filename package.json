@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "vnsacademy",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple website for VnS Academy.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Alex Gyujin Kim",
   "dependencies": {
     "gatsby": "^2.21.37",
     "gatsby-image": "^2.4.4",
@@ -11,18 +11,21 @@
     "gatsby-plugin-offline": "^3.2.3",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-sharp": "^2.6.4",
-    "gatsby-source-filesystem": "^2.3.4",
+    "gatsby-source-filesystem": "^2.3.8",
     "gatsby-transformer-sharp": "^2.5.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "react-hook-form": "^5.7.2",
+    "styled-components": "^5.1.0"
   },
   "devDependencies": {
     "prettier": "2.0.5"
   },
   "keywords": [
-    "gatsby"
+    "VnS Academy",
+    "vns"
   ],
   "license": "MIT",
   "scripts": {
@@ -36,9 +39,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/alexkim205/vnsacademy"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/alexkim205/vnsacademy/issues"
   }
 }
