@@ -39,7 +39,7 @@ const BaseLink = styled(Link)`
   font-weight: 500;
 
   ${breakpoint.down("l")`
-    padding: 0.6em 1em;
+    padding: 0.6em 0.6em;
   `}
 
   &:first-child,
