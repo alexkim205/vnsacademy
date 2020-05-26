@@ -2,49 +2,64 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { WHITE, MEDIUM_GRAY, DARK_GRAY , RED} from "../constants/theme";
+import { WHITE, LIGHT_GRAY, MEDIUM_GRAY, DARK_GRAY, RED, DARK_YELLOW, LIGHT_PURPLE} from "../constants/theme";
 
 const Subjects = styled.div`
   display: flex;
+  justify: center;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
-  width: 70%;
+  width: 40%;
   height: 70%;
-  outline: 1px solid ${MEDIUM_GRAY};
   color: ${WHITE};
-  box-shadow: -1px 1px ${MEDIUM_GRAY},
-   -2px 2px ${MEDIUM_GRAY},
-   -3px 3px ${MEDIUM_GRAY},
-   -4px 4px ${MEDIUM_GRAY},
-   -5px 5px ${MEDIUM_GRAY};
+  box-shadow: 0px 10px 20px 1px ${LIGHT_GRAY}; 
 `;
 
 const Bullet = styled.div`
 	display: inline-block;
-	background: ${RED};
+	background: ${props => props.inputColor};
 	padding: 20px;
-	width: 10px;
-	height: 10px;
-	margin: 10px;
+	width: 1%;
+	height: 1%;
+	margin: 0px 20px 10px 0px;
 	position: relative;
-	top: 30px;
-	bottom: 30px;
-	right: 5px;
+	top: 25px;
 `;
 
 const SubBox = styled.div`
 	display: flex-start;
   align-items: center;
   color: ${DARK_GRAY};
+  width: 100%;
+  height: 100%;
+  .subjects {
+  	display: block;
+  	align-items: center;
+  	border-right: 1px solid ${MEDIUM_GRAY};
+  	width: 90%;
+  	margin-left:-20px;
+	}
   ul {
   	list-style-position: inside;
   	padding-bottom: 10px;
+  	vertical-align: middle;
   }
-  width: 100%;
-  height: 100%;
-  outline: 1px solid ${MEDIUM_GRAY};
+  ul.content-list {
+  	display: flex;
+  	justify-content: space-evenly;
+  	flex-direction: column;
+  	margin-left: -70px;
+  	margin-top: 40px;
+  }
   ul.content-list > li {
   	display: block;
-  	height: 25px;
+  	height: 50%;
+  	top: auto;
+  	bottom: auto;
+  	margin: 10px 0;
+  	margin-right: 10%;
+  	margin-left: 10%;
   }
   ul.content-list > li > div.title {
   	float: left;
@@ -56,8 +71,9 @@ const SubBox = styled.div`
 
 function ListSubs(items) {
 	const subjects = items.subjects;
-	const listItems = subjects.map((sub) =>
-		<ul><Bullet/>{sub}</ul>
+	const colors = ["#FF0054", "#FFBD00", "#EBE1FF"];
+	const listItems = subjects.map((sub, index) =>
+		<ul><Bullet inputColor={colors[index]}/>{sub}</ul>
 	);
 	return (
 		<ul>{listItems}</ul>
@@ -96,9 +112,11 @@ function ListInfo(items) {
 const Infobox = ({ subjects, when, type, numSessions, price }) => {
 	return (
 		<Subjects>
-				<SubBox>
+			<SubBox>
+				<div class="subjects">
 					<ListSubs subjects={subjects} />
-				</SubBox>
+				</div>
+			</SubBox><br />
 			<SubBox>
 				<ListInfo when={when} type={type} numSessions={numSessions} price={price} />
 			</SubBox>

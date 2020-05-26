@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 import Infobox from "../components/class-infobox";
 
 const ClassesPage = () => {
-	const exampleSubs = ["English", "Math"];
+	const exampleSubs = ["English","Spanish","Math"];
 
 	return (
 		<Layout>
