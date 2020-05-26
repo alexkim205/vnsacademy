@@ -1,12 +1,14 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import anime from "animejs";
 import styled from "styled-components";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 
+import useWindowSize from "../helpers/useWindowSize";
 import {
   WHITE,
   DARK_PURPLE,
   BUTTON_SHADOW,
+  BREAKPOINTS,
   breakpoint,
 } from "../constants/theme";
 import { NavLink, ButtonLink } from "./navbar.style";
@@ -56,9 +58,13 @@ const ContainerNav = styled.nav`
 
   .desktop-navbar {
     display: flex;
+    align-items: center;
     ${breakpoint.down("m")`
       display: none;
     `}
+    .right {
+      display: flex;
+    }
   }
 
   .mobile-navbar {
@@ -71,6 +77,7 @@ const ContainerNav = styled.nav`
     .mobile-overlay {
       position: fixed;
       width: 100%;
+      height: 100%;
       top: 0;
       left: 0;
       box-sizing: border-box;
@@ -127,33 +134,45 @@ const ContainerNav = styled.nav`
 
 const animOpenMobileNav = async el => {
   el.current.style.display = "flex";
-  el.current.style.height = 0;
+  el.current.style.opacity = 0;
   await anime({
     targets: el.current,
-    height: "100%",
-    // opacity: [0, 1],
-    duration: 300,
-    easing: "linear",
+    opacity: [0, 1],
+    duration: 180,
+    easing: "easeInSine",
   }).finished;
 };
 
 const animCloseMobileNav = async el => {
   await anime({
     targets: el.current,
-    height: "0%",
-    // opacity: [1, 0],
-    duration: 300,
-    easing: "linear",
+    opacity: [1, 0],
+    duration: 160,
+    easing: "easeOutSine",
   }).finished;
   el.current.style.display = "none";
-  el.current.style.height = 0;
+  el.current.style.opacity = 0;
 };
 
 const Navbar = () => {
   const mobileOverlayRef = useRef();
+  const { size: windowSize, breakpoint: windowBreakpoint } = useWindowSize();
   const [isMobileNavOpen, setMobileNavState] = useState(false);
-  const openMobileNav = () => setMobileNavState(true);
-  const closeMobileNav = () => setMobileNavState(false);
+  const openMobileNav = async () => {
+    await animOpenMobileNav(mobileOverlayRef);
+    setMobileNavState(true);
+  };
+  const closeMobileNav = async () => {
+    await animCloseMobileNav(mobileOverlayRef);
+    setMobileNavState(false);
+  };
+
+  useEffect(() => {
+    if (windowSize >= BREAKPOINTS.m) {
+      console.log(windowSize);
+      closeMobileNav();
+    }
+  }, [windowSize]);
 
   const renderNavItems = () => (
     <Fragment>
@@ -190,22 +209,12 @@ const Navbar = () => {
     <ContainerNav>
       <div className="desktop-navbar">{renderNavItems()}</div>
       <div className="mobile-navbar">
-        <button
-          onClick={async () => {
-            await animOpenMobileNav(mobileOverlayRef);
-            openMobileNav();
-          }}
-        >
+        <button onClick={openMobileNav}>
           <IoIosMenu size="2em" />
         </button>
         <div className="mobile-overlay" ref={mobileOverlayRef}>
           <div className="top">
-            <button
-              onClick={async () => {
-                await animCloseMobileNav(mobileOverlayRef);
-                closeMobileNav();
-              }}
-            >
+            <button onClick={closeMobileNav}>
               <IoMdClose size="2em" />
             </button>
             <ButtonLink to="/contact" active="active">
