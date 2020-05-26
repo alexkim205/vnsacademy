@@ -2,7 +2,12 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { WHITE, DARK_PURPLE, BUTTON_SHADOW } from "../constants/theme";
+import {
+  WHITE,
+  DARK_PURPLE,
+  BUTTON_SHADOW,
+  breakpoint,
+} from "../constants/theme";
 
 const ContainerNav = styled.nav`
   display: flex;
@@ -31,6 +36,11 @@ const BaseLink = styled(Link)`
   margin: 0 1em;
   padding: 0.6em 1.5em;
   font-size: 0.9em;
+  font-weight: 500;
+
+  ${breakpoint.down("l")`
+    padding: 0.6em 1em;
+  `}
 
   &:first-child,
   &:last-child {
