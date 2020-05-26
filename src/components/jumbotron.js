@@ -11,7 +11,7 @@ const Container = styled.div`
   align-items: ${({ center }) => (center ? "center" : "flex-end")};
   width: 100%;
   padding: 1em 1.5em;
-  height: 500px;
+  height: 480px;
   background-color: ${DARK_PURPLE};
   color: ${WHITE};
 
