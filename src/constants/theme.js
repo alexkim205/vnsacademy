@@ -13,11 +13,13 @@ export const WHITE = "#FFFFFF";
 
 export const BUTTON_SHADOW = "0px 4px 4px 0px rgba(0,0,0,0.25)";
 
-export const breakpoint = styledBreakpoint({
+export const BREAKPOINTS = {
   xxs: 0,
   xs: 320,
   s: 576,
   m: 768,
   l: 992,
   xl: 1200,
-});
+};
+
+export const breakpoint = styledBreakpoint(BREAKPOINTS);
