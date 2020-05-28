@@ -9,7 +9,7 @@ const useCollegeData = () => {
           node {
             name
             childImageSharp {
-              fixed(width: 90) {
+              fixed(width: 130) {
                 ...GatsbyImageSharpFixed
               }
             }
