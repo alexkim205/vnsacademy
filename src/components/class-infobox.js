@@ -63,14 +63,14 @@ const SubBox = styled.div`
   ul {
   	list-style-position: inside;
   }
-  ul.content-list {
+  ul.info-list {
   	display: flex;
   	width: 100%;
   	justify-content: space-evenly;
   	flex-direction: column;
   	padding-left: 0rem;
   }
-  ul.content-list > li {
+  ul.info-list > li {
   	display: inline-block;
   	text-align: left;
   	justify-content: space-between;
@@ -79,11 +79,11 @@ const SubBox = styled.div`
 			margin-bottom: 0rem;
 		}
   }
-  ul.content-list > li > div.title {
+  ul.info-list > li > div.title {
   	float: left;
 
   }
-  ul.content-list > li > div.content {
+  ul.info-list > li > div.info {
   	float: right;
   }
 `;
@@ -106,22 +106,22 @@ function ListInfo(items) {
 	const price = items.price;
 	return (
 		<React.Fragment>
-			<ul class="content-list">
+			<ul class="info-list">
 				<li>
 					<div class="title">When</div>
-					<div class="content"><b>{when}</b></div>
+					<div class="info"><b>{when}</b></div>
 				</li>
 				<li>
 					<div class="title">Type</div>
-					<div class="content"><b>{type}</b></div>
+					<div class="info"><b>{type}</b></div>
 				</li>
 				<li>
 					<div class="title">No. of Sessions</div>
-					<div class="content"><b>{num}</b></div>
+					<div class="info"><b>{num}</b></div>
 				</li>
 				<li>
 					<div class="title">Price</div>
-					<div class="content"><b>{price}</b></div>
+					<div class="info"><b>{price}</b></div>
 				</li>
 			</ul>
 		</React.Fragment>
