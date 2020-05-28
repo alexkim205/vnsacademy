@@ -1,55 +1,61 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import BaseSection from "../components/sections/base.style";
 
 import { WHITE, LIGHT_GRAY, MEDIUM_GRAY, DARK_GRAY, RED, DARK_YELLOW, LIGHT_PURPLE} from "../constants/theme";
 
-const Subjects = styled.div`
+const Subjects = styled(BaseSection)` 
   display: flex;
+  flex-direction: row;
   justify: center;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
-  height: 200px;
+  width: 60%;
   color: ${WHITE};
   box-shadow: 0px 10px 20px 1px ${LIGHT_GRAY}; 
   border-radius: 5px;
 	font-family: "Poppins", sans-serif;
   font-weight: 600;
   position: relative;
+  padding: 0rem 0rem;
 `;
 
 const Bullet = styled.div`
 	display: inline-block;
 	background: ${props => props.inputColor};
-	padding: 20px;
-	margin-right: 10px;
+	padding: 1.5rem;
+	margin-right: 1rem;
 	position: relative;
 `;
 
 const SubBox = styled.div`
 	display: flex;
-	flex-basis: 50%;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
 	vertical-align: middle;
   color: ${DARK_GRAY};
   width: 50%;
   height: 100%;
-	padding: 0px 20px;
+	padding: 2rem 3rem;
   top: 0%;
+  box-sizing: border-box;	
 	border-right: 1px solid ${MEDIUM_GRAY};
 	&:last-child {
-		border:none;
+		border: none;
+  	padding: 1rem 8rem;
+  	flex: 2 1 80%;
 	}
   .subjects {
-  	flex: 1 0 30%;
-	  padding: 20px 0px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: stretch;
+	  padding: 1rem 0rem;
   	.subject {
   		display: flex;
   		justify-content: flex-start;
   		align-items: center;
-  		margin-bottom: 15px;
+  		margin-bottom: 1rem;
   		&:last-child {
   			margin-bottom: 0px;
   		}
@@ -57,22 +63,21 @@ const SubBox = styled.div`
 	}
   ul {
   	list-style-position: inside;
-  	flex: 1 0 70%;
   }
   ul.content-list {
   	display: flex;
   	width: 100%;
-	  box-sizing: border-box;
   	justify-content: space-evenly;
   	flex-direction: column;
-  	padding-left: 0px;
+  	padding-left: 0rem;
   }
   ul.content-list > li {
-  	display: flex;
+  	display: inline-block;
+  	text-align: left;
   	justify-content: space-between;
-		margin-bottom: 10px;
+		margin-bottom: 0.4rem;
 		&:last-child {
-			margin-bottom: 0px;
+			margin-bottom: 0rem;
 		}
   }
   ul.content-list > li > div.title {
@@ -131,7 +136,7 @@ const Infobox = ({ subjects, when, type, numSessions, price }) => {
 				<div class="subjects">
 					<ListSubs subjects={subjects} />
 				</div>
-			</SubBox><br />
+			</SubBox>
 			<SubBox>					
 				<ListInfo when={when} type={type} numSessions={numSessions} price={price} />
 			</SubBox>
