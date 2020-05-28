@@ -6,6 +6,7 @@ import { HIGHLIGHT_YELLOW } from "../../constants/theme";
 
 const Container = styled(BaseSection)`
   background-color: ${HIGHLIGHT_YELLOW};
+  padding: 3em 1.5em;
 `;
 
 const NoticeSection = ({ children }) => (

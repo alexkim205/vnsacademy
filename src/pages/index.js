@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import NoticeSection from "../components/sections/notice-section";
 import CarouselSection from "../components/sections/carousel-section";
+import StatsSection from "../components/sections/stats-section";
 import useCollegeData from "../helpers/useCollegeData";
 
 const IndexPage = () => {
@@ -22,6 +23,12 @@ const IndexPage = () => {
       <CarouselSection
         title={"Our students have been accepted into"}
         items={collegesData}
+      />
+      <StatsSection
+        title={
+          "Since 2001, we’ve helped all our students consistently score high on standardized tests.*"
+        }
+        items={}
       />
     </Layout>
   );

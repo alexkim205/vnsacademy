@@ -13,8 +13,6 @@ import { WHITE, BREAKPOINTS } from "../../constants/theme";
 
 const Container = styled(BaseSection)`
   background-color: ${({ backgroundColor }) => backgroundColor};
-  padding-top: 6em;
-  padding-bottom: 6em;
 
   .content {
     .carousel-title,

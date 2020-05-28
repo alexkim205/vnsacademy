@@ -8,7 +8,7 @@ const BaseSection = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 3em 1.5em;
+  padding: 6em 1.5em 7em 1.5em;
   font-size: 0.9em;
   line-height: 1.7em;
   box-sizing: border-box;
