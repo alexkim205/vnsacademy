@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Img from "gatsby-image";
 import PropTypes from "prop-types";
+import _ from "lodash";
 import anime from "animejs";
 import styled from "styled-components";
 
@@ -8,7 +10,32 @@ import { WHITE } from "../../constants/theme";
 
 const Container = styled(BaseSection)`
   background-color: ${({ backgroundColor }) => backgroundColor};
+  .content {
+    .carousel-title {
+    }
+    .carousel-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 150px;
+
+      .item {
+        height: 90px;
+        width: 90px;
+      }
+    }
+  }
 `;
+
+const CarouselItem = props => (
+  <Img
+    className="item"
+    imgStyle={{
+      objectFit: "none",
+    }}
+    {...props}
+  ></Img>
+);
 
 const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
   const [active, setActive] = useState(0);
@@ -46,9 +73,15 @@ const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
     <Container backgroundColor={backgroundColor}>
       <h2>{title}</h2>
       <div className="content">
-        <div className="carousel-title">{items[active].name}</div>
+        <div className="carousel-title">{window.curr.name}</div>
         <div className="carousel-content">
-          
+          <CarouselItem fluid={window.prev.fixed} alt="previous"></CarouselItem>
+          <CarouselItem fluid={window.curr.fixed} alt="current"></CarouselItem>
+          <CarouselItem fluid={window.next.fixed} alt="next"></CarouselItem>
+          <CarouselItem
+            fluid={window.nextnext.fixed}
+            alt="nextnext"
+          ></CarouselItem>
         </div>
       </div>
     </Container>

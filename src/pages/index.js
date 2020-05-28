@@ -1,15 +1,15 @@
 import React from "react";
 
-import colleges from "../data/colleges";
-
 import Layout from "../components/layout";
 import Image from "../components/image";
 import SEO from "../components/seo";
 import NoticeSection from "../components/sections/notice-section";
 import CarouselSection from "../components/sections/carousel-section";
+import useCollegeData from "../helpers/useCollegeData";
 
 const IndexPage = () => {
   const title = "VnS Academy";
+  const collegesData = useCollegeData();
 
   return (
     <Layout title={title}>
@@ -22,7 +22,7 @@ const IndexPage = () => {
       </NoticeSection>
       <CarouselSection
         title={"Our students have been accepted into"}
-        items={colleges}
+        items={collegesData}
       />
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
