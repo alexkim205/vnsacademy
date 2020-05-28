@@ -36,7 +36,6 @@ const SubBox = styled.div`
   color: ${DARK_GRAY};
   width: 50%;
   height: 100%;
-	margin: 10px 0px;
 	padding: 0px 20px;
   top: 0%;
 	border-right: 1px solid ${MEDIUM_GRAY};
