@@ -1,9 +1,8 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useRef } from "react";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import Slider from "react-slick";
-import anime from "animejs";
 import styled from "styled-components";
 
 import "slick-carousel/slick/slick.css";
@@ -18,24 +17,11 @@ const Container = styled(BaseSection)`
   padding-bottom: 6em;
 
   .content {
-    .carousel-title {
-      margin-top: 5em;
-      margin-bottom: 2em;
-      text-align: center;
-      text-transform: uppercase;
-      font-weight: 600;
-      .title {
-        font-size: 2.1em;
-        margin-bottom: 0.4em;
-      }
-      .subtitle {
-        font-size: 1.3em;
-      }
-    }
+    .carousel-title,
     .carousel-content {
+      display: block;
       max-width: 950px;
       width: 100vw;
-      display: block;
 
       .slick-slide {
         transition: all 0.5s;
@@ -45,7 +31,34 @@ const Container = styled(BaseSection)`
       .slick-center {
         transform: scale(1);
       }
+    }
 
+    .carousel-title {
+      margin-top: 4em;
+      margin-bottom: 2em;
+
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 600;
+
+      .slick-slide {
+        opacity: 0;
+      }
+
+      .slick-center {
+        opacity: 1;
+      }
+
+      .title {
+        font-size: 2.1em;
+        padding-top: 0.5em;
+        margin-bottom: 0.4em;
+      }
+      .subtitle {
+        font-size: 1.3em;
+      }
+    }
+    .carousel-content {
       .item {
         text-align: center;
       }
@@ -54,50 +67,51 @@ const Container = styled(BaseSection)`
 `;
 
 const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
-  const [active, setActive] = useState(0);
+  const [titleSliderRef, contentSliderRef] = [useRef(), useRef()];
 
-  console.log(active, items);
+  const settings = {
+    infinite: true,
+    centerMode: true,
+    arrows: false,
+    pauseOnHover: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    slidesToShow: 3,
+    responsive: _.zipWith(
+      [BREAKPOINTS.l, BREAKPOINTS.m, BREAKPOINTS.s],
+      [3, 2, 1],
+      (breakpoint, slidesToShow) => ({ breakpoint, settings: { slidesToShow } })
+    ),
+  };
 
   return (
     <Container backgroundColor={backgroundColor}>
       <h2>{title}</h2>
       <div className="content">
         <div className="carousel-title">
-          <div className="title">Placeholder</div>
+          <Slider
+            {...settings}
+            ref={titleSliderRef}
+            asNavFor={contentSliderRef.current}
+          >
+            {items &&
+              items.map(({ name }, i) => (
+                <div key={i} className="title">
+                  {name}
+                </div>
+              ))}
+          </Slider>
           <div className="subtitle">University</div>
         </div>
         <div className="carousel-content">
           <Slider
-            infinite
-            centerMode
-            arrows={false}
-            autoplay
-            autoplaySpeed={2000}
-            slidesToShow={3}
-            responsive={[
-              {
-                breakpoint: BREAKPOINTS.l,
-                settings: {
-                  slidesToShow: 3,
-                },
-              },
-              {
-                breakpoint: BREAKPOINTS.m,
-                settings: {
-                  slidesToShow: 2,
-                },
-              },
-              {
-                breakpoint: BREAKPOINTS.s,
-                settings: {
-                  slidesToShow: 1,
-                },
-              },
-            ]}
+            {...settings}
+            ref={contentSliderRef}
+            asNavFor={titleSliderRef.current}
           >
             {items &&
               items.map(({ name, fixed }, i) => (
-                <div className="item">
+                <div className="item" key={i}>
                   <Img
                     imgStyle={{
                       objectFit: "contain",
@@ -107,18 +121,6 @@ const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
                   />
                 </div>
               ))}
-            {/* <div>
-              <h3>1</h3>
-            </div>
-            <div>
-              <h3>2</h3>
-            </div>
-            <div>
-              <h3>3</h3>
-            </div>
-            <div>
-              <h3>4</h3>
-            </div> */}
           </Slider>
         </div>
       </div>
@@ -131,7 +133,7 @@ CarouselSection.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      logo: PropTypes.string,
+      fixed: PropTypes.string,
     })
   ).isRequired,
   backgroundColor: PropTypes.string,
