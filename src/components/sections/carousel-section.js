@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import _ from "lodash";
@@ -67,6 +67,8 @@ const Container = styled(BaseSection)`
 `;
 
 const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
+  const [titleSlider, setTitleSlider] = useState();
+  const [contentSlider, setContentSlider] = useState();
   const [titleSliderRef, contentSliderRef] = [useRef(), useRef()];
 
   const settings = {
@@ -91,8 +93,8 @@ const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
         <div className="carousel-title">
           <Slider
             {...settings}
-            ref={titleSliderRef}
-            asNavFor={contentSliderRef.current}
+            ref={ref => setTitleSlider(ref)}
+            asNavFor={contentSlider}
           >
             {items &&
               items.map(({ name }, i) => (
@@ -106,8 +108,8 @@ const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
         <div className="carousel-content">
           <Slider
             {...settings}
-            ref={contentSliderRef}
-            asNavFor={titleSliderRef.current}
+            ref={ref => setContentSlider(ref)}
+            asNavFor={contentSlider}
           >
             {items &&
               items.map(({ name, fixed }, i) => (
@@ -133,7 +135,7 @@ CarouselSection.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      fixed: PropTypes.string,
+      fixed: PropTypes.object,
     })
   ).isRequired,
   backgroundColor: PropTypes.string,
