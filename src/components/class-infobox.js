@@ -12,7 +12,7 @@ const Subjects = styled(BaseSection)`
   margin-left: auto;
   margin-right: auto;
   width: 60%;
-  color: ${WHITE};
+  background-color: ${WHITE};
   box-shadow: 0px 10px 20px 1px ${LIGHT_GRAY}; 
   border-radius: 5px;
 	font-family: "Poppins", sans-serif;
@@ -43,7 +43,6 @@ const SubBox = styled.div`
 	border-right: 1px solid ${MEDIUM_GRAY};
 	&:last-child {
 		border: none;
-  	padding: 1rem 8rem;
   	flex: 2 1 80%;
 	}
   .subjects {
