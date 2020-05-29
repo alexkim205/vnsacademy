@@ -11,14 +11,9 @@ import useCollegeImages from "../helpers/useCollegeImages";
 import { generalStats, specificStats } from "../data/stats";
 import { LIGHT_PURPLE } from "../constants/theme";
 
-import { getClassSchedule } from "../helpers/dataUtils";
-
 const IndexPage = () => {
   const title = "VnS Academy";
   const collegeImages = useCollegeImages();
-
-  console.log("DATA UTIL TEST");
-  console.log(getClassSchedule("sat"));
 
   return (
     <Layout title={title}>
