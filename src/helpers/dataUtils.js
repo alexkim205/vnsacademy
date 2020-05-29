@@ -23,6 +23,8 @@ const classesData = _.map(classesUnparsedData, c =>
 );
 const subjectsData = _.map(classesData, c => c.subjects);
 
+export const getClasses = () => classesData;
+
 export const getClassKeys = () => _.map(classesData, c => c.key);
 
 export const getClassByKey = classKey => {
