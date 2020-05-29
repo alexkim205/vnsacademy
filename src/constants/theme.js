@@ -11,6 +11,7 @@ export const MEDIUM_GRAY = "#C4C4C4";
 export const DARK_GRAY = "#4E545C";
 export const BACKGROUND_WHITE = "#E5E5E5";
 export const WHITE = "#FFFFFF";
+export const BLACK = "#000000";
 
 export const BUTTON_SHADOW = "0px 4px 4px 0px rgba(0,0,0,0.25)";
 
@@ -22,5 +23,3 @@ export const BREAKPOINTS = {
   l: 992,
   xl: 1200,
 };
-
-export const breakpoint = styledBreakpoint(BREAKPOINTS);

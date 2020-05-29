@@ -9,12 +9,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import BaseSection from "./base.style";
-import { WHITE, BREAKPOINTS } from "../../constants/theme";
+import { BACKGROUND_WHITE, BREAKPOINTS } from "../../constants/theme";
 
 const Container = styled(BaseSection)`
   background-color: ${({ backgroundColor }) => backgroundColor};
-  padding-top: 6em;
-  padding-bottom: 6em;
 
   .content {
     .carousel-title,
@@ -66,7 +64,12 @@ const Container = styled(BaseSection)`
   }
 `;
 
-const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
+const CarouselSection = ({
+  title,
+  items,
+  backgroundColor = BACKGROUND_WHITE,
+  ...otherProps
+}) => {
   const [titleSlider, setTitleSlider] = useState();
   const [contentSlider, setContentSlider] = useState();
   const [titleSliderRef, contentSliderRef] = [useRef(), useRef()];
@@ -74,21 +77,27 @@ const CarouselSection = ({ title, items, backgroundColor = WHITE }) => {
   const settings = {
     infinite: true,
     centerMode: true,
+    draggable: false,
+    focusOnSelect: false,
+    swipe: false,
+    touchMove: false,
     arrows: false,
     pauseOnHover: false,
     autoplay: true,
     autoplaySpeed: 2000,
     slidesToShow: 3,
     responsive: _.zipWith(
-      [BREAKPOINTS.l, BREAKPOINTS.m, BREAKPOINTS.s],
-      [3, 2, 1],
+      [BREAKPOINTS.l, BREAKPOINTS.m],
+      [3, 1],
       (breakpoint, slidesToShow) => ({ breakpoint, settings: { slidesToShow } })
     ),
   };
 
   return (
-    <Container backgroundColor={backgroundColor}>
-      <h2>{title}</h2>
+    <Container backgroundColor={backgroundColor} {...otherProps}>
+      <div className="title">
+        <h2>{title}</h2>
+      </div>
       <div className="content">
         <div className="carousel-title">
           <Slider
