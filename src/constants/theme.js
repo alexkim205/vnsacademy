@@ -23,3 +23,5 @@ export const BREAKPOINTS = {
   l: 992,
   xl: 1200,
 };
+
+export const breakpoint = styledBreakpoint(BREAKPOINTS);
