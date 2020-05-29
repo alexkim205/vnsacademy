@@ -122,7 +122,7 @@ const Infobox = ({ classInfo }) => {
       <SubBox className="subjects">
         {subjects &&
           subjects.map((name, i) => (
-            <div class="subject">
+            <div className="subject" key={i}>
               <Bullet inputColor={colors[i]} />
               {name}
             </div>
@@ -138,15 +138,11 @@ const Infobox = ({ classInfo }) => {
         <div className="infos">
           <div className="info-item">{when}</div>
           <div className="info-item">{type}</div>
-          <duv className="info-item">{numSessions}</duv>
+          <div className="info-item">{numSessions}</div>
         </div>
       </SubBox>
     </Subjects>
   );
-};
-
-Infobox.propTypes = {
-  class: PropTypes.object.isRequired,
 };
 
 export default Infobox;

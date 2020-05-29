@@ -4,35 +4,35 @@
     "name": "SAT Math + English + Writing",
     "path": "/sat",
     "category": "Standardized Testing Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
         "name": "English + Writing",
-        "key": "english-writing",
+        "key": "sat-english-writing",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       },
       {
         "name": "Math",
-        "key": "math",
+        "key": "sat-math",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 12:00",
-          "endTime": "July 1 2020 13:30"
+          "startTime": "2020-07-01 12:00",
+          "endTime": "2020-07-01 13:30"
         }
       },
       {
         "name": "Full Practice Test",
-        "key": "practice",
+        "key": "sat-practice",
         "schedule": {
           "days": ["F"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 13:30"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 13:30"
         }
       }
     ]
@@ -42,44 +42,44 @@
     "name": "SAT Subject Tests",
     "path": "/sat-subject",
     "category": "Standardized Testing Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
-        "name": "Math",
-        "key": "math",
+        "name": "Math 1 + 2",
+        "key": "sat-subject-math",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       },
       {
-        "name": "Biology",
-        "key": "biology",
+        "name": "Biology E/M",
+        "key": "sat-subject-biology",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 12:00",
-          "endTime": "July 1 2020 13:00"
+          "startTime": "2020-07-01 12:00",
+          "endTime": "2020-07-01 13:00"
         }
       },
       {
         "name": "Chemistry",
-        "key": "chemistry",
+        "key": "sat-subject-chemistry",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 13:00",
-          "endTime": "July 1 2020 14:30"
+          "startTime": "2020-07-01 13:00",
+          "endTime": "2020-07-01 14:30"
         }
       },
       {
         "name": "Physics",
-        "key": "physics",
+        "key": "sat-subject-physics",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 14:00",
-          "endTime": "July 1 2020 15:00"
+          "startTime": "2020-07-01 14:00",
+          "endTime": "2020-07-01 15:00"
         }
       }
     ]
@@ -89,44 +89,44 @@
     "name": "AP Tests",
     "path": "/ap",
     "category": "Standardized Testing Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
         "name": "Calculus AB + BC",
-        "key": "calculus",
+        "key": "ap-calculus",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       },
       {
         "name": "Biology",
-        "key": "biology",
+        "key": "ap-biology",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 12:00",
-          "endTime": "July 1 2020 13:00"
+          "startTime": "2020-07-01 12:00",
+          "endTime": "2020-07-01 13:00"
         }
       },
       {
         "name": "Chemistry",
-        "key": "chemistry",
+        "key": "ap-chemistry",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 13:00",
-          "endTime": "July 1 2020 14:30"
+          "startTime": "2020-07-01 13:00",
+          "endTime": "2020-07-01 14:30"
         }
       },
       {
         "name": "Physics",
-        "key": "physics",
+        "key": "ap-physics",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 14:00",
-          "endTime": "July 1 2020 15:00"
+          "startTime": "2020-07-01 14:00",
+          "endTime": "2020-07-01 15:00"
         }
       }
     ]
@@ -136,17 +136,17 @@
     "name": "SHSAT",
     "path": "/shsat",
     "category": "Standardized Testing Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
         "name": "SHSAT",
-        "key": "shsat",
+        "key": "shsat-shsat",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       }
     ]
@@ -156,17 +156,17 @@
     "name": "Hunter Entrance Exam",
     "path": "/hunter",
     "category": "Standardized Testing Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
         "name": "Hunter Entrance Exam",
-        "key": "hunter",
+        "key": "hunter-hunter",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       }
     ]
@@ -176,8 +176,8 @@
     "name": "AMC 8 + 10 + 12",
     "path": "/amc",
     "category": "Extracurricular Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
@@ -185,8 +185,8 @@
         "key": "amc-8",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       },
       {
@@ -194,8 +194,8 @@
         "key": "amc-10",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 12:00",
-          "endTime": "July 1 2020 13:00"
+          "startTime": "2020-07-01 12:00",
+          "endTime": "2020-07-01 13:00"
         }
       },
       {
@@ -203,8 +203,8 @@
         "key": "amc-12",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 13:00",
-          "endTime": "July 1 2020 14:00"
+          "startTime": "2020-07-01 13:00",
+          "endTime": "2020-07-01 14:00"
         }
       }
     ]
@@ -214,26 +214,26 @@
     "name": "Math + Science Olympiads",
     "path": "/olympiad",
     "category": "Extracurricular Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
         "name": "Math Olympiad",
-        "key": "math-olympiad",
+        "key": "olympiad-math",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       },
       {
         "name": "Science Olympiad",
-        "key": "science-olympiad",
+        "key": "olympiad-science",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 12:00",
-          "endTime": "July 1 2020 13:00"
+          "startTime": "2020-07-01 12:00",
+          "endTime": "2020-07-01 13:00"
         }
       }
     ]
@@ -243,8 +243,8 @@
     "name": "Algebra 2 + Trigonometry",
     "path": "/algebra-trig",
     "category": "School Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
@@ -252,8 +252,8 @@
         "key": "algebra-trig",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       }
     ]
@@ -263,8 +263,8 @@
     "name": "Geometry",
     "path": "/geometry",
     "category": "School Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
@@ -272,8 +272,8 @@
         "key": "geometry",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       }
     ]
@@ -283,8 +283,8 @@
     "name": "Pre-Calculus",
     "path": "/pre-calculus",
     "category": "School Prep",
-    "startDate": "July 1 2020",
-    "endDate": "August 31 2020",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-31 00:00",
     "numSessions": 32,
     "subjects": [
       {
@@ -292,8 +292,8 @@
         "key": "pre-calculus",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
-          "startTime": "July 1 2020 10:00",
-          "endTime": "July 1 2020 12:00"
+          "startTime": "2020-07-01 10:00",
+          "endTime": "2020-07-01 12:00"
         }
       }
     ]
