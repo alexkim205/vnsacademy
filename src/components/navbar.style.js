@@ -14,6 +14,7 @@ export const ContainerNav = styled.nav`
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 5;
 
   width: 100%;
   padding: 1.5em;
@@ -181,6 +182,7 @@ export const ButtonLink = styled(BaseLink)`
 `;
 
 export const animOpenMobileNav = async el => {
+  if (!el.current) return;
   el.current.style.display = "flex";
   el.current.style.opacity = 0;
   await anime({
@@ -192,6 +194,7 @@ export const animOpenMobileNav = async el => {
 };
 
 export const animCloseMobileNav = async el => {
+  if (!el.current) return;
   await anime({
     targets: el.current,
     opacity: [1, 0],

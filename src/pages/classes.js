@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Infobox from "../components/class-infobox";
 import Schedule from "../components/schedule";
-
+import ContainedSection from "../components/sections/contained-section";
 
 const currSchedule = [
 	//Monday
@@ -27,16 +27,21 @@ const currSchedule = [
 ];
 
 const ClassesPage = () => {
-	const exampleSubs = ["Spanish","Math"];
-
-	return (
-		<Layout>
-			<SEO title="Classes" />
-			<h1>Classes</h1>
-			<Infobox subjects={exampleSubs} when="Mondays" type="Zoom" numSessions="4" price="1,000,000/sesh" />
-			<Schedule weekSchedule={currSchedule} />
-		</Layout>
-	);
+  const classInfo = {
+    subjects: ["SAT English + Writing", "SAT Math"],
+    when: "July 1 - August 31, 2020",
+    type: "Group (Zoom)",
+    numSessions: 32,
+  };
+  return (
+    <Layout>
+      <SEO title="Classes" />
+      <ContainedSection>
+        <Infobox classInfo={classInfo} />
+        <Schedule weekSchedule={currSchedule} />
+      </ContainedSection>
+    </Layout>
+  );
 };
 
 export default ClassesPage;

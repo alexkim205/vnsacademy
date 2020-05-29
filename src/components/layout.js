@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { useLocation } from "@reach/router";
-// import { useStaticQuery, graphql } from "gatsby";
 
 import Navbar from "./navbar";
 import Jumbotron from "./jumbotron";
+import Footer from "./footer";
 import "./layout.css";
 
 const Layout = ({ title, children }) => {
@@ -17,7 +17,7 @@ const Layout = ({ title, children }) => {
         <Jumbotron center={isMainPage} title={title} />
       </header>
       <main>{children}</main>
-      <footer>2001 - 2020 © VnS Academy</footer>
+      <Footer></Footer>
     </Fragment>
   );
 };
