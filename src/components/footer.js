@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { LIGHT_GRAY, BLACK } from "../constants/theme";
+import { WHITE, DARK_PURPLE } from "../constants/theme";
 
 const Container = styled.footer`
   width: 100%;
@@ -9,13 +9,14 @@ const Container = styled.footer`
   justify-content: center;
   align-items: center;
   padding: 12em 1.5em 6em 1.5em;
-  background-color: ${LIGHT_GRAY};
+  background-color: ${DARK_PURPLE};
+  box-sizing: border-box;
 
   .copyright {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: 0.8em;
-    color: ${BLACK};
+    color: ${WHITE};
   }
 `;
 const Footer = () => (

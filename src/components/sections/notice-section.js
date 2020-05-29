@@ -9,8 +9,8 @@ const Container = styled(BaseSection)`
   padding: 3em 1.5em;
 `;
 
-const NoticeSection = ({ children }) => (
-  <Container>
+const NoticeSection = ({ children, ...otherProps }) => (
+  <Container {...otherProps}>
     <div className="content">{children}</div>
   </Container>
 );
