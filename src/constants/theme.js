@@ -14,6 +14,7 @@ export const WHITE = "#FFFFFF";
 export const BLACK = "#000000";
 
 export const BUTTON_SHADOW = "0px 4px 4px 0px rgba(0,0,0,0.25)";
+export const BOX_SHADOW = "0px 24px 48px 0px rgba(176,176,176,0.28)";
 
 export const BREAKPOINTS = {
   xxs: 0,

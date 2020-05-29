@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 import NoticeSection from "../components/sections/notice-section";
 import CarouselSection from "../components/sections/carousel-section";
 import StatsSection from "../components/sections/stats-section";
-import TextSection from "../components/sections/text-section";
+import ContainedSection from "../components/sections/contained-section";
 import useCollegeData from "../helpers/useCollegeData";
 
 import { generalStats, specificStats } from "../helpers/stats";
@@ -40,13 +40,13 @@ const IndexPage = () => {
         items={specificStats}
         isLast={false}
       />
-      <TextSection
+      <ContainedSection
         isFirst={false}
         backgroundColor={LIGHT_PURPLE}
         align="center"
       >
         <i>*Median score</i>
-      </TextSection>
+      </ContainedSection>
     </Layout>
   );
 };

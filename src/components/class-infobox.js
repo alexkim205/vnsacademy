@@ -1,154 +1,152 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import BaseSection from "../components/sections/base.style";
 
-import { WHITE, LIGHT_GRAY, MEDIUM_GRAY, DARK_GRAY, RED, DARK_YELLOW, LIGHT_PURPLE} from "../constants/theme";
+import {
+  WHITE,
+  MEDIUM_GRAY,
+  DARK_GRAY,
+  BOX_SHADOW,
+  BLACK,
+  breakpoint,
+  LIGHT_GRAY,
+} from "../constants/theme";
 
-const Subjects = styled(BaseSection)` 
+const Subjects = styled.div`
   display: flex;
   flex-direction: row;
-  justify: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
+  width: 100%;
+  max-width: 800px;
   background-color: ${WHITE};
-  box-shadow: 0px 10px 20px 1px ${LIGHT_GRAY}; 
+  box-shadow: ${BOX_SHADOW};
   border-radius: 5px;
-	font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  position: relative;
-  padding: 0rem 0rem;
+  margin: 0 auto;
+
+  ${breakpoint.down("m")`
+  flex-direction: column;
+  `}
+
+  font-family: "Poppins", sans-serif;
+
+  .spacer {
+    width: 1px;
+    height: auto;
+    background-color: ${LIGHT_GRAY};
+
+    ${breakpoint.down("m")`
+    width: 100%;
+    height: 1px;
+    `}
+  }
 `;
 
 const Bullet = styled.div`
-	display: inline-block;
-	background: ${props => props.inputColor};
-	padding: 1.5rem;
-	margin-right: 1rem;
-	position: relative;
+  display: inline-block;
+  background: ${props => props.inputColor};
+  padding: 1.5rem;
+  margin-right: 1rem;
+  position: relative;
 `;
 
 const SubBox = styled.div`
-	display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-	vertical-align: middle;
-  color: ${DARK_GRAY};
-  width: 50%;
+  display: flex;
+  color: ${BLACK};
   height: 100%;
-	padding: 2rem 3rem;
-  top: 0%;
-  box-sizing: border-box;	
-	border-right: 1px solid ${MEDIUM_GRAY};
-	&:last-child {
-		border: none;
-  	flex: 2 1 80%;
-	}
-  .subjects {
-  	display: flex;
-  	flex-direction: column;
-  	align-items: stretch;
-	  padding: 1rem 0rem;
-  	.subject {
-  		display: flex;
-  		justify-content: flex-start;
-  		align-items: center;
-  		margin-bottom: 1rem;
-  		&:last-child {
-  			margin-bottom: 0px;
-  		}
-  	}
-	}
-  ul {
-  	list-style-position: inside;
-  }
-  ul.info-list {
-  	display: flex;
-  	width: 100%;
-  	justify-content: space-evenly;
-  	flex-direction: column;
-  	padding-left: 0rem;
-  }
-  ul.info-list > li {
-  	display: inline-block;
-  	text-align: left;
-  	justify-content: space-between;
-		margin-bottom: 0.4rem;
-		&:last-child {
-			margin-bottom: 0rem;
-		}
-  }
-  ul.info-list > li > div.title {
-  	float: left;
+  box-sizing: border-box;
+  padding: 2em 2.5em;
 
+  &.subjects {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+
+    ${breakpoint.down("m")`
+      width: 100%;
+    `}
+
+    .subject {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
   }
-  ul.info-list > li > div.info {
-  	float: right;
+
+  &.info-list {
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    margin: auto 0;
+
+    ${breakpoint.down("m")`
+      width: 100%;
+    `}
+
+    .titles {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .infos {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-weight: 600;
+    }
+    .info-item {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.5em;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
   }
 `;
 
-function ListSubs(items) {
-	const subjects = items.subjects;
-	const colors = ["#FF0054", "#FFBD00", "#EBE1FF"];
-	const listItems = subjects.map((sub, index) =>
-		<div class="subject"><Bullet inputColor={colors[index]}/>{sub}</div>
-	);
-	return (
-		<React.Fragment>{listItems}</React.Fragment>
-	);
-}
+const Infobox = ({ classInfo }) => {
+  const { subjects, when, type, numSessions } = classInfo;
+  const colors = ["#FF0054", "#FFBD00", "#EBE1FF"];
 
-function ListInfo(items) {
-	const when = items.when;
-	const type = items.type;
-	const num = items.numSessions;
-	const price = items.price;
-	return (
-		<React.Fragment>
-			<ul class="info-list">
-				<li>
-					<div class="title">When</div>
-					<div class="info"><b>{when}</b></div>
-				</li>
-				<li>
-					<div class="title">Type</div>
-					<div class="info"><b>{type}</b></div>
-				</li>
-				<li>
-					<div class="title">No. of Sessions</div>
-					<div class="info"><b>{num}</b></div>
-				</li>
-				<li>
-					<div class="title">Price</div>
-					<div class="info"><b>{price}</b></div>
-				</li>
-			</ul>
-		</React.Fragment>
-	);
-}
-
-const Infobox = ({ subjects, when, type, numSessions, price }) => {
-	return (
-		<Subjects>
-			<SubBox>
-				<div class="subjects">
-					<ListSubs subjects={subjects} />
-				</div>
-			</SubBox>
-			<SubBox>					
-				<ListInfo when={when} type={type} numSessions={numSessions} price={price} />
-			</SubBox>
-		</Subjects>
-	);
+  return (
+    <Subjects>
+      <SubBox className="subjects">
+        {subjects &&
+          subjects.map((name, i) => (
+            <div class="subject">
+              <Bullet inputColor={colors[i]} />
+              {name}
+            </div>
+          ))}
+      </SubBox>
+      <div className="spacer"></div>
+      <SubBox className="info-list">
+        <div className="titles">
+          <div className="info-item">When</div>
+          <div className="info-item">Type</div>
+          <div className="info-item">No. of Sessions</div>
+        </div>
+        <div className="infos">
+          <div className="info-item">{when}</div>
+          <div className="info-item">{type}</div>
+          <duv className="info-item">{numSessions}</duv>
+        </div>
+      </SubBox>
+    </Subjects>
+  );
 };
 
 Infobox.propTypes = {
-	subjects: PropTypes.arrayOf(PropTypes.string).isRequired,
-	when: PropTypes.string.isRequired,
-	type: PropTypes.string.isRequired,
-	numSessions: PropTypes.string.isRequired,
-	price: PropTypes.string.isRequired
+  class: PropTypes.object.isRequired,
 };
 
 export default Infobox;

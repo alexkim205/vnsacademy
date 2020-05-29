@@ -13,6 +13,7 @@ const Container = styled(BaseSection)`
   padding: 3em 1.5em;
 
   .content {
+    width: 100%;
     font-family: "Poppins", sans-serif;
     ${({ align }) =>
       align &&
@@ -26,7 +27,7 @@ const Container = styled(BaseSection)`
   }
 `;
 
-const TextSection = ({
+const ContainedSection = ({
   children,
   backgroundColor = null,
   align = "left",
@@ -37,10 +38,10 @@ const TextSection = ({
   </Container>
 );
 
-TextSection.propTypes = {
+ContainedSection.propTypes = {
   children: PropTypes.node,
   backgroundColor: PropTypes.string,
   align: PropTypes.string,
 };
 
-export default TextSection;
+export default ContainedSection;
