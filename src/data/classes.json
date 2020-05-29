@@ -1,0 +1,331 @@
+[
+  {
+    "key": "sat",
+    "name": "SAT Math + English + Writing",
+    "path": "/sat",
+    "category": "Standardized Testing Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "English + Writing",
+        "key": "english-writing",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      },
+      {
+        "name": "Math",
+        "key": "math",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 12:00",
+          "endTime": "July 1 2020 13:30"
+        }
+      },
+      {
+        "name": "Full Practice Test",
+        "key": "practice",
+        "schedule": {
+          "days": ["F"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 13:30"
+        }
+      }
+    ]
+  },
+  {
+    "key": "sat-subject",
+    "name": "SAT Subject Tests",
+    "path": "/sat-subject",
+    "category": "Standardized Testing Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "Math",
+        "key": "math",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      },
+      {
+        "name": "Biology",
+        "key": "biology",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 12:00",
+          "endTime": "July 1 2020 13:00"
+        }
+      },
+      {
+        "name": "Chemistry",
+        "key": "chemistry",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 13:00",
+          "endTime": "July 1 2020 14:30"
+        }
+      },
+      {
+        "name": "Physics",
+        "key": "physics",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 14:00",
+          "endTime": "July 1 2020 15:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "ap",
+    "name": "AP Tests",
+    "path": "/ap",
+    "category": "Standardized Testing Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "Calculus AB + BC",
+        "key": "calculus",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      },
+      {
+        "name": "Biology",
+        "key": "biology",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 12:00",
+          "endTime": "July 1 2020 13:00"
+        }
+      },
+      {
+        "name": "Chemistry",
+        "key": "chemistry",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 13:00",
+          "endTime": "July 1 2020 14:30"
+        }
+      },
+      {
+        "name": "Physics",
+        "key": "physics",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 14:00",
+          "endTime": "July 1 2020 15:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "shsat",
+    "name": "SHSAT",
+    "path": "/shsat",
+    "category": "Standardized Testing Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "SHSAT",
+        "key": "shsat",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "hunter",
+    "name": "Hunter Entrance Exam",
+    "path": "/hunter",
+    "category": "Standardized Testing Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "Hunter Entrance Exam",
+        "key": "hunter",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "amc",
+    "name": "AMC 8 + 10 + 12",
+    "path": "/amc",
+    "category": "Extracurricular Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "AMC 8",
+        "key": "amc-8",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      },
+      {
+        "name": "AMC 10",
+        "key": "amc-10",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 12:00",
+          "endTime": "July 1 2020 13:00"
+        }
+      },
+      {
+        "name": "AMC 12",
+        "key": "amc-12",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 13:00",
+          "endTime": "July 1 2020 14:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "olympiad",
+    "name": "Math + Science Olympiads",
+    "path": "/olympiad",
+    "category": "Extracurricular Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "Math Olympiad",
+        "key": "math-olympiad",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      },
+      {
+        "name": "Science Olympiad",
+        "key": "science-olympiad",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 12:00",
+          "endTime": "July 1 2020 13:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "algebra-trig",
+    "name": "Algebra 2 + Trigonometry",
+    "path": "/algebra-trig",
+    "category": "School Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "Algebra 2 + Trigonometry",
+        "key": "algebra-trig",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "geometry",
+    "name": "Geometry",
+    "path": "/geometry",
+    "category": "School Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "Geometry",
+        "key": "geometry",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "pre-calculus",
+    "name": "Pre-Calculus",
+    "path": "/pre-calculus",
+    "category": "School Prep",
+    "startDate": "July 1 2020",
+    "endDate": "August 31 2020",
+    "numSessions": 32,
+    "subjects": [
+      {
+        "name": "Pre-Calculus",
+        "key": "pre-calculus",
+        "schedule": {
+          "days": ["M", "T", "W", "Th"],
+          "startTime": "July 1 2020 10:00",
+          "endTime": "July 1 2020 12:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "private-math",
+    "name": "Math",
+    "path": "/private-math",
+    "category": "Private Tutoring",
+    "startDate": null,
+    "endDate": null,
+    "numSessions": null,
+    "subjects": null
+  },
+  {
+    "key": "private-sciences",
+    "name": "Sciences",
+    "path": "/private-sciences",
+    "category": "Private Tutoring",
+    "startDate": null,
+    "endDate": null,
+    "numSessions": null,
+    "subjects": null
+  },
+  {
+    "key": "private-english",
+    "name": "English",
+    "path": "/private-english",
+    "category": "Private Tutoring",
+    "startDate": null,
+    "endDate": null,
+    "numSessions": null,
+    "subjects": null
+  }
+]
