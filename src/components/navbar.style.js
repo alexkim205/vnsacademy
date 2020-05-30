@@ -63,6 +63,11 @@ export const ContainerNav = styled.nav`
     .right {
       display: flex;
     }
+    .center {
+      .home {
+        display: none;
+      }
+    }
     .left {
       .homeText {
         display: none;
@@ -171,10 +176,6 @@ export const NavLink = styled(BaseLink)`
     height: 6em;
     position: absolute;
     margin-left: 3em;
-  }
-
-  .home {
-    display: none;
   }
 
   ${breakpoint.down("l")`
