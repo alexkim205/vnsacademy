@@ -96,7 +96,7 @@ const ScheduleBlock = styled.div`
   }
 
   .subject-name {
-    font-weight: 400;
+    font-weight: 500;
   }
   .subject-time {
     font-size: 1.1em;

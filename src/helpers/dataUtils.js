@@ -6,21 +6,22 @@ const moment = require("moment");
 const classesUnparsedData = require("../data/classes.json");
 
 // Cache data with momentized dates/times and just subjects
-const classesData = _.map(classesUnparsedData, c =>
-  _.assign({}, c, {
-    // startDate: moment(c.startDate),
-    // endDate: moment(c.endDate),
-    subjects: _.map(c.subjects, s =>
-      _.assign({}, s, {
-        schedule: {
-          ...s.schedule,
-          // startTime: moment(s.schedule.startTime, "YYYY-MM-DD hh:mm"),
-          // endTime: moment(s.schedule.endTime, "YYYY-MM-DD hh:mm"),
-        },
-      })
-    ),
-  })
-);
+// const classesData = _.map(classesUnparsedData, c =>
+//   _.assign({}, c, {
+//     // startDate: moment(c.startDate),
+//     // endDate: moment(c.endDate),
+//     subjects: _.map(c.subjects, s =>
+//       _.assign({}, s, {
+//         schedule: {
+//           ...s.schedule,
+//           // startTime: moment(s.schedule.startTime, "YYYY-MM-DD hh:mm"),
+//           // endTime: moment(s.schedule.endTime, "YYYY-MM-DD hh:mm"),
+//         },
+//       })
+//     ),
+//   })
+// );
+const classesData = classesUnparsedData;
 const subjectsData = _.map(classesData, c => c.subjects);
 
 const getClasses = () => classesData;
