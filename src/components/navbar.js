@@ -2,6 +2,7 @@ import React, { Fragment, useState, useRef, useEffect } from "react";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 
 import useWindowSize from "../helpers/useWindowSize";
+import useScroll from "../helpers/useScroll";
 import { BREAKPOINTS } from "../constants/theme";
 import {
   NavLink,
@@ -13,7 +14,9 @@ import {
 
 const Navbar = () => {
   const mobileOverlayRef = useRef();
+  const logoRef = useRef();
   const { size: windowSize, breakpoint: windowBreakpoint } = useWindowSize();
+  const { scrollY } = useScroll();
   const [isMobileNavOpen, setMobileNavState] = useState(false);
   const openMobileNav = async () => {
     await animOpenMobileNav(mobileOverlayRef);
@@ -26,7 +29,6 @@ const Navbar = () => {
 
   useEffect(() => {
     if (windowSize >= BREAKPOINTS.m) {
-      console.log(windowSize);
       closeMobileNav();
     }
   }, [windowSize]);
@@ -34,8 +36,13 @@ const Navbar = () => {
   const renderNavItems = () => (
     <Fragment>
       <div className="left">
-        <NavLink to="/" active="active" className="logo">
-          <img className="image" src={ require('../images/logo.png') }  alt="image"/>
+        <NavLink
+          to="/"
+          active="active"
+          className={scrollY < 120 ? "logo" : "small logo"}
+          ref={logoRef}
+        >
+          <img src={require("../images/logo.png")} alt="logo" />
         </NavLink>
       </div>
       <div className="spacer"></div>

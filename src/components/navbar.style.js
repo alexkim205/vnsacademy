@@ -63,6 +63,11 @@ export const ContainerNav = styled.nav`
     .right {
       display: flex;
     }
+    .center {
+      .home {
+        display: none;
+      }
+    }
     .left {
       .homeText {
         display: none;
@@ -167,14 +172,19 @@ const BaseLink = styled(Link)`
 export const NavLink = styled(BaseLink)`
   color: ${WHITE};
 
-  .image {
-    height: 6em;
-    position: absolute;
-    margin-left: 3em;
-  }
-
-  .home {
-    display: none;
+  &.logo {
+    img {
+      height: 5em;
+      position: fixed;
+      left: 1.5em;
+      top: 1.8em;
+      transition: 0.2s all;
+    }
+    &.small {
+      img {
+        height: 3em;
+      }
+    }
   }
 
   ${breakpoint.down("l")`
