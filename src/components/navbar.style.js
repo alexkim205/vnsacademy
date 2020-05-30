@@ -172,18 +172,9 @@ const BaseLink = styled(Link)`
 export const NavLink = styled(BaseLink)`
   color: ${WHITE};
 
-  &.logo {
-    img {
-      height: 5em;
-      position: fixed;
-      left: 1.5em;
-      top: 1.8em;
-      transition: 0.2s all;
-    }
-    &.small {
-      img {
-        height: 3em;
-      }
+  &.logo.small {
+    .gatsby-image-wrapper {
+      width: 4em !important;
     }
   }
 
