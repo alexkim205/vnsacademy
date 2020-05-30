@@ -10,7 +10,7 @@ exports.createPages = ({ actions: { createPage } }) => {
 
   classesData.forEach(classData => {
     createPage({
-      path: classData.key,
+      path: `/classes/${classData.key}`,
       component: template,
       context: {
         classData,

@@ -26,7 +26,6 @@ const Navbar = () => {
       }
     }
   `);
-  console.log(data);
 
   const mobileOverlayRef = useRef();
   const logoRef = useRef();
@@ -54,7 +53,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           active="active"
-          className={scrollY < 120 ? "logo" : "small logo"}
+          className={scrollY < 350 ? "logo" : "small logo"}
           ref={logoRef}
         >
           <Img
