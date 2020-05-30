@@ -114,6 +114,7 @@ const SubBox = styled.div`
       flex-direction: column;
       justify-content: flex-end;
       font-weight: 600;
+      text-align: right; 
     }
     .info-item {
       white-space: nowrap;

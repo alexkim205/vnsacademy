@@ -2,9 +2,6 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Infobox from "../components/class-infobox";
-import Schedule from "../components/schedule";
-import ContainedSection from "../components/sections/contained-section";
 
 const ClassesPage = () => {
   const currSchedule = [
@@ -70,9 +67,6 @@ const ClassesPage = () => {
   return (
     <Layout title="Classes">
       <SEO title="Classes" />
-      <ContainedSection>
-        <Schedule weekSchedule={currSchedule} />
-      </ContainedSection>
     </Layout>
   );
 };

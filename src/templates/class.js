@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Infobox from "../components/class-infobox";
 import ContainedSection from "../components/sections/contained-section";
+import Schedule from "../components/schedule";
 
 const ClassTemplate = ({ data }) => {
   const { classData, scheduleData } = data.allSitePage.edges[0].node.context;
@@ -16,6 +17,9 @@ const ClassTemplate = ({ data }) => {
       <SEO title={classData.name} />
       <ContainedSection>
         <Infobox classData={classData} />
+      </ContainedSection>
+      <ContainedSection>
+        <Schedule scheduleData={scheduleData} />
       </ContainedSection>
     </Layout>
   );
@@ -48,26 +52,36 @@ export const query = graphql`
                 name
                 key
                 duration
+                startTime
+                endTime
               }
               T {
                 name
                 key
                 duration
+                startTime
+                endTime
               }
               W {
                 name
                 key
                 duration
+                startTime
+                endTime
               }
               Th {
                 name
                 key
                 duration
+                startTime
+                endTime
               }
               F {
                 name
                 key
                 duration
+                startTime
+                endTime
               }
             }
           }
