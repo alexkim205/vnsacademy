@@ -2,19 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { parseDateRange } from "../helpers/utils";
 import {
   WHITE,
   BOX_SHADOW,
   BLACK,
   breakpoint,
   LIGHT_GRAY,
+  SUBJECTS_COLORS,
 } from "../constants/theme";
 
 const Subjects = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 800px;
+  // max-width: 800px;
   background-color: ${WHITE};
   box-shadow: ${BOX_SHADOW};
   border-radius: 5px;
@@ -40,8 +42,8 @@ const Subjects = styled.div`
 
 const Bullet = styled.div`
   display: inline-block;
-  background: ${props => props.inputColor};
-  padding: 1.5rem;
+  background-color: ${props => props.inputColor};
+  padding: 1.2rem;
   margin-right: 1rem;
   position: relative;
 `;
@@ -54,9 +56,10 @@ const SubBox = styled.div`
   padding: 2em 2.5em;
 
   &.subjects {
-    width: 40%;
+    width: 50%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: auto 0;
 
     ${breakpoint.down("m")`
@@ -67,17 +70,31 @@ const SubBox = styled.div`
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1em;
+      margin-top: 1em;
+      box-sizing: border-box;
+      width: calc((100% - 1.5rem) / 2);
 
-      &:last-child {
-        margin-bottom: 0px;
+      &:nth-child(even) {
+        margin-left: 1.5rem;
       }
+
+      ${breakpoint.down("m")`
+        width: 50%;
+        &:nth-child(even) {
+          margin-left: 0;
+        }
+      `}
+
+      ${breakpoint.down("xs")`
+        width: 100%;
+      `}
     }
   }
 
   &.info-list {
     display: flex;
-    width: 60%;
+    width: 50%;
     flex-direction: row;
     margin: auto 0;
 
@@ -97,6 +114,7 @@ const SubBox = styled.div`
       flex-direction: column;
       justify-content: flex-end;
       font-weight: 600;
+      text-align: right;
     }
     .info-item {
       white-space: nowrap;
@@ -111,17 +129,18 @@ const SubBox = styled.div`
   }
 `;
 
-const Infobox = ({ classInfo }) => {
-  const { subjects, when, type, numSessions } = classInfo;
-  const colors = ["#FF0054", "#FFBD00", "#EBE1FF"];
+const Infobox = ({ classData }) => {
+  const { subjects, startDate, endDate, type, numSessions } = classData;
+  const dateRange =
+    startDate && endDate ? parseDateRange(startDate, endDate) : null;
 
   return (
     <Subjects>
       <SubBox className="subjects">
         {subjects &&
-          subjects.map((name, i) => (
-            <div key={i} className="subject">
-              <Bullet inputColor={colors[i]} />
+          subjects.map(({ name }, i) => (
+            <div className="subject" key={i}>
+              <Bullet inputColor={SUBJECTS_COLORS[i]} />
               {name}
             </div>
           ))}
@@ -129,14 +148,14 @@ const Infobox = ({ classInfo }) => {
       <div className="spacer"></div>
       <SubBox className="info-list">
         <div className="titles">
-          <div className="info-item">When</div>
+          {dateRange && <div className="info-item">When</div>}
           <div className="info-item">Type</div>
-          <div className="info-item">No. of Sessions</div>
+          {numSessions && <div className="info-item">No. of Sessions</div>}
         </div>
         <div className="infos">
-          <div className="info-item">{when}</div>
+          {dateRange && <div className="info-item">{dateRange}</div>}
           <div className="info-item">{type}</div>
-          <div className="info-item">{numSessions}</div>
+          {numSessions && <div className="info-item">{numSessions}</div>}
         </div>
       </SubBox>
     </Subjects>
@@ -144,7 +163,7 @@ const Infobox = ({ classInfo }) => {
 };
 
 Infobox.propTypes = {
-  classInfo: PropTypes.object.isRequired,
+  classData: PropTypes.object.isRequired,
 };
 
 export default Infobox;

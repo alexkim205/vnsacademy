@@ -2,7 +2,7 @@ export const generalStats = [
   {
     id: "newsat",
     name: "New SAT",
-    stat: 1600,
+    stat: 1550,
     outOf: 1600,
   },
   {
@@ -29,19 +29,19 @@ export const specificStats = [
   {
     id: "physics",
     name: "Physics",
-    stat: 800,
+    stat: 790,
     outOf: 800,
   },
   {
     id: "chemistry",
     name: "Chemistry",
-    stat: 800,
+    stat: 780,
     outOf: 800,
   },
   {
     id: "biology",
     name: "Biology",
-    stat: 800,
+    stat: 790,
     outOf: 800,
   },
 ];

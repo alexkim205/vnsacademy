@@ -19,8 +19,6 @@ const useCollegeData = () => {
     }
   `);
 
-  console.log("usecollege data", data);
-
   // Return array of [{name, fluid}, {name, fluid}, ...]
   return _(data.allFile.edges)
     .map(({ node: { name, childImageSharp: { fixed } } }) => ({
