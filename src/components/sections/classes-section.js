@@ -16,6 +16,11 @@ import classesData from "../../data/classes.json";
 const Container = styled(BaseSection)`
   background-color: ${BACKGROUND_WHITE};
   flex-direction: row;
+  padding-top: 9em;
+
+  ${breakpoint.down("m")`
+  padding-top: 5em;
+  `}
 
   .content {
     display: flex;
