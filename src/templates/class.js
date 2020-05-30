@@ -11,7 +11,6 @@ import Schedule from "../components/schedule";
 const ClassTemplate = ({ data }) => {
   const { classData, scheduleData } = data.allSitePage.edges[0].node.context;
   const colorMap = _.map(classData.subjects, s => s.key);
-  console.log(classData, scheduleData, colorMap);
 
   return (
     <Layout title={classData.name}>

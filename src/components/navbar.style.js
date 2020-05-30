@@ -172,10 +172,11 @@ const BaseLink = styled(Link)`
 export const NavLink = styled(BaseLink)`
   color: ${WHITE};
 
-  .image {
-    height: 6em;
-    position: absolute;
-    margin-left: 3em;
+  .logo {
+    img {
+      height: 6em;
+      position: absolute;
+    }
   }
 
   ${breakpoint.down("l")`

@@ -26,7 +26,6 @@ const Navbar = () => {
 
   useEffect(() => {
     if (windowSize >= BREAKPOINTS.m) {
-      console.log(windowSize);
       closeMobileNav();
     }
   }, [windowSize]);
@@ -35,7 +34,10 @@ const Navbar = () => {
     <Fragment>
       <div className="left">
         <NavLink to="/" active="active" className="logo">
-          <img className="image" src={ require('../images/logo.png') }  alt="image"/>
+          <img
+            src={require("../images/logo.png")}
+            alt="image"
+          />
         </NavLink>
       </div>
       <div className="spacer"></div>
