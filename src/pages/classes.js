@@ -5,8 +5,6 @@ import SEO from "../components/seo";
 import Infobox from "../components/class-infobox";
 import ContainedSection from "../components/sections/contained-section";
 
-import { getClassSchedule } from "../helpers/dataUtils";
-
 const ClassesPage = () => {
   const classInfo = {
     subjects: ["SAT English + Writing", "SAT Math"],
@@ -14,9 +12,6 @@ const ClassesPage = () => {
     type: "Group (Zoom)",
     numSessions: 32,
   };
-
-  console.log("DATA UTIL TEST");
-  console.log(getClassSchedule("sat"));
 
   return (
     <Layout title="Classes">

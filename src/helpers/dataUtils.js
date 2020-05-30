@@ -1,21 +1,21 @@
-import _ from "lodash";
-import moment from "moment";
+const _ = require("lodash");
+const moment = require("moment");
 
-// TODO: mplement error handling (wrong key, empty class, etc.)
+// TODO: Implement error handling (wrong key, empty class, etc.)
 
-import classesUnparsedData from "../data/classes.json";
+const classesUnparsedData = require("../data/classes.json");
 
 // Cache data with momentized dates/times and just subjects
 const classesData = _.map(classesUnparsedData, c =>
   _.assign({}, c, {
-    startDate: moment(c.startDate),
-    endDate: moment(c.endDate),
+    // startDate: moment(c.startDate),
+    // endDate: moment(c.endDate),
     subjects: _.map(c.subjects, s =>
       _.assign({}, s, {
         schedule: {
           ...s.schedule,
-          startTime: moment(s.schedule.startTime, "YYYY-MM-DD hh:mm"),
-          endTime: moment(s.schedule.endTime, "YYYY-MM-DD hh:mm"),
+          // startTime: moment(s.schedule.startTime, "YYYY-MM-DD hh:mm"),
+          // endTime: moment(s.schedule.endTime, "YYYY-MM-DD hh:mm"),
         },
       })
     ),
@@ -23,28 +23,28 @@ const classesData = _.map(classesUnparsedData, c =>
 );
 const subjectsData = _.map(classesData, c => c.subjects);
 
-export const getClasses = () => classesData;
+const getClasses = () => classesData;
 
-export const getClassKeys = () => _.map(classesData, c => c.key);
+const getClassKeys = () => _.map(classesData, c => c.key);
 
-export const getClassByKey = classKey => {
+const getClassByKey = classKey => {
   if (!classKey) return null;
   return _.find(classesData, ["key", classKey]);
 };
 
-export const getSubjectKeysInClass = classKey => {
+const getSubjectKeysInClass = classKey => {
   if (!classKey) return null;
   return _.find(classesData, ["key", classKey]).subjects.map(s => s.key);
 };
 
-export const getSubjectKeys = () => _.map(subjectsData, s => s.key);
+const getSubjectKeys = () => _.map(subjectsData, s => s.key);
 
-export const getSubjectByKey = subjectKey => {
+const getSubjectByKey = subjectKey => {
   if (!subjectKey) return null;
   return _.find(subjectsData, ["key", subjectKey]);
 };
 
-export const getClassSchedule = classKey => {
+const getClassSchedule = classKey => {
   if (!classKey) return null;
   const subjects = getClassByKey(classKey).subjects;
   const weekdays = { M: [], T: [], W: [], Th: [], F: [] };
@@ -58,10 +58,20 @@ export const getClassSchedule = classKey => {
           key,
           startTime,
           endTime,
-          duration: endTime.diff(startTime, "minutes"),
+          duration: moment(endTime).diff(moment(startTime), "minutes"),
         },
       ];
     });
   });
   return weekdays;
+};
+
+module.exports = {
+  getClasses,
+  getClassKeys,
+  getClassByKey,
+  getSubjectByKey,
+  getSubjectKeys,
+  getSubjectKeysInClass,
+  getClassSchedule,
 };
