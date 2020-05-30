@@ -21,14 +21,10 @@ const ScheduleContainer = styled(BaseSection)`
 `;
 
 const ScheduleBlock = styled.div`
-	display: flex;
-	color: ${props => props.colorInput};
-	width: 100%;
-	height: ${props => props.size}rem;
+	background: ${props => props.color};
+	width: 10%;
+	height: ${props => props.size};
 	border-radius: 5px;
-	border: 1px solid ${MEDIUM_GRAY};
-	align-items: center;
-	justify-content: center;
 `;
 
 function AddScheduleBlock(item) {
@@ -36,13 +32,11 @@ function AddScheduleBlock(item) {
 	const subject = item.subject;
 	const startTime = item.startTime;
 	const endTime = item.endTime;
-	const duration = item.duration * 3.5;
+	const duration = parseInt(item.duration) * 0.5;
 	const color = item.colorInd;
-	console.log(colors[color]);
-	console.log(duration);
 	return (
 		<Fragment>
-			<ScheduleBlock colorInput={colors[color]} size={duration}>
+			<ScheduleBlock color={colors[color]} height={duration}>
 				<p>{subject} <br /> {startTime} - {endTime}</p>
 			</ScheduleBlock>
 		</Fragment>
@@ -52,9 +46,7 @@ function AddScheduleBlock(item) {
 function ScheduleByDay(item) {
 	//all schedules for that day of the week
 	const scheduleItems = item.schedule.map((sched, index) =>
-		<AddScheduleBlock key={index} subject={sched.name} 
-		startTime={sched.startTime} endTime={sched.endTime} 
-		duration={sched.duration} colorInd={sched[4]} />
+		<AddScheduleBlock key={index} subject={sched[0]} startTime={sched[1]} endTime={sched[2]} duration={sched[3]} colorInd={sched[4]} />
 	);
 	return (
 		<Fragment>{scheduleItems}</Fragment>
@@ -65,23 +57,23 @@ const Schedule = ({weekSchedule}) => {
 	return (
 		<Fragment>
 			<ScheduleContainer>
-				<div className="DOW Monday">
+				<div class="DOW Monday">
 					<h1>M</h1>
 					<ScheduleByDay schedule={weekSchedule[0]} />
 				</div>
-				<div className="DOW Tuesday">
+				<div class="DOW Tuesday">
 					<h1>T</h1>
 					<ScheduleByDay schedule={weekSchedule[1]} />
 				</div>
-				<div className="DOW Wednesday">
+				<div class="DOW Wednesday">
 					<h1>W</h1>
 					<ScheduleByDay schedule={weekSchedule[2]} />
 				</div>
-				<div className="DOW Thursday">
+				<div class="DOW Thursday">
 					<h1>Th</h1>
 					<ScheduleByDay schedule={weekSchedule[3]} />
 				</div>
-				<div className="DOW Friday">
+				<div class="DOW Friday">
 					<h1>F</h1>
 					<ScheduleByDay schedule={weekSchedule[4]} />
 				</div>
@@ -108,7 +100,7 @@ Schedule.propTypes = {
 			1: yellow
 			2: purple
 	*/
-	weekSchedule: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired
+	weekSchedule: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired
 };
 
 export default Schedule;
