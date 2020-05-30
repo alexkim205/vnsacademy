@@ -158,6 +158,12 @@ const BaseLink = styled(Link)`
 export const NavLink = styled(BaseLink)`
   color: ${WHITE};
 
+  .logo {
+    height: 7em;
+    position: absolute;
+    margin-left: 3em;
+  }
+
   ${breakpoint.down("l")`
     padding: 0.6em 0.6em;
 
