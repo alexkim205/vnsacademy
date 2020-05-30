@@ -3,7 +3,16 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import BaseSection from "../components/sections/base.style";
 
-import { WHITE, LIGHT_GRAY, MEDIUM_GRAY, DARK_GRAY, RED, DARK_YELLOW, LIGHT_PURPLE} from "../constants/theme";
+import { 
+	WHITE, 
+	LIGHT_GRAY, 
+	MEDIUM_GRAY, 
+	DARK_GRAY, 
+	RED, 
+	DARK_YELLOW, 
+	LIGHT_PURPLE,
+	BUTTON_SHADOW
+} from "../constants/theme";
 
 const ScheduleContainer = styled(BaseSection)` 
   display: flex;
@@ -17,18 +26,25 @@ const ScheduleContainer = styled(BaseSection)`
   .DOW {
   	width: 15%;
   	text-align: center;
+  	padding: 10px;
   }
 `;
 
 const ScheduleBlock = styled.div`
 	display: flex;
-	color: ${props => props.colorInput};
+	background-color: ${props => props.colorInput || "#FF0054"};
+	box-sizing: border-box;
 	width: 100%;
 	height: ${props => props.size}rem;
 	border-radius: 5px;
-	border: 1px solid ${MEDIUM_GRAY};
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 10px;
+	font-weight: normal;
+	box-shadow: ${BUTTON_SHADOW};
+	&:last-child {
+		margin-bottom: 0px;
+	}
 `;
 
 function AddScheduleBlock(item) {
@@ -37,12 +53,10 @@ function AddScheduleBlock(item) {
 	const startTime = item.startTime;
 	const endTime = item.endTime;
 	const duration = item.duration * 3.5;
-	const color = item.colorInd;
-	console.log(colors[color]);
-	console.log(duration);
+	const colorInd = item.colorInd;
 	return (
 		<Fragment>
-			<ScheduleBlock colorInput={colors[color]} size={duration}>
+			<ScheduleBlock colorInput={colors[colorInd]} size={duration}>
 				<p>{subject} <br /> {startTime} - {endTime}</p>
 			</ScheduleBlock>
 		</Fragment>
@@ -52,9 +66,9 @@ function AddScheduleBlock(item) {
 function ScheduleByDay(item) {
 	//all schedules for that day of the week
 	const scheduleItems = item.schedule.map((sched, index) =>
-		<AddScheduleBlock key={index} subject={sched.name} 
+		<AddScheduleBlock key={index} subject={sched.subject} 
 		startTime={sched.startTime} endTime={sched.endTime} 
-		duration={sched.duration} colorInd={sched[4]} />
+		duration={sched.duration} colorInd={sched.colorInd} />
 	);
 	return (
 		<Fragment>{scheduleItems}</Fragment>
@@ -102,8 +116,8 @@ Schedule.propTypes = {
 		0: subject
 		1: startTime
 		2: endTime
-		3: duration in hours * 10 (ie. 1.5 hr -> 15, 2 hr -> 20)
-		4: color 
+		3: duration (in hours * 10 ie. 1.5 hr -> 15, 2 hr -> 20)
+		4: colorInd
 			0: red
 			1: yellow
 			2: purple

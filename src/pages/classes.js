@@ -9,14 +9,14 @@ import ContainedSection from "../components/sections/contained-section";
 const currSchedule = [
 	//Monday
 	[ {
-			name: "SAT English", 
+			subject: "SAT English", 
 			startTime: "1 PM", 
 			endTime: "2PM", 
 			duration: 1.5, 
 			colorInd: 0
 		}, 
 		{
-			name:"SAT Math",
+			subject:"SAT Math",
 			startTime: "3 PM", 
 			endTime: "4PM", 
 			duration: 1, 
@@ -24,16 +24,16 @@ const currSchedule = [
 	],
 	//Tuesday
 	[ {
-			name: "SAT English", 
+			subject: "SAT English", 
 			startTime: "1 PM", 
 			endTime: "2PM", 
 			duration: 1.5, 
 			colorInd: 0
-		}, 
+		}
 	],
 	//Wednesday
 	[ {
-			name: "SAT English", 
+			subject: "SAT English", 
 			startTime: "1 PM", 
 			endTime: "2PM", 
 			duration: 1.5, 
@@ -42,7 +42,7 @@ const currSchedule = [
 	],
 	//Thursday
 	[ {
-			name: "SAT English", 
+			subject: "SAT English", 
 			startTime: "1 PM", 
 			endTime: "2PM", 
 			duration: 1.5, 
@@ -51,7 +51,7 @@ const currSchedule = [
 	],
 	//Friday
 	[ {
-			name: "SAT English", 
+			subject: "SAT English", 
 			startTime: "1 PM", 
 			endTime: "2PM", 
 			duration: 1.5, 
