@@ -34,12 +34,15 @@ const Navbar = () => {
   const renderNavItems = () => (
     <Fragment>
       <div className="left">
-        <NavLink to="/" active="active">
-          Logo
+        <NavLink to="/" active="active" className="logo">
+          <img className="image" src={ require('../images/logo.png') }  alt="image"/>
         </NavLink>
       </div>
       <div className="spacer"></div>
       <div className="center">
+        <NavLink to="/" active="active" className="home">
+          Home
+        </NavLink>
         <NavLink to="/location" active="active">
           Location
         </NavLink>

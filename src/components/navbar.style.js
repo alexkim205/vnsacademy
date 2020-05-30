@@ -63,6 +63,16 @@ export const ContainerNav = styled.nav`
     .right {
       display: flex;
     }
+    .center {
+      .home {
+        display: none;
+      }
+    }
+    .left {
+      .homeText {
+        display: none;
+      }
+    }
   }
 
   .mobile-navbar {
@@ -116,6 +126,10 @@ export const ContainerNav = styled.nav`
             padding: 1em 1em;
             margin: 0;
           }
+
+          .home {
+            display: visible;
+          }
         }
 
         .right {
@@ -157,6 +171,12 @@ const BaseLink = styled(Link)`
 
 export const NavLink = styled(BaseLink)`
   color: ${WHITE};
+
+  .image {
+    height: 6em;
+    position: absolute;
+    margin-left: 3em;
+  }
 
   ${breakpoint.down("l")`
     padding: 0.6em 0.6em;
