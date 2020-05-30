@@ -310,35 +310,65 @@
   },
   {
     "key": "private-math",
-    "name": "Math",
+    "name": "Private Math Tutoring",
     "path": "/private-math",
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
     "type": "Individual (Zoom)",
     "numSessions": null,
-    "subjects": null
+    "subjects": [
+      {
+        "name": "Private Math",
+        "key": "private-math",
+        "schedule": {
+          "days": [],
+          "startTime": null,
+          "endTime": null
+        }
+      }
+    ]
   },
   {
     "key": "private-sciences",
-    "name": "Sciences",
+    "name": "Private Sciences Tutoring",
     "path": "/private-sciences",
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
     "type": "Individual (Zoom)",
     "numSessions": null,
-    "subjects": null
+    "subjects": [
+      {
+        "name": "Private Sciences",
+        "key": "private-sciences",
+        "schedule": {
+          "days": [],
+          "startTime": null,
+          "endTime": null
+        }
+      }
+    ]
   },
   {
     "key": "private-english",
-    "name": "English",
+    "name": "Private English Tutoring",
     "path": "/private-english",
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
     "type": "Individual (Zoom)",
     "numSessions": null,
-    "subjects": null
+    "subjects": [
+      {
+        "name": "Private English",
+        "key": "private-english",
+        "schedule": {
+          "days": [],
+          "startTime": null,
+          "endTime": null
+        }
+      }
+    ]
   }
 ]

@@ -48,6 +48,8 @@ const ScheduleBlock = styled.div`
   justify-content: center;
   margin-bottom: 10px;
   box-shadow: ${BUTTON_SHADOW};
+  padding: 0.5em;
+  
   &:last-child {
     margin-bottom: 0px;
   }
@@ -64,7 +66,11 @@ const ScheduleBlock = styled.div`
 const ScheduleByDay = ({ schedule }) => (
   <Fragment>
     {schedule.map(({ name, startTime, endTime, duration }, i) => (
-      <ScheduleBlock colorInput={SUBJECTS_COLORS[i]} size={duration / 18}>
+      <ScheduleBlock
+        key={i}
+        colorInput={SUBJECTS_COLORS[i]}
+        size={duration / 18}
+      >
         <div className="subject-name">{name}</div>
         <div className="subject-time">{parseTimeRange(startTime, endTime)}</div>
       </ScheduleBlock>
@@ -73,6 +79,8 @@ const ScheduleByDay = ({ schedule }) => (
 );
 
 const Schedule = ({ scheduleData }) => {
+  if (_.every(_.map(_.values(scheduleData), day => day.length === 0)))
+    return <Fragment />;
   const { M, T, W, Th, F } = scheduleData;
   const maxInOneDay = Math.max(_.values(scheduleData, day => day.length));
   return (

@@ -114,7 +114,7 @@ const SubBox = styled.div`
       flex-direction: column;
       justify-content: flex-end;
       font-weight: 600;
-      text-align: right; 
+      text-align: right;
     }
     .info-item {
       white-space: nowrap;
@@ -131,7 +131,8 @@ const SubBox = styled.div`
 
 const Infobox = ({ classData }) => {
   const { subjects, startDate, endDate, type, numSessions } = classData;
-  const dateRange = parseDateRange(startDate, endDate);
+  const dateRange =
+    startDate && endDate ? parseDateRange(startDate, endDate) : null;
 
   return (
     <Subjects>
@@ -147,14 +148,14 @@ const Infobox = ({ classData }) => {
       <div className="spacer"></div>
       <SubBox className="info-list">
         <div className="titles">
-          <div className="info-item">When</div>
+          {dateRange && <div className="info-item">When</div>}
           <div className="info-item">Type</div>
-          <div className="info-item">No. of Sessions</div>
+          {numSessions && <div className="info-item">No. of Sessions</div>}
         </div>
         <div className="infos">
-          <div className="info-item">{dateRange}</div>
+          {dateRange && <div className="info-item">{dateRange}</div>}
           <div className="info-item">{type}</div>
-          <div className="info-item">{numSessions}</div>
+          {numSessions && <div className="info-item">{numSessions}</div>}
         </div>
       </SubBox>
     </Subjects>
