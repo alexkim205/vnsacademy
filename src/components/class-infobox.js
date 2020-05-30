@@ -43,7 +43,7 @@ const Subjects = styled.div`
 const Bullet = styled.div`
   display: inline-block;
   background-color: ${props => props.inputColor};
-  padding: 1rem;
+  padding: 1.2rem;
   margin-right: 1rem;
   position: relative;
 `;
@@ -58,7 +58,8 @@ const SubBox = styled.div`
   &.subjects {
     width: 50%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: auto 0;
 
     ${breakpoint.down("m")`
@@ -69,11 +70,25 @@ const SubBox = styled.div`
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1em;
+      margin-top: 1em;
+      box-sizing: border-box;
+      width: calc((100% - 1.5rem) / 2);
 
-      &:last-child {
-        margin-bottom: 0px;
+      &:nth-child(even) {
+        margin-left: 1.5rem;
       }
+
+      ${breakpoint.down("m")`
+        width: 50%;
+        &:nth-child(even) {
+          margin-left: 0;
+        }
+      `}
+
+      ${breakpoint.down("xs")`
+        width: 100%;
+      `}
     }
   }
 

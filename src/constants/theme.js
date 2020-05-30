@@ -28,7 +28,7 @@ export const SUBJECTS_COLORS = [
 
 export const BREAKPOINTS = {
   xxs: 0,
-  xs: 320,
+  xs: 400,
   s: 576,
   m: 768,
   l: 992,
