@@ -160,4 +160,8 @@ const Infobox = ({ classData }) => {
   );
 };
 
+Infobox.propTypes = {
+  classData: PropTypes.object.isRequired,
+};
+
 export default Infobox;
