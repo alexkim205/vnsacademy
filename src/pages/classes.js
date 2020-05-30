@@ -14,7 +14,7 @@ const ClassesPage = () => {
   };
 
   return (
-    <Layout>
+    <Layout title="Classes">
       <SEO title="Classes" />
       <ContainedSection>
         <Infobox classInfo={classInfo} />
