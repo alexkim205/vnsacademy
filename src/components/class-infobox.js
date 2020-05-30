@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 import {
   WHITE,
+  MEDIUM_GRAY,
+  DARK_GRAY,
   BOX_SHADOW,
   BLACK,
   breakpoint,
@@ -120,7 +122,7 @@ const Infobox = ({ classInfo }) => {
       <SubBox className="subjects">
         {subjects &&
           subjects.map((name, i) => (
-            <div key={i} className="subject">
+            <div className="subject" key={i}>
               <Bullet inputColor={colors[i]} />
               {name}
             </div>
@@ -141,10 +143,6 @@ const Infobox = ({ classInfo }) => {
       </SubBox>
     </Subjects>
   );
-};
-
-Infobox.propTypes = {
-  classInfo: PropTypes.object.isRequired,
 };
 
 export default Infobox;

@@ -6,14 +6,14 @@ import NoticeSection from "../components/sections/notice-section";
 import CarouselSection from "../components/sections/carousel-section";
 import StatsSection from "../components/sections/stats-section";
 import ContainedSection from "../components/sections/contained-section";
-import useCollegeData from "../helpers/useCollegeData";
+import useCollegeImages from "../helpers/useCollegeImages";
 
-import { generalStats, specificStats } from "../helpers/stats";
+import { generalStats, specificStats } from "../data/stats";
 import { LIGHT_PURPLE } from "../constants/theme";
 
 const IndexPage = () => {
   const title = "VnS Academy";
-  const collegesData = useCollegeData();
+  const collegeImages = useCollegeImages();
 
   return (
     <Layout title={title}>
@@ -26,7 +26,7 @@ const IndexPage = () => {
       </NoticeSection>
       <CarouselSection
         title={"Our students have been accepted into"}
-        items={collegesData}
+        items={collegeImages}
       />
       <StatsSection
         title={
