@@ -7,6 +7,7 @@ import CarouselSection from "../components/sections/carousel-section";
 import StatsSection from "../components/sections/stats-section";
 import ContainedSection from "../components/sections/contained-section";
 import useCollegeImages from "../helpers/useCollegeImages";
+import ButtonSection from "../components/sections/button-section";
 
 import { generalStats, specificStats } from "../data/stats";
 import { LIGHT_PURPLE } from "../constants/theme";
@@ -14,6 +15,16 @@ import { LIGHT_PURPLE } from "../constants/theme";
 const IndexPage = () => {
   const title = "VnS Academy";
   const collegeImages = useCollegeImages();
+  const buttons = [{
+    message: "hello",
+    buttonTitle: "click here",
+    link: "/"
+  }, {
+  message: "ajsdkfl;",
+  buttonTitle: "huhuhaha",
+  link: "/"},
+  {message:"test", buttonTitle:"uh oh what",link: "/"},
+  {message:"oh", buttonTitle:"hello",link: "/"}];
 
   return (
     <Layout title={title}>
@@ -47,6 +58,7 @@ const IndexPage = () => {
       >
         <i>*Median score</i>
       </ContainedSection>
+      <ButtonSection buttons={buttons} />
     </Layout>
   );
 };
