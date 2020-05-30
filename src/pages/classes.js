@@ -9,21 +9,55 @@ import ContainedSection from "../components/sections/contained-section";
 const currSchedule = [
 	//Monday
 	[ {
-		name: "SAT English", 
-		startTime: "1 PM", 
-		endTime: "2PM", 
-		duration: 1.5, 
-		colorInd: 0
+			name: "SAT English", 
+			startTime: "1 PM", 
+			endTime: "2PM", 
+			duration: 1.5, 
+			colorInd: 0
 		}, 
-		{"SAT Math", "3 PM", "4PM", "1", "1"} ],
+		{
+			name:"SAT Math",
+			startTime: "3 PM", 
+			endTime: "4PM", 
+			duration: 1, 
+			colorInd: 1} 
+	],
 	//Tuesday
-	[ ["SAT English", "1 PM", "2PM", "1", "0"] ],
+	[ {
+			name: "SAT English", 
+			startTime: "1 PM", 
+			endTime: "2PM", 
+			duration: 1.5, 
+			colorInd: 0
+		}, 
+	],
 	//Wednesday
-	[ ["SAT English", "1 PM", "2PM", "1", "0"] ],
+	[ {
+			name: "SAT English", 
+			startTime: "1 PM", 
+			endTime: "2PM", 
+			duration: 1.5, 
+			colorInd: 0
+		}
+	],
 	//Thursday
-	[ ["SAT English", "1 PM", "2PM", "1", "0"] ],
+	[ {
+			name: "SAT English", 
+			startTime: "1 PM", 
+			endTime: "2PM", 
+			duration: 1.5, 
+			colorInd: 0
+		}
+	],
 	//Friday
-	[ ["SAT English", "1 PM", "2PM", "1", "0"] ]
+	[ {
+			name: "SAT English", 
+			startTime: "1 PM", 
+			endTime: "2PM", 
+			duration: 1.5, 
+			colorInd: 0
+		}
+	]
 ];
 
 const ClassesPage = () => {

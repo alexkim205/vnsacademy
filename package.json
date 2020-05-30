@@ -8,6 +8,7 @@
     "@humblebee/styled-components-breakpoint": "^2.1.4",
     "animejs": "^3.2.0",
     "gatsby": "^2.21.37",
+    "gatsby-cli": "^2.12.37",
     "gatsby-image": "^2.4.4",
     "gatsby-plugin-manifest": "^2.4.5",
     "gatsby-plugin-offline": "^3.2.3",
