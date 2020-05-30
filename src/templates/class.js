@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import _ from "lodash";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -9,8 +10,8 @@ import Schedule from "../components/schedule";
 
 const ClassTemplate = ({ data }) => {
   const { classData, scheduleData } = data.allSitePage.edges[0].node.context;
-
-  console.log(classData, scheduleData);
+  const colorMap = _.map(classData.subjects, s => s.key);
+  console.log(classData, scheduleData, colorMap);
 
   return (
     <Layout title={classData.name}>
@@ -19,7 +20,7 @@ const ClassTemplate = ({ data }) => {
         <Infobox classData={classData} />
       </ContainedSection>
       <ContainedSection>
-        <Schedule scheduleData={scheduleData} />
+        <Schedule scheduleData={scheduleData} colorMap={colorMap} />
       </ContainedSection>
     </Layout>
   );

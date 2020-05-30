@@ -10,6 +10,7 @@ import {
   BUTTON_SHADOW,
   BOX_SHADOW,
   SUBJECTS_COLORS,
+  breakpoint,
 } from "../constants/theme";
 
 const ScheduleContainer = styled(BaseSection)`
@@ -20,19 +21,33 @@ const ScheduleContainer = styled(BaseSection)`
   align-items: flex-start;
   font-weight: 600;
   position: relative;
-  margin-top: 5rem;
+  // margin-top: 5rem;
   box-shadow: ${BOX_SHADOW};
   border-radius: 5px;
-  padding: 2em 2.5em;
+  padding: 3.5em 2.5em;
+
+  ${breakpoint.down("s")`
+  flex-direction: column;
+  `}
 
   .DOW {
-    width: 20%;
+    width: calc((100% - 2em) / 5);
     text-align: center;
     padding: 1em;
     display: flex;
     flex-direction: column;
     height: calc(${({ maxBlocks }) => maxBlocks * 1.5}px + 4em);
-    box-sizing: border-box;
+    // box-sizing: border-box;
+
+    ${breakpoint.down("m")`
+      padding: 0.5em;
+    `}
+
+    ${breakpoint.down("s")`
+      width: 100%;
+      padding: 0;
+      margin-bottom: 2em;
+    `}
 
     h1 {
       margin-bottom: 1.33em;
@@ -69,6 +84,12 @@ const ScheduleBlock = styled.div`
   margin-bottom: 10px;
   box-shadow: ${BUTTON_SHADOW};
   padding: 1em;
+  transition: 0.1s all;
+
+  &:hover {
+    transform: translate(0, 2px);
+    box-shadow: none;
+  }
 
   &:last-child {
     margin-bottom: 0px;
@@ -83,37 +104,40 @@ const ScheduleBlock = styled.div`
   }
 `;
 
-const ScheduleByDay = ({ schedule }) => {
-  console.log(_.map(schedule, ({ duration }) => duration));
-  const totalDurationInDay = _.sum(_.map(schedule, ({ duration }) => duration));
-  return (
-    <DayBlock>
-      {schedule.map(({ name, startTime, endTime, duration }, i) => (
-        <ScheduleBlock
-          key={i}
-          colorInput={SUBJECTS_COLORS[i]}
-          size={(duration * 100) / totalDurationInDay}
-        >
-          <div className="subject-name">{name}</div>
-          <div className="subject-time">
-            {parseTimeRange(startTime, endTime)}
-          </div>
-        </ScheduleBlock>
-      ))}
-    </DayBlock>
-  );
-};
-
-const Schedule = ({ scheduleData }) => {
+const Schedule = ({ scheduleData, colorMap }) => {
+  // Return null for empty schedule
   if (_.every(_.map(_.values(scheduleData), day => day.length === 0)))
     return <Fragment />;
+
   const { M, T, W, Th, F } = scheduleData;
   const maxDurationInOneDay = _.max(
     _.map(_.values(scheduleData), day =>
       _.sum(_.map(day, ({ duration }) => duration))
     )
   );
-  console.log("max", maxDurationInOneDay)
+
+  const renderScheduleByDay = schedule => {
+    const totalDurationInDay = _.sum(
+      _.map(schedule, ({ duration }) => duration)
+    );
+    return (
+      <DayBlock>
+        {schedule.map(({ name, key, startTime, endTime, duration }, i) => (
+          <ScheduleBlock
+            key={i}
+            colorInput={SUBJECTS_COLORS[colorMap.findIndex(k => k === key)]}
+            size={(duration * 100) / totalDurationInDay}
+          >
+            <div className="subject-name">{name}</div>
+            <div className="subject-time">
+              {parseTimeRange(startTime, endTime)}
+            </div>
+          </ScheduleBlock>
+        ))}
+      </DayBlock>
+    );
+  };
+
   return (
     <Fragment>
       <ScheduleContainer maxBlocks={maxDurationInOneDay}>
@@ -121,31 +145,31 @@ const Schedule = ({ scheduleData }) => {
           <div className="weekday-title">
             <h1>M</h1>
           </div>
-          <ScheduleByDay schedule={M} />
+          {renderScheduleByDay(M)}
         </div>
         <div className="DOW Tuesday">
           <div className="weekday-title">
             <h1>T</h1>
           </div>
-          <ScheduleByDay schedule={T} />
+          {renderScheduleByDay(T)}
         </div>
         <div className="DOW Wednesday">
           <div className="weekday-title">
             <h1>W</h1>
           </div>
-          <ScheduleByDay schedule={W} />
+          {renderScheduleByDay(W)}
         </div>
         <div className="DOW Thursday">
           <div className="weekday-title">
             <h1>Th</h1>
           </div>
-          <ScheduleByDay schedule={Th} />
+          {renderScheduleByDay(Th)}
         </div>
         <div className="DOW Friday">
           <div className="weekday-title">
             <h1>F</h1>
           </div>
-          <ScheduleByDay schedule={F} />
+          {renderScheduleByDay(F)}
         </div>
       </ScheduleContainer>
     </Fragment>
@@ -174,6 +198,7 @@ Schedule.propTypes = {
     Th: PropTypes.arrayOf(PropTypes.object),
     F: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
+  colorMap: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Schedule;
