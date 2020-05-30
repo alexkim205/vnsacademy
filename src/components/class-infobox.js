@@ -16,7 +16,7 @@ const Subjects = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 800px;
+  // max-width: 800px;
   background-color: ${WHITE};
   box-shadow: ${BOX_SHADOW};
   border-radius: 5px;

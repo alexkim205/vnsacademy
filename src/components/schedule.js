@@ -23,17 +23,37 @@ const ScheduleContainer = styled(BaseSection)`
   margin-top: 5rem;
   box-shadow: ${BOX_SHADOW};
   border-radius: 5px;
+  padding: 2em 2.5em;
 
   .DOW {
-    width: 15%;
+    width: 20%;
     text-align: center;
-    padding: 10px;
-    height: ${({ maxBlocks }) => 10 * maxBlocks}em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    height: calc(${({ maxBlocks }) => maxBlocks * 1.5}px + 4em);
+    box-sizing: border-box;
 
     h1 {
-      margin-bottom: 1.3em;
+      margin-bottom: 1.33em;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
     }
   }
+`;
+
+const DayBlock = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
 `;
 
 const ScheduleBlock = styled.div`
@@ -42,14 +62,14 @@ const ScheduleBlock = styled.div`
   background-color: ${props => props.colorInput};
   box-sizing: border-box;
   width: 100%;
-  height: ${props => props.size}rem;
+  height: ${props => props.size}%;
   border-radius: 5px;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
   box-shadow: ${BUTTON_SHADOW};
-  padding: 0.5em;
-  
+  padding: 1em;
+
   &:last-child {
     margin-bottom: 0px;
   }
@@ -63,47 +83,68 @@ const ScheduleBlock = styled.div`
   }
 `;
 
-const ScheduleByDay = ({ schedule }) => (
-  <Fragment>
-    {schedule.map(({ name, startTime, endTime, duration }, i) => (
-      <ScheduleBlock
-        key={i}
-        colorInput={SUBJECTS_COLORS[i]}
-        size={duration / 18}
-      >
-        <div className="subject-name">{name}</div>
-        <div className="subject-time">{parseTimeRange(startTime, endTime)}</div>
-      </ScheduleBlock>
-    ))}
-  </Fragment>
-);
+const ScheduleByDay = ({ schedule }) => {
+  console.log(_.map(schedule, ({ duration }) => duration));
+  const totalDurationInDay = _.sum(_.map(schedule, ({ duration }) => duration));
+  return (
+    <DayBlock>
+      {schedule.map(({ name, startTime, endTime, duration }, i) => (
+        <ScheduleBlock
+          key={i}
+          colorInput={SUBJECTS_COLORS[i]}
+          size={(duration * 100) / totalDurationInDay}
+        >
+          <div className="subject-name">{name}</div>
+          <div className="subject-time">
+            {parseTimeRange(startTime, endTime)}
+          </div>
+        </ScheduleBlock>
+      ))}
+    </DayBlock>
+  );
+};
 
 const Schedule = ({ scheduleData }) => {
   if (_.every(_.map(_.values(scheduleData), day => day.length === 0)))
     return <Fragment />;
   const { M, T, W, Th, F } = scheduleData;
-  const maxInOneDay = Math.max(_.values(scheduleData, day => day.length));
+  const maxDurationInOneDay = _.max(
+    _.map(_.values(scheduleData), day =>
+      _.sum(_.map(day, ({ duration }) => duration))
+    )
+  );
+  console.log("max", maxDurationInOneDay)
   return (
     <Fragment>
-      <ScheduleContainer maxBlocks={maxInOneDay}>
+      <ScheduleContainer maxBlocks={maxDurationInOneDay}>
         <div className="DOW Monday">
-          <h1>M</h1>
+          <div className="weekday-title">
+            <h1>M</h1>
+          </div>
           <ScheduleByDay schedule={M} />
         </div>
         <div className="DOW Tuesday">
-          <h1>T</h1>
+          <div className="weekday-title">
+            <h1>T</h1>
+          </div>
           <ScheduleByDay schedule={T} />
         </div>
         <div className="DOW Wednesday">
-          <h1>W</h1>
+          <div className="weekday-title">
+            <h1>W</h1>
+          </div>
           <ScheduleByDay schedule={W} />
         </div>
         <div className="DOW Thursday">
-          <h1>Th</h1>
+          <div className="weekday-title">
+            <h1>Th</h1>
+          </div>
           <ScheduleByDay schedule={Th} />
         </div>
         <div className="DOW Friday">
-          <h1>F</h1>
+          <div className="weekday-title">
+            <h1>F</h1>
+          </div>
           <ScheduleByDay schedule={F} />
         </div>
       </ScheduleContainer>
