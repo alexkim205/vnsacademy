@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useRef, useEffect } from "react";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
-import styled from "styled-components";
 
 import useWindowSize from "../helpers/useWindowSize";
 import { BREAKPOINTS } from "../constants/theme";
@@ -11,11 +10,6 @@ import {
   animCloseMobileNav,
   animOpenMobileNav,
 } from "./navbar.style";
-
-const Logo = styled.div`
-  height: 0.1%;
-  width: 0.1%;
-`;
 
 const Navbar = () => {
   const mobileOverlayRef = useRef();
@@ -40,12 +34,15 @@ const Navbar = () => {
   const renderNavItems = () => (
     <Fragment>
       <div className="left">
-        <NavLink to="/" active="active">
-          <Logo><img className="logo" src={ require('../images/logo.png') }  alt="logo"/> </Logo>
+        <NavLink to="/" active="active" className="logo">
+          <img className="image" src={ require('../images/logo.png') }  alt="image"/>
         </NavLink>
       </div>
       <div className="spacer"></div>
       <div className="center">
+        <NavLink to="/" active="active" className="home">
+          Home
+        </NavLink>
         <NavLink to="/location" active="active">
           Location
         </NavLink>
