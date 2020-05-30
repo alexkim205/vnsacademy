@@ -6,7 +6,7 @@
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
-    
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -45,6 +45,7 @@
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -92,6 +93,7 @@
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -139,6 +141,7 @@
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -159,6 +162,7 @@
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -179,6 +183,7 @@
     "category": "Extracurricular Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -217,6 +222,7 @@
     "category": "Extracurricular Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -246,6 +252,7 @@
     "category": "School Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -266,6 +273,7 @@
     "category": "School Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -286,6 +294,7 @@
     "category": "School Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-31 00:00",
+    "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
       {
@@ -306,6 +315,7 @@
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
+    "type": "Individual (Zoom)",
     "numSessions": null,
     "subjects": null
   },
@@ -316,6 +326,7 @@
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
+    "type": "Individual (Zoom)",
     "numSessions": null,
     "subjects": null
   },
@@ -326,6 +337,7 @@
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
+    "type": "Individual (Zoom)",
     "numSessions": null,
     "subjects": null
   }

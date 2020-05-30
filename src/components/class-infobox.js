@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { parseDateRange } from "../helpers/utils";
 import {
   WHITE,
-  MEDIUM_GRAY,
-  DARK_GRAY,
   BOX_SHADOW,
   BLACK,
   breakpoint,
   LIGHT_GRAY,
+  SUBJECTS_COLORS,
 } from "../constants/theme";
 
 const Subjects = styled.div`
@@ -42,8 +42,8 @@ const Subjects = styled.div`
 
 const Bullet = styled.div`
   display: inline-block;
-  background: ${props => props.inputColor};
-  padding: 1.5rem;
+  background-color: ${props => props.inputColor};
+  padding: 1rem;
   margin-right: 1rem;
   position: relative;
 `;
@@ -56,7 +56,7 @@ const SubBox = styled.div`
   padding: 2em 2.5em;
 
   &.subjects {
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     margin: auto 0;
@@ -79,7 +79,7 @@ const SubBox = styled.div`
 
   &.info-list {
     display: flex;
-    width: 60%;
+    width: 50%;
     flex-direction: row;
     margin: auto 0;
 
@@ -113,17 +113,17 @@ const SubBox = styled.div`
   }
 `;
 
-const Infobox = ({ classInfo }) => {
-  const { subjects, when, type, numSessions } = classInfo;
-  const colors = ["#FF0054", "#FFBD00", "#EBE1FF"];
+const Infobox = ({ classData }) => {
+  const { subjects, startDate, endDate, type, numSessions } = classData;
+  const dateRange = parseDateRange(startDate, endDate);
 
   return (
     <Subjects>
       <SubBox className="subjects">
         {subjects &&
-          subjects.map((name, i) => (
+          subjects.map(({ name }, i) => (
             <div className="subject" key={i}>
-              <Bullet inputColor={colors[i]} />
+              <Bullet inputColor={SUBJECTS_COLORS[i]} />
               {name}
             </div>
           ))}
@@ -136,7 +136,7 @@ const Infobox = ({ classInfo }) => {
           <div className="info-item">No. of Sessions</div>
         </div>
         <div className="infos">
-          <div className="info-item">{when}</div>
+          <div className="info-item">{dateRange}</div>
           <div className="info-item">{type}</div>
           <div className="info-item">{numSessions}</div>
         </div>

@@ -2,6 +2,9 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Infobox from "../components/class-infobox";
+import ContainedSection from "../components/sections/contained-section";
 
 const ClassTemplate = ({ data }) => {
   const { classData, scheduleData } = data.allSitePage.edges[0].node.context;
@@ -10,7 +13,10 @@ const ClassTemplate = ({ data }) => {
 
   return (
     <Layout title={classData.name}>
-      <h1>Class Template</h1>
+      <SEO title={classData.name} />
+      <ContainedSection>
+        <Infobox classData={classData} />
+      </ContainedSection>
     </Layout>
   );
 };
@@ -30,6 +36,7 @@ export const query = graphql`
               category
               startDate
               endDate
+              type
               numSessions
               subjects {
                 name
