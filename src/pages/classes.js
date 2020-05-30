@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import Infobox from "../components/class-infobox";
 import Schedule from "../components/schedule";
 import ContainedSection from "../components/sections/contained-section";
+import ButtonSection from "../components/sections/button-section"
 
 const currSchedule = [
 	//Monday
@@ -60,6 +61,17 @@ const currSchedule = [
 	]
 ];
 
+const buttons = [
+	{
+		message: "Interested in enrolling?",
+		buttonTitle: "Reseve your spot now"
+	},
+	{
+		message: "Want a private tutor?",
+		buttonTitle: "Contact Us"
+	}
+];
+
 const ClassesPage = () => {
   const classInfo = {
     subjects: ["SAT English + Writing", "SAT Math"],
@@ -73,6 +85,7 @@ const ClassesPage = () => {
       <ContainedSection>
         <Infobox classInfo={classInfo} />
         <Schedule weekSchedule={currSchedule} />
+        <ButtonSection buttons={buttons} />
       </ContainedSection>
     </Layout>
   );
