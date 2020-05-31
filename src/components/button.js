@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-import { WHITE, BRIGHT_PURPLE, BUTTON_SHADOW } from "../constants/theme";
+import {
+  WHITE,
+  BRIGHT_PURPLE,
+  BUTTON_SHADOW,
+  LIGHT_PURPLE,
+} from "../constants/theme";
 
 const ButtonBaseStyle = `
   background-color: ${BRIGHT_PURPLE};
@@ -30,6 +35,9 @@ export const FormButton = styled.button`
   ${ButtonBaseStyle}
   outline: none;
   border: none;
+
+  background-color: ${({ disabled }) =>
+    disabled ? LIGHT_PURPLE : BRIGHT_PURPLE};
 `;
 
 export const ExternalButton = styled.a`

@@ -27,16 +27,19 @@ const ContactForm = () => {
     register,
     handleSubmit,
     setValue,
+    reset,
     getValues,
     clearError,
     triggerValidation,
-    formState,
+    formState: { isSubmitting },
     errors,
   } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
 
   const onSubmit = ({ reason, email, phone, subject, moreinfo }) => {
-    clearError();
+    clearError("phone");
+    clearError("email");
+    if (isSubmitting) return;
 
     var requestFormData = new FormData();
     requestFormData.set("reason", reason);
@@ -49,7 +52,7 @@ const ContactForm = () => {
     requestFormData.set("_subject", `VnS Website: ${subject} ${reason}`);
     requestFormData.set("_cc", ccEmailAddresses);
 
-    axios({
+    return axios({
       method: "post",
       url: `https://cors-anywhere.herokuapp.com/https://formsubmit.co/${emailAddress}`,
       data: requestFormData,
@@ -59,6 +62,8 @@ const ContactForm = () => {
     })
       .then(response => {
         //handle success
+        reset();
+        setPhoneValue("");
         console.log(response);
         toast.success(
           "Form submitted! We'll reach out in the next 3-5 business days.",
@@ -91,11 +96,12 @@ const ContactForm = () => {
     );
   }, [register]);
 
-  console.log(getValues(), errors);
+  console.log(isSubmitting, errors);
 
   return (
     <Container>
       <div className="content">
+        {isSubmitting.toString()}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-wrapper">
             <div className="input-text">You are contacting us about</div>{" "}
@@ -192,13 +198,9 @@ const ContactForm = () => {
             <div className="input-error">{errors?.moreinfo?.message}</div>
           </div>
           <div className="buttons-section">
-            {formState.isSubmitting ? (
-              <FormButton type="submit" disabled={true}>
-                Submitting...
-              </FormButton>
-            ) : (
-              <FormButton type="submit">Send message</FormButton>
-            )}
+            <FormButton type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Send message"}
+            </FormButton>
           </div>
         </form>
       </div>
