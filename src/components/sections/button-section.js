@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 import BaseSection from "./base.style";
+import Button from "../../constants/button";
 import {
   WHITE,
   BRIGHT_PURPLE,
@@ -18,22 +19,6 @@ const Container = styled(BaseSection)`
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-  }
-`;
-
-const Button = styled(Link)`
-  background-color: ${BRIGHT_PURPLE};
-  border-radius: 3px;
-  box-shadow: ${BUTTON_SHADOW};
-  color: ${WHITE};
-  padding: 1rem 2rem;
-	text-decoration: none;
-	transition: 0.1s all;
-
-  &:hover {
-    transform: translate(0, 1px);
-    text-decoration: none;
-    box-shadow: none;
   }
 `;
 
