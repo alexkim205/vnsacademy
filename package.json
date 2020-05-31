@@ -16,6 +16,8 @@
     "gatsby-plugin-sharp": "^2.6.4",
     "gatsby-source-filesystem": "^2.3.8",
     "gatsby-transformer-sharp": "^2.5.2",
+    "google-map-react": "^1.1.7",
+    "google-maps-react": "^2.0.6",
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
     "prop-types": "^15.7.2",
