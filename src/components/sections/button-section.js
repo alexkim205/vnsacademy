@@ -1,16 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Link } from "gatsby";
 
 import BaseSection from "./base.style";
 import Button from "../../constants/button";
-import {
-  WHITE,
-  BRIGHT_PURPLE,
-  BUTTON_SHADOW,
-  breakpoint,
-} from "../../constants/theme";
+import { breakpoint } from "../../constants/theme";
 
 const Container = styled(BaseSection)`
   .content {

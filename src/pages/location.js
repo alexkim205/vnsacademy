@@ -8,10 +8,7 @@ import SEO from "../components/seo";
 import BaseSection from "../components/sections/base.style"
 import Button from "../constants/button";
 import ContainedSection from "../components/sections/contained-section";
-import { 
-	breakpoint,
-	WHITE
-} from "../constants/theme";
+import { breakpoint } from "../constants/theme";
 
 const LocationContainer = styled.div`
 	display: flex;
