@@ -87,10 +87,16 @@ export const Container = styled(BaseSection)`
 
         .input-error {
           width: 100%;
+          font-size: 0.9em;
+          text-align: right;
+          color: red;
         }
       }
 
-      .submit {
+      .buttons-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
       }
     }
   }
@@ -133,10 +139,10 @@ const SelectContainer = styled.div`
   }
 `;
 
-export const Select = ({ children, ...selectProps }) => {
-  return (
-    <SelectContainer>
-      <select {...selectProps}>{children}</select>
-    </SelectContainer>
-  );
-};
+export const Select = React.forwardRef(({ children, ...selectProps }, ref) => (
+  <SelectContainer>
+    <select {...selectProps} ref={ref}>
+      {children}
+    </select>
+  </SelectContainer>
+));

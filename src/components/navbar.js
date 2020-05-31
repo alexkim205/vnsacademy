@@ -75,15 +75,15 @@ const Navbar = () => {
         <NavLink to="/" active="active" className="home">
           Home
         </NavLink>
-        <NavLink to="/location" active="active">
-          Location
-        </NavLink>
         <NavLink to="/classes" active="active">
           Classes
         </NavLink>
         {/* <NavLink to="/schedule" active="active">
           Schedule
         </NavLink> */}
+        <NavLink to="/location" active="active">
+          Location
+        </NavLink>
         <NavLink to="/hiring" active="active">
           Hiring
         </NavLink>
@@ -91,7 +91,7 @@ const Navbar = () => {
       <div className="spacer"></div>
       <div className="right">
         <ButtonLink to="/contact" active="active">
-          Enroll
+          Enroll now
         </ButtonLink>
       </div>
     </Fragment>

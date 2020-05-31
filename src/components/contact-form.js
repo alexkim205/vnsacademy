@@ -23,9 +23,21 @@ const toastOptions = {
 };
 
 const ContactForm = () => {
-  const { register, handleSubmit, setValue, getValues, errors } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    getValues,
+    clearError,
+    triggerValidation,
+    formState,
+    errors,
+  } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
+
   const onSubmit = ({ reason, email, phone, subject, moreinfo }) => {
+    clearError();
+
     var requestFormData = new FormData();
     requestFormData.set("reason", reason);
     requestFormData.set("email", email);
@@ -141,6 +153,7 @@ const ContactForm = () => {
                 onChange={value => {
                   setValue("phone", value);
                   setPhoneValue(value);
+                  triggerValidation("phone");
                 }}
               />{" "}
             </div>
@@ -165,7 +178,7 @@ const ContactForm = () => {
           </div>
           <div className="input-wrapper">
             <div className="input-text" style={{ padding: "0.7em 0" }}>
-              Any additional information:
+              Any additional information (Optional):
             </div>
             <div className="input-input break">
               {" "}
@@ -178,7 +191,15 @@ const ContactForm = () => {
             </div>
             <div className="input-error">{errors?.moreinfo?.message}</div>
           </div>
-          <FormButton type="submit">Submit</FormButton>
+          <div className="buttons-section">
+            {formState.isSubmitting ? (
+              <FormButton type="submit" disabled={true}>
+                Submitting...
+              </FormButton>
+            ) : (
+              <FormButton type="submit">Send message</FormButton>
+            )}
+          </div>
         </form>
       </div>
       <ToastContainer
