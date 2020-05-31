@@ -1,15 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Link } from "gatsby";
 
 import BaseSection from "./base.style";
-import {
-  WHITE,
-  BRIGHT_PURPLE,
-  BUTTON_SHADOW,
-  breakpoint,
-} from "../../constants/theme";
+import Button from "../button";
+import { breakpoint } from "../../constants/theme";
 
 const Container = styled(BaseSection)`
   padding-top: 4em;
@@ -26,23 +21,6 @@ const Container = styled(BaseSection)`
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-  }
-`;
-
-const Button = styled(Link)`
-  background-color: ${BRIGHT_PURPLE};
-  border-radius: 3px;
-  color: ${WHITE};
-  padding: 0.7rem 1.5rem;
-  text-decoration: none;
-  transition: 0.1s all;
-  box-shadow: ${BUTTON_SHADOW};
-  margin-bottom: 1rem;
-
-  &:hover {
-    transform: translate(0, 2px);
-    text-decoration: none;
-    box-shadow: none;
   }
 `;
 
