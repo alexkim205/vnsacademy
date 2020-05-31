@@ -6,6 +6,7 @@ import PhoneInput from "react-phone-number-input/input";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { FormButton } from "../components/button";
 import { Container, Select } from "./contact-form.style";
 
 const emailAddress = "vnsacademy@gmail.com";
@@ -173,12 +174,11 @@ const ContactForm = () => {
                 ref={register}
                 rows={5}
                 spellCheck={false}
-                
               />
             </div>
             <div className="input-error">{errors?.moreinfo?.message}</div>
           </div>
-          <input type="submit" />
+          <FormButton type="submit">Submit</FormButton>
         </form>
       </div>
       <ToastContainer

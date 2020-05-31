@@ -6,7 +6,7 @@ import Img from "gatsby-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import BaseSection from "../components/sections/base.style";
-import Button from "../components/button";
+import { ExternalButton } from "../components/button";
 import ContainedSection from "../components/sections/contained-section";
 import {
   breakpoint,
@@ -15,14 +15,13 @@ import {
   BUTTON_SHADOW,
 } from "../constants/theme";
 
-const dirLink =
-  "https://www.google.com/maps/dir//Vns+Academy,+3915+211th+St,+Bayside,+NY+11361/@40.764102,-73.7761097,17z/data=!4m16!1m6!3m5!1s0x89c261df8353420f:0xccf5caf3ec3097d8!2sVns+Academy!8m2!3d40.764102!4d-73.773921!4m8!1m0!1m5!1m1!1s0x89c261df8353420f:0xccf5caf3ec3097d8!2m2!1d-73.773921!2d40.764102!3e3";
+const dirLink = "https://goo.gl/maps/kXpRAXkyMMAevK7a7";
 
 const LocationContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-	align-items: stretch;
-	margin-top: 2em;
+  align-items: stretch;
+  margin-top: 2em;
 
   ${breakpoint.down("m")`
 		flex-direction: column;
@@ -56,23 +55,7 @@ const InfoBox = styled.div`
 
 const ButtonContainer = styled(BaseSection)`
   padding: 1em;
-	margin: 4em 0 2em 0;
-	
-  a {
-    background-color: ${BRIGHT_PURPLE};
-    border-radius: 3px;
-    box-shadow: ${BUTTON_SHADOW};
-    color: ${WHITE};
-    padding: 1rem 2rem;
-    text-decoration: none;
-    transition: 0.1s all;
-
-    &:hover {
-      transform: translate(0, 1px);
-      text-decoration: none;
-      box-shadow: none;
-    }
-  }
+  margin: 4em 0 2em 0;
 `;
 
 const LocationPage = () => {
@@ -122,9 +105,9 @@ const LocationPage = () => {
           </InfoBox>
         </LocationContainer>
         <ButtonContainer>
-          <a href={dirLink} active="active">
+          <ExternalButton href={dirLink} active="active" target="_blank">
             Get Directions
-          </a>
+          </ExternalButton>
         </ButtonContainer>
       </ContainedSection>
     </Layout>
