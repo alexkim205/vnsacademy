@@ -81,9 +81,9 @@ const Navbar = () => {
         <NavLink to="/classes" active="active">
           Classes
         </NavLink>
-        <NavLink to="/schedule" active="active">
+        {/* <NavLink to="/schedule" active="active">
           Schedule
-        </NavLink>
+        </NavLink> */}
         <NavLink to="/hiring" active="active">
           Hiring
         </NavLink>
