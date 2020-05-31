@@ -1,7 +1,9 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useEffect, useState } from "react";
+import { useForm, ErrorMessage } from "react-hook-form";
 import axios from "axios";
 import styled from "styled-components";
+import { formatPhoneNumber } from "react-phone-number-input";
+import PhoneInput from "react-phone-number-input/input";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -15,6 +17,8 @@ import {
 } from "../constants/theme";
 
 const emailAddress = "vnsacademy@gmail.com";
+const ccEmailAddresses = "sogyu30@yahoo.com,oliviaebea@yahoo.com";
+
 const toastOptions = {
   position: "bottom-center",
   autoClose: 3000,
@@ -46,29 +50,33 @@ const Container = styled(BaseSection)`
 `;
 
 const ContactForm = () => {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => {
+  const { register, handleSubmit, setValue, getValues, errors } = useForm();
+  const [phoneValue, setPhoneValue] = useState("");
+  const onSubmit = ({ reason, email, phone, subject, moreinfo }) => {
     var requestFormData = new FormData();
-    requestFormData.set("topic", data.topic);
-    requestFormData.set("subject", data.subject);
-    requestFormData.set("moreinfo", data.moreinfo);
+    requestFormData.set("reason", reason);
+    requestFormData.set("email", email);
+    requestFormData.set("subject", subject);
+    requestFormData.set("phone", formatPhoneNumber(phone));
+    requestFormData.set("moreinfo", moreinfo);
     requestFormData.set("_replyto", emailAddress);
-    requestFormData.set(
-      "_subject",
-      `VnS Website Form Submission: ${data.topic}`
-    );
+    requestFormData.set("_captcha", false);
+    requestFormData.set("_subject", `VnS Website: ${subject} ${reason}`);
+    requestFormData.set("_cc", ccEmailAddresses);
 
     axios({
       method: "post",
-      url: `https://formspree.io/${emailAddress}`,
+      url: `https://cors-anywhere.herokuapp.com/https://formsubmit.co/${emailAddress}`,
       data: requestFormData,
-      headers: { "Content-Type": "multipart/form-data" },
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     })
       .then(response => {
         //handle success
         console.log(response);
         toast.success(
-          "Form submitted! Please wait for us to call you.",
+          "Form submitted! We'll reach out in the next 3-5 business days.",
           toastOptions
         );
       })
@@ -81,13 +89,33 @@ const ContactForm = () => {
         );
       });
   };
-  console.log(errors);
+
+  useEffect(() => {
+    register(
+      {
+        name: "phone",
+        type: "custom",
+      },
+      {
+        pattern: {
+          value: /^\+1[0-9]{10}$/,
+          message: "Phone number is invalid.",
+        },
+        required: "Phone number is required.",
+      }
+    );
+  }, [register]);
+
+  console.log(getValues(), errors);
 
   return (
     <Container>
       <div className="content">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <select name="topic" ref={register({ required: true })}>
+          <select
+            name="reason"
+            ref={register({ required: "Reason is required." })}
+          >
             <option value="registering a student for a group class">
               registering a student for a group class
             </option>
@@ -97,7 +125,11 @@ const ContactForm = () => {
             <option value="becoming a tutor">becoming a tutor</option>
             <option value="other">other</option>
           </select>
-          <select name="subject" ref={register({ required: true })}>
+          <div className="input-error">{errors?.reason?.message}</div>
+          <select
+            name="subject"
+            ref={register({ required: "Subject is required." })}
+          >
             <option value="SAT">SAT</option>
             <option value="SAT Subject Tests">SAT Subject Tests</option>
             <option value="Biology">Biology</option>
@@ -110,19 +142,28 @@ const ContactForm = () => {
             <option value="School Math Prep">School Math Prep</option>
             <option value="School English Prep">School English Prep</option>
           </select>
+          <div className="input-error">{errors?.subject?.message}</div>
           <PhoneInput
-            placeholder="+12345678910"
-            value={value}
-            onChange={setValue}
-          />
-          <input
-            type="tel"
-            placeholder="phone"
+            country="US"
             name="phone"
-            ref={register({ required: true })}
+            value={phoneValue}
+            onChange={value => {
+              setValue("phone", value);
+              setPhoneValue(value);
+            }}
           />
+          <div className="input-error">{errors?.phone?.message}</div>
+          <input
+            type="text"
+            name="email"
+            ref={register({
+              required: "Email is required.",
+              pattern: { value: /^\S+@\S+$/i, message: "Email is invalid." },
+            })}
+          />
+          <div className="input-error">{errors?.email?.message}</div>
           <textarea name="moreinfo" ref={register} />
-
+          <div className="input-error">{errors?.moreinfo?.message}</div>
           <input type="submit" />
         </form>
       </div>

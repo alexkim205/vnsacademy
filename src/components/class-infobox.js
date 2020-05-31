@@ -8,8 +8,9 @@ import {
   BOX_SHADOW,
   BLACK,
   breakpoint,
-  LIGHT_GRAY,
+  DARKER_BACKGROUND_WHITE,
   SUBJECTS_COLORS,
+  BACKGROUND_WHITE,
 } from "../constants/theme";
 
 const Subjects = styled.div`
@@ -29,13 +30,13 @@ const Subjects = styled.div`
   font-family: "Poppins", sans-serif;
 
   .spacer {
-    width: 1px;
+    width: 2px;
     height: auto;
-    background-color: ${LIGHT_GRAY};
+    background-color: ${DARKER_BACKGROUND_WHITE};
 
     ${breakpoint.down("m")`
     width: 100%;
-    height: 1px;
+    height: 2px;
     `}
   }
 `;
@@ -74,6 +75,7 @@ const SubBox = styled.div`
       margin-top: 1em;
       box-sizing: border-box;
       width: calc((100% - 1.5rem) / 2);
+      font-weight: 500;
 
       &:nth-child(even) {
         margin-left: 1.5rem;

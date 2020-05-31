@@ -12,6 +12,14 @@ import {
 } from "../../constants/theme";
 
 const Container = styled(BaseSection)`
+  padding-top: 4em;
+  padding-bottom: 4em;
+
+  ${breakpoint.down("m")`
+  padding-top: 2em;
+  padding-bottom: 0.5em;
+  `}
+
   .content {
     display: flex;
     width: 100%;
@@ -24,14 +32,15 @@ const Container = styled(BaseSection)`
 const Button = styled(Link)`
   background-color: ${BRIGHT_PURPLE};
   border-radius: 3px;
-  box-shadow: ${BUTTON_SHADOW};
   color: ${WHITE};
-  padding: 1rem 2rem;
-	text-decoration: none;
-	transition: 0.1s all;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  transition: 0.1s all;
+  box-shadow: ${BUTTON_SHADOW};
+  margin-bottom: 1rem;
 
   &:hover {
-    transform: translate(0, 1px);
+    transform: translate(0, 2px);
     text-decoration: none;
     box-shadow: none;
   }
@@ -44,6 +53,7 @@ const ButtonContainer = styled.div`
   align-items: center;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
+  width: 50%;
 
   .message {
     margin-bottom: 1rem;
