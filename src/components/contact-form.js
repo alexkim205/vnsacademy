@@ -73,8 +73,7 @@ const ContactForm = ({ reason = null }) => {
       url: `https://formsubmit.co/${emailAddress}`,
       data: requestFormData,
       headers: {
-        "Content-Type": "multipart/form-data",
-        "X-Requested-With": "XMLHttpRequest",
+        "Content-Type": "multipart/form-data"
       },
     })
       .then(response => {
