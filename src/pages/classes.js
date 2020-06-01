@@ -8,7 +8,7 @@ const ClassesPage = () => {
   return (
     <Layout title="Classes">
       <SEO title="Classes" />
-      <ClassesSection/>
+      <ClassesSection />
     </Layout>
   );
 };

@@ -21,7 +21,8 @@ const Container = styled.footer`
 
   a {
     color: ${WHITE};
-    &:focused, &:visited {
+    &:focused,
+    &:visited {
       color: ${WHITE};
     }
   }
