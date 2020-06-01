@@ -47,7 +47,6 @@ const Container = styled(BaseSection)`
         color: ${BLACK};
       }
       .section-bullet {
-
         a {
           display: flex;
           align-items: center;
@@ -126,13 +125,11 @@ const ClassesSection = ({ children, ...otherProps }) => {
     "Private Tutoring",
   ];
 
-  console.log(classesByCategory);
-
   const renderSection = categoryKey => (
     <div className="section">
       <div className="section-title">{categoryKey}</div>
       {classesByCategory[categoryKey].map(({ key, name }, i) => (
-        <div className="section-bullet">
+        <div className="section-bullet" key={key}>
           <Link to={`/classes/${key}`}>
             {name}
             <IoIosArrowForward size={"1rem"} />

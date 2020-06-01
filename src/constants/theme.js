@@ -1,5 +1,6 @@
 import styledBreakpoint from "@humblebee/styled-components-breakpoint";
 
+export const DARKEST_PURPLE = "#260075";
 export const DARK_PURPLE = "#3D0D99";
 export const BRIGHT_PURPLE = "#6415FF";
 export const LIGHT_PURPLE = "#EBE1FF";
@@ -32,6 +33,7 @@ export const BREAKPOINTS = {
   xxs: 0,
   xs: 400,
   s: 576,
+  s_m: 693,
   m: 768,
   l: 992,
   xl: 1200,

@@ -4,11 +4,11 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import ContactForm from "../components/contact-form";
 
-const ContactPage = () => {
+const ContactPage = ({ location }) => {
   return (
-    <Layout title="Contact">
+    <Layout title="Contact Us">
       <SEO title="Contact" />
-      <ContactForm />
+      <ContactForm reason={location?.state?.reason} />
     </Layout>
   );
 };

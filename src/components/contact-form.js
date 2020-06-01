@@ -3,13 +3,13 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { formatPhoneNumber } from "react-phone-number-input";
 import PhoneInput from "react-phone-number-input/input";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, Slide, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { FormButton } from "../components/button";
-import { Container, Select } from "./contact-form.style";
+import { Container, Select, StyledToast } from "./contact-form.style";
 
-const emailAddress = "vnsacademy@gmail.com";
+export const emailAddress = "vnsacademy@gmail.com";
 const ccEmailAddresses = "sogyu30@yahoo.com,oliviaebea@yahoo.com";
 
 const toastOptions = {
@@ -22,21 +22,32 @@ const toastOptions = {
   progress: undefined,
 };
 
-const ContactForm = () => {
+const ContactForm = ({ reason = null }) => {
   const {
     register,
     handleSubmit,
     setValue,
-    getValues,
+    reset,
     clearError,
     triggerValidation,
-    formState,
+    formState: { isSubmitting },
     errors,
   } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
 
+  // On component mount, prefill with location state if it exists
+  useEffect(() => {
+    if (!reason) {
+      return;
+    }
+    setValue("reason", reason);
+    // setValue("subject", location.state.subject); // Don't set subject because its too tedious to map.
+  }, [reason, setValue]);
+
   const onSubmit = ({ reason, email, phone, subject, moreinfo }) => {
-    clearError();
+    clearError("phone");
+    clearError("email");
+    if (isSubmitting) return;
 
     var requestFormData = new FormData();
     requestFormData.set("reason", reason);
@@ -49,7 +60,14 @@ const ContactForm = () => {
     requestFormData.set("_subject", `VnS Website: ${subject} ${reason}`);
     requestFormData.set("_cc", ccEmailAddresses);
 
-    axios({
+    const renderToast = (name, message) => (
+      <StyledToast>
+        <div className="name">{name}</div>
+        <div className="message">{message}</div>
+      </StyledToast>
+    );
+
+    return axios({
       method: "post",
       url: `https://cors-anywhere.herokuapp.com/https://formsubmit.co/${emailAddress}`,
       data: requestFormData,
@@ -59,17 +77,23 @@ const ContactForm = () => {
     })
       .then(response => {
         //handle success
-        console.log(response);
+        reset();
+        setPhoneValue("");
         toast.success(
-          "Form submitted! We'll reach out in the next 3-5 business days.",
+          renderToast(
+            "Message sent.",
+            "We will reach out in the next 3-5 business days."
+          ),
           toastOptions
         );
       })
       .catch(function (response) {
         //handle error
-        console.log(response);
         toast.error(
-          "There was an error submitting your form. Please try again.",
+          renderToast(
+            "Message not sent.",
+            "There was an error submitting your form. Please try again."
+          ),
           toastOptions
         );
       });
@@ -90,8 +114,6 @@ const ContactForm = () => {
       }
     );
   }, [register]);
-
-  console.log(getValues(), errors);
 
   return (
     <Container>
@@ -114,7 +136,7 @@ const ContactForm = () => {
                 <option value="other">other</option>
               </Select>
             </div>
-            <div className="input-text append">,</div>
+            <div className="input-text append select">,</div>
             {/* <div className="input-error">{errors?.reason?.message}</div> */}
           </div>
           <div className="input-wrapper">
@@ -139,7 +161,7 @@ const ContactForm = () => {
                 <option value="School English Prep">School English Prep</option>
               </Select>
             </div>
-            <div className="input-text append">.</div>
+            <div className="input-text append select">.</div>
             {/* <div className="input-error">{errors?.subject?.message}</div> */}
           </div>
           <div className="input-wrapper">
@@ -172,7 +194,7 @@ const ContactForm = () => {
                 })}
               />{" "}
             </div>
-            <div className="input-text">.</div>
+            <div className="input-text append">.</div>
             <div className="input-error">{errors?.phone?.message}</div>
             <div className="input-error">{errors?.email?.message}</div>
           </div>
@@ -192,19 +214,16 @@ const ContactForm = () => {
             <div className="input-error">{errors?.moreinfo?.message}</div>
           </div>
           <div className="buttons-section">
-            {formState.isSubmitting ? (
-              <FormButton type="submit" disabled={true}>
-                Submitting...
-              </FormButton>
-            ) : (
-              <FormButton type="submit">Send message</FormButton>
-            )}
+            <FormButton type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Send message"}
+            </FormButton>
           </div>
         </form>
       </div>
       <ToastContainer
         position="bottom-center"
         autoClose={3000}
+        transition={Slide}
         hideProgressBar={false}
         newestOnTop
         closeOnClick

@@ -8,12 +8,7 @@ import SEO from "../components/seo";
 import BaseSection from "../components/sections/base.style";
 import { ExternalButton } from "../components/button";
 import ContainedSection from "../components/sections/contained-section";
-import {
-  breakpoint,
-  WHITE,
-  BRIGHT_PURPLE,
-  BUTTON_SHADOW,
-} from "../constants/theme";
+import { breakpoint } from "../constants/theme";
 
 const dirLink = "https://goo.gl/maps/kXpRAXkyMMAevK7a7";
 
@@ -95,11 +90,11 @@ const LocationPage = () => {
             </p>
             <h3 className="title">Hours</h3>
             <div className="oppositeAlign">
-              <div>MTWThF</div>
+              <div>M T W Th F</div>
               <div>8AM - 5PM</div>
             </div>
             <div className="oppositeAlign">
-              <div>Sat+Sun</div>
+              <div>Sat + Sun</div>
               <div>10AM - 7PM</div>
             </div>
           </InfoBox>
