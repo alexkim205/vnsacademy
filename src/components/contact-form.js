@@ -69,7 +69,8 @@ const ContactForm = ({ reason = null }) => {
 
     return axios({
       method: "post",
-      url: `https://cors-anywhere.herokuapp.com/https://formsubmit.co/${emailAddress}`,
+      // url: `https://cors-anywhere.herokuapp.com/https://formsubmit.co/${emailAddress}`,
+      url: `https://formsubmit.co/${emailAddress}`,
       data: requestFormData,
       headers: {
         "Content-Type": "multipart/form-data",
