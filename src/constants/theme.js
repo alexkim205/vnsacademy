@@ -20,12 +20,11 @@ export const BUTTON_SHADOW = "0px 4px 4px 0px rgba(0,0,0,0.25)";
 export const BOX_SHADOW = "0px 24px 48px 0px rgba(176,176,176,0.28)";
 
 export const SUBJECTS_COLORS = [
-  "#B14AED",
-  "#1B1F3B",
-  "#858AE3",
-  "#2C0735",
-  "#654597",
-  "#05299E",
+  "#ADD7F6",
+  "#CAD5CA",
+  "#DBD5B2",
+  "#F0A7A0",
+  "#FFFECB",
   "#4CC9F0",
 ];
 
