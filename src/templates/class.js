@@ -2,6 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import _ from "lodash";
 
+import { REASONS } from "../constants/contactReasons";
+
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Infobox from "../components/class-infobox";
@@ -19,7 +21,7 @@ const ClassTemplate = ({ data }) => {
           message: "Interested? Contact us for a quote.",
           buttonTitle: "Contact us",
           link: "/contact",
-          routerData: {},
+          routerState: { reason: REASONS.PRIVATE },
         },
       ]
     : [
@@ -27,22 +29,22 @@ const ClassTemplate = ({ data }) => {
           message: "Interested in enrolling?",
           buttonTitle: "Reserve your spot now",
           link: "/contact",
-          routerData: {},
+          routerData: { reason: REASONS.GROUP },
         },
         {
           message: "Want a private tutor?",
-          buttonTitle: "Find one",
+          buttonTitle: "Contact us",
           link: "/contact",
-          routerData: {},
+          routerData: { reason: REASONS.PRIVATE },
         },
       ];
   return (
     <Layout title={classData.name}>
       <SEO title={classData.name} />
-      <ButtonSection buttons={buttons} />
       <ContainedSection>
         <Infobox classData={classData} />
       </ContainedSection>
+      <ButtonSection buttons={buttons} />
       <ContainedSection>
         <Schedule scheduleData={scheduleData} colorMap={colorMap} />
       </ContainedSection>

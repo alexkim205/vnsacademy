@@ -22,19 +22,28 @@ const toastOptions = {
   progress: undefined,
 };
 
-const ContactForm = () => {
+const ContactForm = ({ reason = null }) => {
   const {
     register,
     handleSubmit,
     setValue,
     reset,
-    getValues,
     clearError,
     triggerValidation,
     formState: { isSubmitting },
     errors,
   } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
+
+  // On component mount, prefill with location state if it exists
+  useEffect(() => {
+    console.log("MOUNT", reason);
+    if (!reason) {
+      return;
+    }
+    setValue("reason", reason);
+    // setValue("subject", location.state.subject); // Don't set subject because its too tedious to map.
+  }, [reason, setValue]);
 
   const onSubmit = ({ reason, email, phone, subject, moreinfo }) => {
     clearError("phone");

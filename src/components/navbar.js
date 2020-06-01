@@ -6,13 +6,14 @@ import Img from "gatsby-image";
 import useWindowSize from "../helpers/useWindowSize";
 import useScroll from "../helpers/useScroll";
 import { BREAKPOINTS } from "../constants/theme";
+import { REASONS } from "../constants/contactReasons";
 import {
   NavLink,
   ButtonLink,
   ContainerNav,
   animCloseMobileNav,
   animOpenMobileNav,
-  Dummy
+  Dummy,
 } from "./navbar.style";
 
 const Navbar = () => {
@@ -86,13 +87,17 @@ const Navbar = () => {
         <NavLink to="/location" active="active">
           Location
         </NavLink>
-        <NavLink to="/hiring" active="active">
+        <NavLink to="/contact" active="active" state={{ reason: REASONS.HIRE }}>
           Hiring
         </NavLink>
       </div>
       <div className="spacer"></div>
       <div className="right">
-        <ButtonLink to="/contact" active="active">
+        <ButtonLink
+          to="/contact"
+          active="active"
+          state={{ reason: REASONS.GROUP }}
+        >
           Enroll now
         </ButtonLink>
       </div>

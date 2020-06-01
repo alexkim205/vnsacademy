@@ -8,12 +8,7 @@ import SEO from "../components/seo";
 import BaseSection from "../components/sections/base.style";
 import { ExternalButton } from "../components/button";
 import ContainedSection from "../components/sections/contained-section";
-import {
-  breakpoint,
-  WHITE,
-  BRIGHT_PURPLE,
-  BUTTON_SHADOW,
-} from "../constants/theme";
+import { breakpoint } from "../constants/theme";
 
 const dirLink = "https://goo.gl/maps/kXpRAXkyMMAevK7a7";
 

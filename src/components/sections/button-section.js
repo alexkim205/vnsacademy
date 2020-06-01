@@ -52,10 +52,10 @@ const ButtonSection = ({ buttons }) => {
   return (
     <Container>
       <div className="content">
-        {buttons.map(({ message, link, buttonTitle }, index) => (
-          <ButtonContainer>
+        {buttons.map(({ message, link, buttonTitle, routerData }, index) => (
+          <ButtonContainer key={index}>
             <p className="message">{message}</p>
-            <Button key={index} to={link} active="active">
+            <Button key={index} to={link} active="active" state={routerData}>
               {buttonTitle}
             </Button>
           </ButtonContainer>
@@ -71,6 +71,7 @@ ButtonSection.propTypes = {
       message: PropTypes.string,
       buttonTitle: PropTypes.string,
       link: PropTypes.string,
+      routerData: PropTypes.object,
     })
   ).isRequired,
 };
