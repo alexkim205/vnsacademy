@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import _ from "lodash";
 import { formatPhoneNumber } from "react-phone-number-input";
 import PhoneInput from "react-phone-number-input/input";
 import { ToastContainer, Slide, toast } from "react-toastify";
@@ -8,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { FormButton } from "../components/button";
 import { Container, Select, StyledToast } from "./contact-form.style";
+import { ENROLL_REASONS, ENROLL_SUBJECTS } from "../constants/contactReasons";
 
 export const emailAddress = "vnsacademy@gmail.com";
 const ccEmailAddresses = "sogyu30@yahoo.com,oliviaebea@yahoo.com";
@@ -22,7 +24,11 @@ const toastOptions = {
   progress: undefined,
 };
 
-const ContactForm = ({ reason = null }) => {
+const ContactForm = ({
+  reason = null,
+  reasons = ENROLL_REASONS,
+  subjects = ENROLL_SUBJECTS,
+}) => {
   const {
     register,
     handleSubmit,
@@ -34,6 +40,8 @@ const ContactForm = ({ reason = null }) => {
     errors,
   } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
+
+  console.log("reasons", reasons, "subjects", subjects);
 
   // On component mount, prefill with location state if it exists
   useEffect(() => {
@@ -126,14 +134,12 @@ const ContactForm = ({ reason = null }) => {
                 name="reason"
                 ref={register({ required: "Reason is required." })}
               >
-                <option value="registering a student for a group class">
-                  registering a student for a group class
-                </option>
-                <option value="registering a student for private tutoring">
-                  registering a student for private tutoring
-                </option>
-                <option value="becoming a tutor">becoming a tutor</option>
-                <option value="other">other</option>
+                {reasons &&
+                  _.values(reasons).map((reason, i) => (
+                    <option value={reason} key={i}>
+                      {reason}
+                    </option>
+                  ))}
               </Select>
             </div>
             <div className="input-text append select">,</div>
@@ -146,19 +152,12 @@ const ContactForm = ({ reason = null }) => {
                 name="subject"
                 ref={register({ required: "Subject is required." })}
               >
-                <option value="SAT">the SAT</option>
-                <option value="SAT Subject Tests">the SAT Subject Tests</option>
-                <option value="Biology">Biology</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="Physics">Physics</option>
-                <option value="Math">Math</option>
-                <option value="SHSAT">the SHSAT</option>
-                <option value="Hunter Entrance Exam">
-                  the Hunter Entrance Exam
-                </option>
-                <option value="Competitive Math">Competitive Math</option>
-                <option value="School Math Prep">School Math Prep</option>
-                <option value="School English Prep">School English Prep</option>
+                {subjects &&
+                  _.values(subjects).map((subject, i) => (
+                    <option value={subject} key={i}>
+                      {subject}
+                    </option>
+                  ))}
               </Select>
             </div>
             <div className="input-text append select">.</div>

@@ -106,7 +106,7 @@ const CarouselSection = ({
           >
             {items &&
               items.map(({ name }, i) => (
-                <Fragment>
+                <Fragment key={i}>
                   <div key={i} className="title">
                     {name[0]}
                   </div>
@@ -129,7 +129,7 @@ const CarouselSection = ({
                       objectFit: "contain",
                     }}
                     fixed={fixed}
-                    alt={name}
+                    alt={name[0]}
                   />
                 </div>
               ))}

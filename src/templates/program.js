@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import _ from "lodash";
 
-import { REASONS } from "../constants/contactReasons";
+import { ENROLL_REASONS } from "../constants/contactReasons";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -21,13 +21,13 @@ const ProgramTemplate = ({ data }) => {
       message: "Interested in enrolling?",
       buttonTitle: "Reserve your spot now",
       link: "/contact",
-      routerState: { reason: REASONS.GROUP },
+      routerState: { reason: ENROLL_REASONS.GROUP },
     },
     {
       message: "Want a private tutor?",
       buttonTitle: "Contact us",
       link: "/contact",
-      routerState: { reason: REASONS.PRIVATE },
+      routerState: { reason: ENROLL_REASONS.PRIVATE },
     },
   ];
   return (

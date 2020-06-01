@@ -6,7 +6,7 @@ import Img from "gatsby-image";
 import useWindowSize from "../helpers/useWindowSize";
 import useScroll from "../helpers/useScroll";
 import { BREAKPOINTS } from "../constants/theme";
-import { REASONS } from "../constants/contactReasons";
+import { HIRING_REASONS, ENROLL_REASONS } from "../constants/contactReasons";
 import {
   NavLink,
   ButtonLink,
@@ -84,7 +84,11 @@ const Navbar = () => {
         <NavLink to="/location" active="active">
           Location
         </NavLink>
-        <NavLink to="/contact" active="active" state={{ reason: REASONS.HIRE }}>
+        <NavLink
+          to="/contact-hire"
+          active="active"
+          state={{ reason: HIRING_REASONS.HIRE }}
+        >
           Hiring
         </NavLink>
       </div>
@@ -93,7 +97,7 @@ const Navbar = () => {
         <ButtonLink
           to="/contact"
           active="active"
-          state={{ reason: REASONS.GROUP }}
+          state={{ reason: ENROLL_REASONS.GROUP }}
         >
           Enroll now
         </ButtonLink>
@@ -120,7 +124,11 @@ const Navbar = () => {
           <div className="main">{renderNavItems()}</div>
         </div>
         <div className="spacer"></div>
-        <ButtonLink to="/contact" active="active">
+        <ButtonLink
+          to="/contact"
+          active="active"
+          state={{ reason: ENROLL_REASONS.GROUP }}
+        >
           Enroll
         </ButtonLink>
       </div>

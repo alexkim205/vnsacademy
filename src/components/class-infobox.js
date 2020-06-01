@@ -164,7 +164,7 @@ const Infobox = ({ data }) => {
 };
 
 Infobox.propTypes = {
-  classData: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default Infobox;
