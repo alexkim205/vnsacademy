@@ -39,6 +39,7 @@ const InfoBox = styled.div`
   background-color: white;
   box-sizing: border-box;
   border-radius: 5px;
+  z-index: 2;
 
   p {
     line-height: 1.7em;
@@ -60,6 +61,7 @@ const InfoBox = styled.div`
   }
 
   ${breakpoint.down("s_m")`
+    margin-top: 2.5em;
 		margin-left: 0;
 		width: 100%;
 	`}
