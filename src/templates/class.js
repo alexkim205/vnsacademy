@@ -29,13 +29,13 @@ const ClassTemplate = ({ data }) => {
           message: "Interested in enrolling?",
           buttonTitle: "Reserve your spot now",
           link: "/contact",
-          routerData: { reason: REASONS.GROUP },
+          routerState: { reason: REASONS.GROUP },
         },
         {
           message: "Want a private tutor?",
           buttonTitle: "Contact us",
           link: "/contact",
-          routerData: { reason: REASONS.PRIVATE },
+          routerState: { reason: REASONS.PRIVATE },
         },
       ];
   return (

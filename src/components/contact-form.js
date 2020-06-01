@@ -37,7 +37,6 @@ const ContactForm = ({ reason = null }) => {
 
   // On component mount, prefill with location state if it exists
   useEffect(() => {
-    console.log("MOUNT", reason);
     if (!reason) {
       return;
     }
@@ -80,7 +79,6 @@ const ContactForm = ({ reason = null }) => {
         //handle success
         reset();
         setPhoneValue("");
-        console.log(response);
         toast.success(
           renderToast(
             "Message sent.",
@@ -91,7 +89,6 @@ const ContactForm = ({ reason = null }) => {
       })
       .catch(function (response) {
         //handle error
-        console.log(response);
         toast.error(
           renderToast(
             "Message not sent.",
@@ -117,8 +114,6 @@ const ContactForm = ({ reason = null }) => {
       }
     );
   }, [register]);
-
-  console.log(isSubmitting, errors);
 
   return (
     <Container>

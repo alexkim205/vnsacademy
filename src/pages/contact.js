@@ -5,7 +5,6 @@ import SEO from "../components/seo";
 import ContactForm from "../components/contact-form";
 
 const ContactPage = ({ location }) => {
-  console.log(location)
   return (
     <Layout title="Contact Us">
       <SEO title="Contact" />

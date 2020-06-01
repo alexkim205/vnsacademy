@@ -125,8 +125,6 @@ const ClassesSection = ({ children, ...otherProps }) => {
     "Private Tutoring",
   ];
 
-  console.log(classesByCategory);
-
   const renderSection = categoryKey => (
     <div className="section">
       <div className="section-title">{categoryKey}</div>
