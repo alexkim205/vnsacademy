@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/`,
   siteMetadata: {
     title: `VnS Academy`,
     description: `Get into the college of your dreams with VnS.`,
@@ -33,6 +34,9 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

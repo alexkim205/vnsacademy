@@ -66,7 +66,12 @@ const ContactForm = () => {
         setPhoneValue("");
         console.log(response);
         toast.success(
-          "Form submitted! We'll reach out in the next 3-5 business days.",
+          <div>
+            <div className="title">Message sent.</div>
+            <br />
+            <div className="title">Message sent.</div>
+            We will reach out in the next 3-5 business days.
+          </div>,
           toastOptions
         );
       })
