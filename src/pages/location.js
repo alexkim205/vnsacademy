@@ -8,7 +8,7 @@ import SEO from "../components/seo";
 import BaseSection from "../components/sections/base.style";
 import { ExternalButton } from "../components/button";
 import ContainedSection from "../components/sections/contained-section";
-import { breakpoint } from "../constants/theme";
+import { breakpoint, BOX_SHADOW } from "../constants/theme";
 
 const dirLink = "https://goo.gl/maps/kXpRAXkyMMAevK7a7";
 
@@ -17,6 +17,7 @@ const LocationContainer = styled.div`
   justify-content: space-evenly;
   align-items: stretch;
   margin-top: 2em;
+  margin-bottom: 3em;
 
   ${breakpoint.down("s_m")`
 		flex-direction: column;
@@ -24,26 +25,38 @@ const LocationContainer = styled.div`
 `;
 
 const InfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-family: "Poppins", sans-serif;
-  width: 30%;
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: ${BOX_SHADOW};
+  min-width: 250px;
   margin-left: 2em;
   height: 100%;
-  padding: 1em 0;
+  padding: 2em;
+  background-color: white;
   box-sizing: border-box;
+  border-radius: 5px;
 
   p {
     line-height: 1.7em;
+    font-size: 0.92em;
   }
 
   h3.location-title {
     font-weight: 500;
-    // &:first-child {
-    //   margin-top: 0.5em;
-    // }
+    margin-bottom: 0;
+    margin-top: 0;
   }
   .oppositeAlign {
     display: flex;
     justify-content: space-between;
+  }
+
+  a {
+    text-align: center;
   }
 
   ${breakpoint.down("s_m")`
@@ -52,17 +65,12 @@ const InfoBox = styled.div`
 	`}
 `;
 
-const ButtonContainer = styled(BaseSection)`
-  padding: 1em;
-  margin: 4em 0 2em 0;
-`;
-
 const LocationPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      logoImage: file(relativePath: { eq: "vnsLocation.png" }) {
+      logoImage: file(relativePath: { eq: "vns-location.png" }) {
         childImageSharp {
-          fluid(maxHeight: 300) {
+          fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -80,6 +88,8 @@ const LocationPage = () => {
             style={{
               width: "100%",
               height: "100%",
+              borderRadius: "5px",
+              boxShadow: BOX_SHADOW,
             }}
           />
           <InfoBox>
@@ -92,6 +102,9 @@ const LocationPage = () => {
               <br />
               11361
             </p>
+            <ExternalButton href={dirLink} active="active" target="_blank">
+              Get Directions
+            </ExternalButton>
             {/* <h3 className="title">Hours</h3>
             <div className="oppositeAlign">
               <div>M T W Th F</div>
@@ -103,11 +116,6 @@ const LocationPage = () => {
             </div> */}
           </InfoBox>
         </LocationContainer>
-        <ButtonContainer>
-          <ExternalButton href={dirLink} active="active" target="_blank">
-            Get Directions
-          </ExternalButton>
-        </ButtonContainer>
       </ContainedSection>
     </Layout>
   );

@@ -21,7 +21,7 @@ const Navbar = () => {
     query {
       logoImage: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fluid(maxHeight: 300) {
+          fluid(maxWidth: 200) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -53,7 +53,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           active="active"
-          className={scrollY < 350 ? "logo" : "small logo"}
+          className={scrollY < 60 || !scrollY ? "logo" : "small logo"}
           ref={logoRef}
         >
           <Img
@@ -61,7 +61,7 @@ const Navbar = () => {
             alt="logo"
             style={{
               overflow: "visible",
-              width: "6em",
+              width: "7.5em",
               position: "fixed",
               left: "1.5em",
               top: "1.8em",

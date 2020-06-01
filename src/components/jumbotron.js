@@ -10,7 +10,7 @@ const Container = styled.div`
   width: 100%;
   justify-content: center;
   padding: 1em 1.5em;
-  height: 480px;
+  height: ${({ center }) => (center ? 480 : 370)}px;
   background-color: ${DARK_PURPLE};
   color: ${WHITE};
 
@@ -28,6 +28,7 @@ const Container = styled.div`
 
     h1 {
       font-size: 5em;
+      margin-bottom: 0.35em;
 
       ${breakpoint.down("m")`
         font-size: 3em;
