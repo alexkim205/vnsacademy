@@ -13,6 +13,15 @@ import {
   BACKGROUND_WHITE,
 } from "../constants/theme";
 
+export const StyledToast = styled.div`
+  .name {
+
+  }
+  .message {
+    
+  }
+`
+
 export const Container = styled(BaseSection)`
   .content {
     width: 100%;

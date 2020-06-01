@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { FormButton } from "../components/button";
-import { Container, Select } from "./contact-form.style";
+import { Container, Select, StyledToast } from "./contact-form.style";
 
 const emailAddress = "vnsacademy@gmail.com";
 const ccEmailAddresses = "sogyu30@yahoo.com,oliviaebea@yahoo.com";
@@ -52,6 +52,13 @@ const ContactForm = () => {
     requestFormData.set("_subject", `VnS Website: ${subject} ${reason}`);
     requestFormData.set("_cc", ccEmailAddresses);
 
+    const renderToast = (name, message) => (
+      <StyledToast>
+        <div className="name">{name}</div>
+        <div className="message">{message}</div>
+      </StyledToast>
+    );
+
     return axios({
       method: "post",
       url: `https://cors-anywhere.herokuapp.com/https://formsubmit.co/${emailAddress}`,
@@ -66,12 +73,10 @@ const ContactForm = () => {
         setPhoneValue("");
         console.log(response);
         toast.success(
-          <div>
-            <div className="title">Message sent.</div>
-            <br />
-            <div className="title">Message sent.</div>
-            We will reach out in the next 3-5 business days.
-          </div>,
+          renderToast(
+            "Message sent.",
+            "We will reach out in the next 3-5 business days."
+          ),
           toastOptions
         );
       })
