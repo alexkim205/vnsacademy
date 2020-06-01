@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import _ from "lodash";
@@ -72,7 +72,6 @@ const CarouselSection = ({
 }) => {
   const [titleSlider, setTitleSlider] = useState();
   const [contentSlider, setContentSlider] = useState();
-  const [titleSliderRef, contentSliderRef] = [useRef(), useRef()];
 
   const settings = {
     infinite: true,
@@ -118,7 +117,7 @@ const CarouselSection = ({
           <Slider
             {...settings}
             ref={ref => setContentSlider(ref)}
-            asNavFor={contentSlider}
+            asNavFor={titleSlider}
           >
             {items &&
               items.map(({ name, fixed }, i) => (

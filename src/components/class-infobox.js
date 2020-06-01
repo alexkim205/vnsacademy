@@ -10,7 +10,6 @@ import {
   breakpoint,
   DARKER_BACKGROUND_WHITE,
   SUBJECTS_COLORS,
-  BACKGROUND_WHITE,
 } from "../constants/theme";
 
 const Subjects = styled.div`

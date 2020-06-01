@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
+import React, { Fragment, useRef, useEffect } from "react";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
@@ -31,16 +31,13 @@ const Navbar = () => {
 
   const mobileOverlayRef = useRef();
   const logoRef = useRef();
-  const { size: windowSize, breakpoint: windowBreakpoint } = useWindowSize();
+  const { size: windowSize } = useWindowSize();
   const { scrollY } = useScroll();
-  const [isMobileNavOpen, setMobileNavState] = useState(false);
   const openMobileNav = async () => {
     await animOpenMobileNav(mobileOverlayRef);
-    setMobileNavState(true);
   };
   const closeMobileNav = async () => {
     await animCloseMobileNav(mobileOverlayRef);
-    setMobileNavState(false);
   };
 
   useEffect(() => {
