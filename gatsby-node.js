@@ -7,6 +7,7 @@ const {
   getClasses,
   getPrograms,
   getProgramSchedule,
+  getFullProgramByKey
 } = require("./src/helpers/dataUtils.js");
 
 exports.createPages = ({ actions: { createPage } }) => {
@@ -32,7 +33,7 @@ exports.createPages = ({ actions: { createPage } }) => {
       path: `/programs/${programData.key}`,
       component: programTemplate,
       context: {
-        programData,
+        programData: getFullProgramByKey(programData.key),
         scheduleData: getProgramSchedule(programData.key),
       },
     });

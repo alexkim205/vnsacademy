@@ -99,7 +99,7 @@ const Navbar = () => {
           active="active"
           state={{ reason: ENROLL_REASONS.GROUP }}
         >
-          Enroll now
+          Contact Us
         </ButtonLink>
       </div>
     </Fragment>
@@ -117,8 +117,12 @@ const Navbar = () => {
             <button onClick={closeMobileNav}>
               <IoMdClose size="2em" />
             </button>
-            <ButtonLink to="/contact" active="active">
-              Enroll
+            <ButtonLink
+              to="/contact"
+              active="active"
+              state={{ reason: ENROLL_REASONS.GROUP }}
+            >
+              Contact Us
             </ButtonLink>
           </div>
           <div className="main">{renderNavItems()}</div>
@@ -129,7 +133,7 @@ const Navbar = () => {
           active="active"
           state={{ reason: ENROLL_REASONS.GROUP }}
         >
-          Enroll
+          Contact Us
         </ButtonLink>
       </div>
     </ContainerNav>

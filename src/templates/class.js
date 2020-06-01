@@ -12,7 +12,6 @@ import ButtonSection from "../components/sections/button-section";
 import Schedule from "../components/schedule";
 
 const ClassTemplate = ({ data }) => {
-  console.log(data)
   const { classData, scheduleData } = data.allSitePage.edges[0].node.context;
   const colorMap = _.map(classData.subjects, s => s.key);
   const isPrivate = classData.type.startsWith("Individual");

@@ -69,6 +69,17 @@ const getProgramByKey = programKey => {
   return _.find(programsData, ["key", programKey]);
 };
 
+const getFullProgramByKey = programKey => {
+  if (!programKey) return null;
+  const foundProgram = _.find(programsData, ["key", programKey]);
+
+  return _.assign({}, foundProgram, {
+    subjects: foundProgram.subjects.map(subjectKey =>
+      getSubjectByKey(subjectKey)
+    ),
+  });
+};
+
 const getProgramSchedule = programKey => {
   if (!programKey) return null;
   const subjects = getProgramByKey(programKey).subjects.map(subjectKey =>
@@ -87,4 +98,5 @@ module.exports = {
   getClassSchedule,
   getPrograms,
   getProgramSchedule,
+  getFullProgramByKey
 };

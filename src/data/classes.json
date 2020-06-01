@@ -264,7 +264,7 @@
         "schedule": {
           "days": ["T", "Th"],
           "startTime": "2020-07-01 14:30",
-          "endTime": "2020-07-01 16:30"
+          "endTime": "2020-07-01 16:00"
         }
       }
     ]
@@ -305,8 +305,8 @@
         "key": "school-ap-calculus",
         "schedule": {
           "days": ["T", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
+          "startTime": "2020-07-01 16:00",
+          "endTime": "2020-07-01 17:30"
         }
       }
     ]
@@ -326,7 +326,7 @@
         "key": "school-biology",
         "schedule": {
           "days": ["F"],
-          "startTime": "2020-07-01 14:00",
+          "startTime": "2020-07-01 14:30",
           "endTime": "2020-07-01 16:30"
         }
       }

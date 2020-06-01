@@ -41,8 +41,6 @@ const ContactForm = ({
   } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
 
-  console.log("reasons", reasons, "subjects", subjects);
-
   // On component mount, prefill with location state if it exists
   useEffect(() => {
     if (!reason) {

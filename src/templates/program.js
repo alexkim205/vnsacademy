@@ -12,7 +12,6 @@ import ButtonSection from "../components/sections/button-section";
 import Schedule from "../components/schedule";
 
 const ProgramTemplate = ({ data }) => {
-  console.log(data);
   const { programData, scheduleData } = data.allSitePage.edges[0].node.context;
   const colorMap = _.map(programData.subjects, s => s.key);
   // const isPrivate = programData.key.startsWith("private");
@@ -34,7 +33,7 @@ const ProgramTemplate = ({ data }) => {
     <Layout title={programData.name}>
       <SEO title={programData.name} />
       <ContainedSection>
-        <Infobox data={programData} />
+        <Infobox data={programData} widths={["65%", "35%"]}/>
       </ContainedSection>
       <ButtonSection buttons={buttons} />
       <ContainedSection>
@@ -59,7 +58,11 @@ export const query = graphql`
               category
               startDate
               endDate
-              subjects
+              type
+              subjects {
+                name
+                key
+              }
             }
             scheduleData {
               M {

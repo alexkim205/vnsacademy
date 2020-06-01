@@ -11,32 +11,19 @@ import {
   DARKER_BACKGROUND_WHITE,
   SUBJECTS_COLORS,
 } from "../constants/theme";
+import BaseSection from "./sections/base.style";
 
-const Subjects = styled.div`
-  display: flex;
-  flex-direction: row;
+const Subjects = styled(BaseSection)`
   width: 100%;
-  // max-width: 800px;
-  background-color: ${WHITE};
-  box-shadow: ${BOX_SHADOW};
+  padding: 0;
   border-radius: 5px;
-  margin: 0 auto;
-
-  ${breakpoint.down("m")`
-  flex-direction: column;
-  `}
-
   font-family: "Poppins", sans-serif;
 
-  .spacer {
-    width: 2px;
-    height: auto;
-    background-color: ${DARKER_BACKGROUND_WHITE};
-
-    ${breakpoint.down("m")`
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
-    height: 2px;
-    `}
   }
 `;
 
@@ -50,121 +37,126 @@ const Bullet = styled.div`
 
 const SubBox = styled.div`
   display: flex;
-  color: ${BLACK};
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
   height: 100%;
   box-sizing: border-box;
-  padding: 2em 2.5em;
+  box-shadow: ${BOX_SHADOW};
+  width: calc(${({ width }) => width} - 0.75em);
+  min-width: 250px;
+  height: 100%;
+  padding: 2em;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  ${breakpoint.down("m")`
+  width: 100%;
+  `}
 
   &.subjects {
-    width: 50%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: auto 0;
-
-    ${breakpoint.down("m")`
-      width: 100%;
-    `}
+    justify-content: flex-start;
 
     .subject {
       display: flex;
+      flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      margin-bottom: 1em;
-      margin-top: 1em;
-      box-sizing: border-box;
-      width: calc((100% - 1.5rem) / 2);
       font-weight: 500;
+      font-size: 1.05em;
+      width: calc(50% - 1.6em);
+      margin: 0.4em;
 
-      &:nth-child(even) {
-        margin-left: 1.5rem;
-      }
-
-      ${breakpoint.down("m")`
-        width: 50%;
-        &:nth-child(even) {
-          margin-left: 0;
-        }
-      `}
-
-      ${breakpoint.down("xs")`
-        width: 100%;
+      ${breakpoint.down("s")`
+      width: 100%;
       `}
     }
   }
 
   &.info-list {
-    display: flex;
-    width: 50%;
-    flex-direction: row;
-    margin: auto 0;
+    margin-left: 1.5em;
+    z-index: 2;
+    padding: 2.5em;
 
     ${breakpoint.down("m")`
-      width: 100%;
+    padding: 2em;
+    text-align: center;
+    margin-top: 1.5em;
+    margin-left: 0;
     `}
 
-    .titles {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    .infos {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      font-weight: 600;
-      text-align: right;
-    }
     .info-item {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 0.5em;
+      margin-bottom: 1.2em;
 
       &:last-child {
-        margin: 0;
+        margin-bottom: 0;
+      }
+
+      h3.info-title {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      p.info-content {
+        font-weight: 500;
+        line-height: 1.7em;
+        font-size: 1em;
+        margin: 0.5em 0 0.3em 0;
       }
     }
   }
 `;
 
-const Infobox = ({ data }) => {
+const Infobox = ({ data, widths = ["50%", "50%"] }) => {
   const { subjects, startDate, endDate, type, numSessions } = data;
   const dateRange =
     startDate && endDate ? parseDateRange(startDate, endDate) : null;
 
   return (
     <Subjects>
-      <SubBox className="subjects">
-        {subjects &&
-          subjects.map(({ name }, i) => (
-            <div className="subject" key={i}>
-              <Bullet inputColor={SUBJECTS_COLORS[i]} />
-              {name}
+      <div className="content">
+        <SubBox className="subjects" width={widths[0]}>
+          {subjects &&
+            subjects.map(({ name }, i) => (
+              <div className="subject" key={i}>
+                <Bullet inputColor={SUBJECTS_COLORS[i]} />
+                {name}
+              </div>
+            ))}
+        </SubBox>
+        <div className="spacer"></div>
+        <SubBox className="info-list" width={widths[1]}>
+          {dateRange && (
+            <div className="info-item">
+              <h3 className="info-title">When</h3>
+              <p className="info-content">{dateRange}</p>
             </div>
-          ))}
-      </SubBox>
-      <div className="spacer"></div>
-      <SubBox className="info-list">
-        <div className="titles">
-          {dateRange && <div className="info-item">When</div>}
-          <div className="info-item">Type</div>
-          {numSessions && <div className="info-item">No. of Sessions</div>}
-        </div>
-        <div className="infos">
-          {dateRange && <div className="info-item">{dateRange}</div>}
-          <div className="info-item">{type}</div>
-          {numSessions && <div className="info-item">{numSessions}</div>}
-        </div>
-      </SubBox>
+          )}
+          {type && (
+            <div className="info-item">
+              <h3 className="info-title">Type</h3>
+              <p className="info-content">{type}</p>
+            </div>
+          )}
+          {numSessions && (
+            <div className="info-item">
+              <h3 className="info-title">No. of Sessions</h3>
+              <p className="info-content">{numSessions}</p>
+            </div>
+          )}
+        </SubBox>
+      </div>
     </Subjects>
   );
 };
 
 Infobox.propTypes = {
   data: PropTypes.object.isRequired,
+  widths: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Infobox;
