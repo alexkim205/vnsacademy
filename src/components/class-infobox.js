@@ -130,8 +130,8 @@ const SubBox = styled.div`
   }
 `;
 
-const Infobox = ({ classData }) => {
-  const { subjects, startDate, endDate, type, numSessions } = classData;
+const Infobox = ({ data }) => {
+  const { subjects, startDate, endDate, type, numSessions } = data;
   const dateRange =
     startDate && endDate ? parseDateRange(startDate, endDate) : null;
 

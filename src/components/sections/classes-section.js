@@ -41,7 +41,7 @@ const Container = styled(BaseSection)`
       `}
 
       .section-title {
-        line-height: 1.2em;
+        line-height: 1.4em;
         font-size: 2em;
         margin-bottom: 1em;
         color: ${BLACK};
@@ -119,9 +119,9 @@ const ClassesSection = ({ children, ...otherProps }) => {
   const classesByCategory = parseByCategory();
   // For now no need to render manually. At most, there'll probably only be these 4 sections.
   const categories = [
-    "Standardized Testing Prep",
-    "Extracurricular Prep",
     "School Prep",
+    "Math + Science Competitions",
+    "Standardized Testing Prep",
     "Private Tutoring",
   ];
 

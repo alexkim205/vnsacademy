@@ -9,8 +9,7 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   justify-content: center;
-  padding: 1em 1.5em;
-  height: ${({ center }) => (center ? 480 : 370)}px;
+  padding: ${({ center }) => (center ? "8em 1.5em" : "5em 1.5em 1em 1.5em")};
   background-color: ${DARK_PURPLE};
   color: ${WHITE};
 

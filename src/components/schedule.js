@@ -82,13 +82,13 @@ const ScheduleBlock = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  box-shadow: ${BUTTON_SHADOW};
+  // box-shadow: ${BUTTON_SHADOW};
   padding: 1em;
   transition: 0.1s all;
 
   &:hover {
     transform: translate(0, 2px);
-    box-shadow: none;
+    // box-shadow: none;
   }
 
   &:last-child {
@@ -96,7 +96,9 @@ const ScheduleBlock = styled.div`
   }
 
   .subject-name {
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 0.3em;
   }
   .subject-time {
     font-size: 1.1em;

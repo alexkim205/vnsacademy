@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import _ from "lodash";
@@ -32,7 +32,7 @@ const Container = styled(BaseSection)`
     }
 
     .carousel-title {
-      margin-top: 4em;
+      margin-top: 2.5em;
       margin-bottom: 2em;
 
       text-align: center;
@@ -106,12 +106,14 @@ const CarouselSection = ({
           >
             {items &&
               items.map(({ name }, i) => (
-                <div key={i} className="title">
-                  {name}
-                </div>
+                <Fragment>
+                  <div key={i} className="title">
+                    {name[0]}
+                  </div>
+                  <div className="subtitle">{name[1]}</div>
+                </Fragment>
               ))}
           </Slider>
-          <div className="subtitle">University</div>
         </div>
         <div className="carousel-content">
           <Slider
@@ -142,7 +144,7 @@ CarouselSection.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string,
+      name: PropTypes.arrayOf(PropTypes.string),
       fixed: PropTypes.object,
     })
   ).isRequired,

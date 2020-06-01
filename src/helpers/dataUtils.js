@@ -4,25 +4,32 @@ const moment = require("moment");
 // TODO: Implement error handling (wrong key, empty class, etc.)
 
 const classesUnparsedData = require("../data/classes.json");
+const programsUnparsedData = require("../data/programs.json");
 
-// Cache data with momentized dates/times and just subjects
-// const classesData = _.map(classesUnparsedData, c =>
-//   _.assign({}, c, {
-//     // startDate: moment(c.startDate),
-//     // endDate: moment(c.endDate),
-//     subjects: _.map(c.subjects, s =>
-//       _.assign({}, s, {
-//         schedule: {
-//           ...s.schedule,
-//           // startTime: moment(s.schedule.startTime, "YYYY-MM-DD hh:mm"),
-//           // endTime: moment(s.schedule.endTime, "YYYY-MM-DD hh:mm"),
-//         },
-//       })
-//     ),
-//   })
-// );
+const makeScheduleFromSubjects = subjects => {
+  const weekdays = { M: [], T: [], W: [], Th: [], F: [] };
+
+  subjects.forEach(({ name, key, schedule: { days, startTime, endTime } }) => {
+    days.forEach(day => {
+      weekdays[day] = [
+        ...weekdays[day],
+        {
+          name,
+          key,
+          startTime,
+          endTime,
+          duration: moment(endTime).diff(moment(startTime), "minutes"),
+        },
+      ];
+    });
+  });
+  return weekdays;
+};
+
+// Classes
 const classesData = classesUnparsedData;
-const subjectsData = _.map(classesData, c => c.subjects);
+
+const subjectsData = _.flatten(_.map(classesData, c => c.subjects));
 
 const getClasses = () => classesData;
 
@@ -48,23 +55,26 @@ const getSubjectByKey = subjectKey => {
 const getClassSchedule = classKey => {
   if (!classKey) return null;
   const subjects = getClassByKey(classKey).subjects;
-  const weekdays = { M: [], T: [], W: [], Th: [], F: [] };
+  return makeScheduleFromSubjects(subjects);
+};
 
-  subjects.forEach(({ name, key, schedule: { days, startTime, endTime } }) => {
-    days.forEach(day => {
-      weekdays[day] = [
-        ...weekdays[day],
-        {
-          name,
-          key,
-          startTime,
-          endTime,
-          duration: moment(endTime).diff(moment(startTime), "minutes"),
-        },
-      ];
-    });
-  });
-  return weekdays;
+// Programs
+
+const programsData = programsUnparsedData;
+
+const getPrograms = () => programsData;
+
+const getProgramByKey = programKey => {
+  if (!programKey) return null;
+  return _.find(programsData, ["key", programKey]);
+};
+
+const getProgramSchedule = programKey => {
+  if (!programKey) return null;
+  const subjects = getProgramByKey(programKey).subjects.map(subjectKey =>
+    getSubjectByKey(subjectKey)
+  );
+  return makeScheduleFromSubjects(subjects);
 };
 
 module.exports = {
@@ -75,4 +85,6 @@ module.exports = {
   getSubjectKeys,
   getSubjectKeysInClass,
   getClassSchedule,
+  getPrograms,
+  getProgramSchedule,
 };

@@ -5,7 +5,7 @@
     "path": "/sat",
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
+    "endDate": "2020-08-13 00:00",
     "type": "Group (Zoom)",
     "numSessions": 32,
     "subjects": [
@@ -43,45 +43,45 @@
     "name": "SAT Subject Tests",
     "path": "/sat-subject",
     "category": "Standardized Testing Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
-    "type": "Group (Zoom)",
-    "numSessions": 32,
+    "startDate": null,
+    "endDate": null,
+    "type": "Individual (Zoom)",
+    "numSessions": null,
     "subjects": [
       {
         "name": "Math 1 + 2",
         "key": "sat-subject-math",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       },
       {
         "name": "Biology E/M",
         "key": "sat-subject-biology",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 12:00",
-          "endTime": "2020-07-01 13:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       },
       {
         "name": "Chemistry",
         "key": "sat-subject-chemistry",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 13:00",
-          "endTime": "2020-07-01 14:30"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       },
       {
         "name": "Physics",
         "key": "sat-subject-physics",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 14:00",
-          "endTime": "2020-07-01 15:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
@@ -91,45 +91,18 @@
     "name": "AP Tests",
     "path": "/ap",
     "category": "Standardized Testing Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
+    "startDate": "2020-07-02 00:00",
+    "endDate": "2020-08-13 00:00",
     "type": "Group (Zoom)",
-    "numSessions": 32,
+    "numSessions": 13,
     "subjects": [
       {
         "name": "Calculus AB + BC",
         "key": "ap-calculus",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
-        }
-      },
-      {
-        "name": "Biology",
-        "key": "ap-biology",
-        "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 12:00",
-          "endTime": "2020-07-01 13:00"
-        }
-      },
-      {
-        "name": "Chemistry",
-        "key": "ap-chemistry",
-        "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 13:00",
-          "endTime": "2020-07-01 14:30"
-        }
-      },
-      {
-        "name": "Physics",
-        "key": "ap-physics",
-        "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 14:00",
-          "endTime": "2020-07-01 15:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
@@ -139,18 +112,18 @@
     "name": "SHSAT",
     "path": "/shsat",
     "category": "Standardized Testing Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
-    "type": "Group (Zoom)",
-    "numSessions": 32,
+    "startDate": null,
+    "endDate": null,
+    "type": "Individual (Zoom)",
+    "numSessions": null,
     "subjects": [
       {
         "name": "SHSAT",
         "key": "shsat-shsat",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
@@ -160,18 +133,18 @@
     "name": "Hunter Entrance Exam",
     "path": "/hunter",
     "category": "Standardized Testing Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
-    "type": "Group (Zoom)",
-    "numSessions": 32,
+    "startDate": null,
+    "endDate": null,
+    "type": "Individual (Zoom)",
+    "numSessions": null,
     "subjects": [
       {
         "name": "Hunter Entrance Exam",
         "key": "hunter-hunter",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
@@ -180,37 +153,46 @@
     "key": "amc",
     "name": "AMC 8 + 10 + 12, AIME",
     "path": "/amc",
-    "category": "Extracurricular Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
-    "type": "Group (Zoom)",
-    "numSessions": 32,
+    "category": "Math + Science Competitions",
+    "startDate": null,
+    "endDate": null,
+    "type": "Individual (Zoom)",
+    "numSessions": null,
     "subjects": [
       {
         "name": "AMC 8",
         "key": "amc-8",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       },
       {
         "name": "AMC 10",
         "key": "amc-10",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 12:00",
-          "endTime": "2020-07-01 13:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       },
       {
         "name": "AMC 12",
         "key": "amc-12",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 13:00",
-          "endTime": "2020-07-01 14:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
+        }
+      },
+      {
+        "name": "AIME",
+        "key": "aime",
+        "schedule": {
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
@@ -219,68 +201,110 @@
     "key": "olympiad",
     "name": "Math + Science Olympiads",
     "path": "/olympiad",
-    "category": "Extracurricular Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
-    "type": "Group (Zoom)",
-    "numSessions": 32,
+    "category": "Math + Science Competitions",
+    "startDate": null,
+    "endDate": null,
+    "type": "Individual (Zoom)",
+    "numSessions": null,
     "subjects": [
       {
         "name": "Math Olympiad",
         "key": "olympiad-math",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       },
       {
         "name": "Science Olympiad",
         "key": "olympiad-science",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 12:00",
-          "endTime": "2020-07-01 13:00"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
   },
   {
-    "key": "algebra-trig",
-    "name": "Algebra 2 + Trigonometry",
-    "path": "/algebra-trig",
-    "category": "School Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
-    "type": "Group (Zoom)",
-    "numSessions": 32,
-    "subjects": [
-      {
-        "name": "Algebra 2 + Trigonometry",
-        "key": "algebra-trig",
-        "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
-        }
-      }
-    ]
-  },
-  {
-    "key": "geometry",
+    "key": "school-geometry",
     "name": "Geometry",
-    "path": "/geometry",
+    "path": "/school-geometry",
     "category": "School Prep",
     "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
+    "endDate": "2020-08-12 00:00",
     "type": "Group (Zoom)",
-    "numSessions": 32,
+    "numSessions": 13,
     "subjects": [
       {
         "name": "Geometry",
-        "key": "geometry",
+        "key": "school-geometry",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
+          "days": ["M", "W"],
+          "startTime": "2020-07-01 14:30",
+          "endTime": "2020-07-01 16:00"
+        }
+      }
+    ]
+  },
+  {
+    "key": "school-algebra-trig",
+    "name": "Algebra 2 + Trigonometry",
+    "path": "/school-algebra-trig",
+    "category": "School Prep",
+    "startDate": "2020-07-02 00:00",
+    "endDate": "2020-08-14 00:00",
+    "type": "Group (Zoom)",
+    "numSessions": 13,
+    "subjects": [
+      {
+        "name": "Algebra 2 + Trigonometry",
+        "key": "school-algebra-trig",
+        "schedule": {
+          "days": ["T", "Th"],
+          "startTime": "2020-07-01 14:30",
+          "endTime": "2020-07-01 16:30"
+        }
+      }
+    ]
+  },
+  {
+    "key": "school-pre-calculus",
+    "name": "Pre-Calculus",
+    "path": "/school-pre-calculus",
+    "category": "School Prep",
+    "startDate": "2020-07-01 00:00",
+    "endDate": "2020-08-12 00:00",
+    "type": "Group (Zoom)",
+    "numSessions": 13,
+    "subjects": [
+      {
+        "name": "Pre-Calculus",
+        "key": "school-pre-calculus",
+        "schedule": {
+          "days": ["M", "W"],
+          "startTime": "2020-07-01 16:00",
+          "endTime": "2020-07-01 17:30"
+        }
+      }
+    ]
+  },
+  {
+    "key": "school-ap-calculus",
+    "name": "AP Calculus AB + BC",
+    "path": "/school-ap-calculus",
+    "category": "School Prep",
+    "startDate": "2020-07-03 00:00",
+    "endDate": "2020-08-14 00:00",
+    "type": "Group (Zoom)",
+    "numSessions": 7,
+    "subjects": [
+      {
+        "name": "AP Calculus AB + BC",
+        "key": "school-ap-calculus",
+        "schedule": {
+          "days": ["T", "Th"],
           "startTime": "2020-07-01 10:00",
           "endTime": "2020-07-01 12:00"
         }
@@ -288,22 +312,64 @@
     ]
   },
   {
-    "key": "pre-calculus",
-    "name": "Pre-Calculus",
-    "path": "/pre-calculus",
+    "key": "school-biology",
+    "name": "Biology",
+    "path": "/school-biology",
     "category": "School Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-31 00:00",
+    "startDate": "2020-07-03 00:00",
+    "endDate": "2020-08-14 00:00",
     "type": "Group (Zoom)",
-    "numSessions": 32,
+    "numSessions": 7,
     "subjects": [
       {
-        "name": "Pre-Calculus",
-        "key": "pre-calculus",
+        "name": "Biology",
+        "key": "school-biology",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
+          "days": ["F"],
+          "startTime": "2020-07-01 14:00",
+          "endTime": "2020-07-01 16:30"
+        }
+      }
+    ]
+  },
+  {
+    "key": "school-chemistry",
+    "name": "Chemistry",
+    "path": "/school-chemistry",
+    "category": "School Prep",
+    "startDate": "2020-07-03 00:00",
+    "endDate": "2020-08-14 00:00",
+    "type": "Group (Zoom)",
+    "numSessions": 7,
+    "subjects": [
+      {
+        "name": "Chemistry",
+        "key": "school-chemistry",
+        "schedule": {
+          "days": ["F"],
+          "startTime": "2020-07-01 16:30",
+          "endTime": "2020-07-01 18:30"
+        }
+      }
+    ]
+  },
+  {
+    "key": "school-physics",
+    "name": "Physics",
+    "path": "/school-physics",
+    "category": "School Prep",
+    "startDate": "2020-07-03 00:00",
+    "endDate": "2020-08-14 00:00",
+    "type": "Group (Zoom)",
+    "numSessions": 7,
+    "subjects": [
+      {
+        "name": "Physics",
+        "key": "school-physics",
+        "schedule": {
+          "days": ["F"],
+          "startTime": "2020-07-01 18:30",
+          "endTime": "2020-07-01 20:30"
         }
       }
     ]
