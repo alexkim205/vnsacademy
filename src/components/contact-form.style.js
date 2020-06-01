@@ -2,25 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 import BaseSection from "./sections/base.style";
-import {
-  WHITE,
-  BUTTON_SHADOW,
-  BOX_SHADOW,
-  SUBJECTS_COLORS,
-  DARK_BACKGROUND_WHITE,
-  breakpoint,
-  MEDIUM_GRAY,
-  BACKGROUND_WHITE,
-} from "../constants/theme";
+import { WHITE, BOX_SHADOW, DARK_BACKGROUND_WHITE } from "../constants/theme";
 
 export const StyledToast = styled.div`
-  .name {
+  padding: 1em 2em;
+  text-align: center;
 
+  .name {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 0.3em;
   }
   .message {
-    
   }
-`
+`;
 
 export const Container = styled(BaseSection)`
   .content {

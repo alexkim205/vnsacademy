@@ -111,7 +111,6 @@ const ContactForm = () => {
   return (
     <Container>
       <div className="content">
-        {isSubmitting.toString()}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-wrapper">
             <div className="input-text">You are contacting us about</div>{" "}

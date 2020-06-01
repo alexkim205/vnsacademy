@@ -99,7 +99,7 @@ const LocationPage = () => {
               <div>8AM - 5PM</div>
             </div>
             <div className="oppositeAlign">
-              <div>Sat+Sun</div>
+              <div>Sat + Sun</div>
               <div>10AM - 7PM</div>
             </div>
           </InfoBox>
