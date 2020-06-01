@@ -12,6 +12,7 @@ import {
   ContainerNav,
   animCloseMobileNav,
   animOpenMobileNav,
+  Dummy
 } from "./navbar.style";
 
 const Navbar = () => {
@@ -50,6 +51,7 @@ const Navbar = () => {
   const renderNavItems = () => (
     <Fragment>
       <div className="left">
+        <Dummy />
         <NavLink
           to="/"
           active="active"
