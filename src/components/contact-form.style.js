@@ -89,7 +89,7 @@ export const Container = styled(BaseSection)`
             ${breakpoint.down("s_m")`
               margin-left: 0;
             `}
-            
+
             ${breakpoint.down("s")`
               text-align: center;
             `}
@@ -127,6 +127,13 @@ export const Container = styled(BaseSection)`
           font-size: 0.9em;
           text-align: right;
           color: ${RED};
+
+          ${breakpoint.down("s_m")`
+          text-align: left;
+          `}
+          ${breakpoint.down("s")`
+          text-align: center;
+          `}
         }
       }
 

@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FormButton } from "../components/button";
 import { Container, Select, StyledToast } from "./contact-form.style";
 
-const emailAddress = "vnsacademy@gmail.com";
+export const emailAddress = "vnsacademy@gmail.com";
 const ccEmailAddresses = "sogyu30@yahoo.com,oliviaebea@yahoo.com";
 
 const toastOptions = {
