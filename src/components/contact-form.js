@@ -84,7 +84,10 @@ const ContactForm = () => {
         //handle error
         console.log(response);
         toast.error(
-          "There was an error submitting your form. Please try again.",
+          renderToast(
+            "Message not sent.",
+            "There was an error submitting your form. Please try again."
+          ),
           toastOptions
         );
       });
