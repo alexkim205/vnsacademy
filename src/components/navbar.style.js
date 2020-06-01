@@ -203,6 +203,11 @@ export const ButtonLink = styled(BaseLink)`
   }
 `;
 
+export const Dummy = styled.div`
+  width: 125.597px;
+  height: 15.7px;
+`;
+
 export const animOpenMobileNav = async el => {
   if (!el.current) return;
   el.current.style.display = "flex";

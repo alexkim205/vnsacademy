@@ -39,10 +39,10 @@ const ClassTemplate = ({ data }) => {
   return (
     <Layout title={classData.name}>
       <SEO title={classData.name} />
+      <ButtonSection buttons={buttons} />
       <ContainedSection>
         <Infobox classData={classData} />
       </ContainedSection>
-      <ButtonSection buttons={buttons} />
       <ContainedSection>
         <Schedule scheduleData={scheduleData} colorMap={colorMap} />
       </ContainedSection>

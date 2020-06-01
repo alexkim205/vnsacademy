@@ -7,15 +7,17 @@
 import { useState, useEffect } from "react";
 
 const useScroll = () => {
+  const [isDocumentReady, setIsDocumentReady] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [bodyOffset, setBodyOffset] = useState(
-    document.body.getBoundingClientRect()
-  );
+  const [bodyOffset, setBodyOffset] = useState(0);
   const [scrollY, setScrollY] = useState(bodyOffset.top);
   const [scrollX, setScrollX] = useState(bodyOffset.left);
   const [scrollDirection, setScrollDirection] = useState();
 
   const listener = e => {
+    if (!isDocumentReady) {
+      return;
+    }
     setBodyOffset(document.body.getBoundingClientRect());
     setScrollY(-bodyOffset.top);
     setScrollX(bodyOffset.left);
@@ -29,6 +31,11 @@ const useScroll = () => {
       window.removeEventListener("scroll", listener);
     };
   });
+
+  useEffect(() => {
+    setIsDocumentReady(true);
+    setBodyOffset(document.body.getBoundingClientRect());
+  }, []);
 
   return {
     scrollY,
