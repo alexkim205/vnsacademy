@@ -65,7 +65,7 @@ export const ContainerNav = styled.nav`
     }
     .center {
       .home {
-        display: none;
+        // display: none;
       }
     }
     .left {
@@ -152,9 +152,11 @@ const BaseLink = styled(Link)`
   font-size: 0.85em;
   font-weight: 500;
 
-  &:first-child,
+  &:first-child {
+    margin-left: 0;
+  }
   &:last-child {
-    margin: 0;
+    margin-right: 0;
   }
 
   &:hover {

@@ -18,31 +18,35 @@ const LocationContainer = styled.div`
   align-items: stretch;
   margin-top: 2em;
 
-  ${breakpoint.down("m")`
+  ${breakpoint.down("s_m")`
 		flex-direction: column;
 	`}
 `;
 
 const InfoBox = styled.div`
   font-family: "Poppins", sans-serif;
-  width: 40%;
+  width: 30%;
   margin-left: 2em;
   height: 100%;
   padding: 1em 0;
   box-sizing: border-box;
 
-  h3.title {
+  p {
+    line-height: 1.7em;
+  }
+
+  h3.location-title {
     font-weight: 500;
-    &:first-child {
-      margin-top: 0.5em;
-    }
+    // &:first-child {
+    //   margin-top: 0.5em;
+    // }
   }
   .oppositeAlign {
     display: flex;
     justify-content: space-between;
   }
 
-  ${breakpoint.down("m")`
+  ${breakpoint.down("s_m")`
 		margin-left: 0;
 		width: 100%;
 	`}
@@ -79,16 +83,16 @@ const LocationPage = () => {
             }}
           />
           <InfoBox>
-            <h3 className="title">Address</h3>
+            <h3 className="location-title">Address</h3>
             <p>
               VnS Academy
               <br />
               211-63 46th Ave FL 1<br />
-              Queens, NY
+              Bayside, NY
               <br />
               11361
             </p>
-            <h3 className="title">Hours</h3>
+            {/* <h3 className="title">Hours</h3>
             <div className="oppositeAlign">
               <div>M T W Th F</div>
               <div>8AM - 5PM</div>
@@ -96,7 +100,7 @@ const LocationPage = () => {
             <div className="oppositeAlign">
               <div>Sat + Sun</div>
               <div>10AM - 7PM</div>
-            </div>
+            </div> */}
           </InfoBox>
         </LocationContainer>
         <ButtonContainer>
