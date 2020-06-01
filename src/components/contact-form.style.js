@@ -141,6 +141,10 @@ export const Container = styled(BaseSection)`
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
+
+        ${breakpoint.down("s_m")`
+        justify-content: center;
+        `}
       }
     }
   }

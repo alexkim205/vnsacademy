@@ -73,6 +73,7 @@ const ContactForm = ({ reason = null }) => {
       data: requestFormData,
       headers: {
         "Content-Type": "multipart/form-data",
+        "X-Requested-With": "XMLHttpRequest",
       },
     })
       .then(response => {
