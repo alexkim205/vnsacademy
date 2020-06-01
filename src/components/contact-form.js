@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { formatPhoneNumber } from "react-phone-number-input";
 import PhoneInput from "react-phone-number-input/input";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, Slide, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { FormButton } from "../components/button";
@@ -141,7 +141,7 @@ const ContactForm = ({ reason = null }) => {
                 <option value="other">other</option>
               </Select>
             </div>
-            <div className="input-text append">,</div>
+            <div className="input-text append select">,</div>
             {/* <div className="input-error">{errors?.reason?.message}</div> */}
           </div>
           <div className="input-wrapper">
@@ -166,7 +166,7 @@ const ContactForm = ({ reason = null }) => {
                 <option value="School English Prep">School English Prep</option>
               </Select>
             </div>
-            <div className="input-text append">.</div>
+            <div className="input-text append select">.</div>
             {/* <div className="input-error">{errors?.subject?.message}</div> */}
           </div>
           <div className="input-wrapper">
@@ -199,7 +199,7 @@ const ContactForm = ({ reason = null }) => {
                 })}
               />{" "}
             </div>
-            <div className="input-text">.</div>
+            <div className="input-text append">.</div>
             <div className="input-error">{errors?.phone?.message}</div>
             <div className="input-error">{errors?.email?.message}</div>
           </div>
@@ -228,6 +228,7 @@ const ContactForm = ({ reason = null }) => {
       <ToastContainer
         position="bottom-center"
         autoClose={3000}
+        transition={Slide}
         hideProgressBar={false}
         newestOnTop
         closeOnClick

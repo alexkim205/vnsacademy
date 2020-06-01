@@ -32,6 +32,7 @@ export const BREAKPOINTS = {
   xxs: 0,
   xs: 400,
   s: 576,
+  s_m: 693,
   m: 768,
   l: 992,
   xl: 1200,

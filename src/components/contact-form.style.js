@@ -2,7 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import BaseSection from "./sections/base.style";
-import { WHITE, BOX_SHADOW, DARK_BACKGROUND_WHITE } from "../constants/theme";
+import {
+  WHITE,
+  BOX_SHADOW,
+  DARK_BACKGROUND_WHITE,
+  RED,
+  breakpoint,
+} from "../constants/theme";
 
 export const StyledToast = styled.div`
   padding: 1em 2em;
@@ -25,7 +31,7 @@ export const Container = styled(BaseSection)`
     align-items: center;
     border-radius: 5px;
     box-shadow: ${BOX_SHADOW};
-    padding: 3.5em 2.5em;
+    padding: 3.5em 3.5em;
 
     form {
       display: flex;
@@ -37,6 +43,10 @@ export const Container = styled(BaseSection)`
         display: block;
         margin-bottom: 1em;
 
+        ${breakpoint.down("s")`
+          text-align: center;
+        `}
+
         &:last-child {
           margin-bottom: 0;
         }
@@ -45,7 +55,16 @@ export const Container = styled(BaseSection)`
           display: inline-block;
           font-weight: 500;
 
-          &.append {
+          ${breakpoint.down("s_m")`
+            width: 100%;
+            margin-bottom: 0.5em;
+
+            &.append {
+              display: none;
+            }
+          `}
+
+          &.append.select {
             margin-left: 1em;
           }
         }
@@ -65,13 +84,27 @@ export const Container = styled(BaseSection)`
             margin: 0 0.5em;
             font-size: 1.05em;
             color: #3f3f3f;
+            box-sizing: border-box;
+
+            ${breakpoint.down("s_m")`
+              margin-left: 0;
+            `}
+            
+            ${breakpoint.down("s")`
+              text-align: center;
+            `}
 
             &[name="phone"] {
-              width: 110px;
-              // text-align: center;
+              width: 122px;
+              ${breakpoint.down("s")`
+                width: 100%;
+              `}
             }
             &[name="email"] {
               width: 180px;
+              ${breakpoint.down("s")`
+                width: 100%;
+              `}
             }
           }
 
@@ -93,7 +126,7 @@ export const Container = styled(BaseSection)`
           width: 100%;
           font-size: 0.9em;
           text-align: right;
-          color: red;
+          color: ${RED};
         }
       }
 
@@ -129,6 +162,16 @@ const SelectContainer = styled.div`
     margin: 0 0.5em;
     font-size: 1.05em;
     color: #3f3f3f;
+    box-sizing: border-box;
+
+    ${breakpoint.down("s_m")`
+      margin-left: 0;
+    `}
+
+    ${breakpoint.down("s")`
+      text-align: center;
+      text-align-last:center;
+    `}
 
     /* Here's the code we need */
     -webkit-appearance: none;

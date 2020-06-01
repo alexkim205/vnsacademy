@@ -90,7 +90,7 @@ const LocationPage = () => {
             </p>
             <h3 className="title">Hours</h3>
             <div className="oppositeAlign">
-              <div>MTWThF</div>
+              <div>M T W Th F</div>
               <div>8AM - 5PM</div>
             </div>
             <div className="oppositeAlign">
