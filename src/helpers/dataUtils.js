@@ -6,11 +6,35 @@ const moment = require("moment");
 const classesUnparsedData = require("../data/classes.json");
 const programsUnparsedData = require("../data/programs.json");
 
+/*
+{
+  M: [{name, key, 10, 12, duration}, {name, key, 1, 2, duration}]
+  T: []
+  W: []
+  Th: []
+  F: []        
+}
+
+->
+
+{
+  M: [{filler, key, 9, 10, duration},
+    {name, key, 10, 12, duration},
+    {filler, key, 12, 1, duration},
+    {name, key, 1, 2, duration},
+    {filler, key, 2, 12am, duration}
+  ]
+  T: [{filler, key, 9am, 12am, duration}]
+  W: [{filler, key, 9am, 12am, duration}]
+  Th: [{filler, key, 9am, 12am, duration}]
+  F: [{filler, key, 9am, 12am, duration}]        
+}
+*/
 const makeScheduleFromSubjects = subjects => {
   const weekdays = { M: [], T: [], W: [], Th: [], F: [] };
 
   subjects.forEach(({ name, key, schedule: { days, startTime, endTime } }) => {
-    days.forEach(day => {
+    days.forEach((day, day_i) => {
       weekdays[day] = [
         ...weekdays[day],
         {
@@ -23,7 +47,66 @@ const makeScheduleFromSubjects = subjects => {
       ];
     });
   });
-  return weekdays;
+
+  // If schedule blank, just return blank schedule
+  if (_.every(_.map(_.values(weekdays), day => day.length === 0)))
+    return weekdays;
+
+  // Fill schedule with blanks
+  const initialStartTime = moment.min(
+    _.map(_.values(_.filter(weekdays, d => d.length)), day =>
+      moment(day[0].startTime, "YYYY-MM-DD hh:mm")
+    )
+  );
+  const finalEndTime = moment.max(
+    _.map(_.values(_.filter(weekdays, d => d.length)), day =>
+      moment(day[day.length - 1].endTime, "YYYY-MM-DD hh:mm")
+    )
+  );
+  console.log(initialStartTime, finalEndTime);
+
+  var filledWeekdays = { M: [], T: [], W: [], Th: [], F: [] };
+
+  _.keys(weekdays).forEach((weekday, weekday_i) => {
+    var lastEndingTime = initialStartTime;
+    weekdays[weekday].forEach((block, block_i) => {
+      const currentStartTime = moment(block.startTime);
+      const diff = currentStartTime.diff(lastEndingTime, "minutes");
+      if (diff !== 0) {
+        // add filler block
+        const newBlock = {
+          name: "filler",
+          key: "filler",
+          startTime: null,
+          endTime: null,
+          duration: diff,
+        };
+        filledWeekdays[weekday].push(newBlock);
+      }
+      // add existing block
+      filledWeekdays[weekday].push(block);
+      lastEndingTime = moment(block.endTime, "YYYY-MM-DD hh:mm");
+
+      if (block_i === weekdays[weekday].length - 1) {
+        // last block
+        const lastDiff = finalEndTime.diff(lastEndingTime, "minutes");
+        if (lastDiff !== 0) {
+          const newBlock = {
+            name: "filler",
+            key: "filler",
+            startTime: null,
+            endTime: null,
+            duration: lastDiff,
+          };
+          filledWeekdays[weekday].push(newBlock);
+        }
+      }
+    });
+  });
+
+  // console.log(filledWeekdays);
+
+  return filledWeekdays;
 };
 
 // Classes
@@ -98,5 +181,5 @@ module.exports = {
   getClassSchedule,
   getPrograms,
   getProgramSchedule,
-  getFullProgramByKey
+  getFullProgramByKey,
 };

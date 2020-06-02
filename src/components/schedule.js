@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import styled from "styled-components";
+import moment from "moment";
 
 import BaseSection from "../components/sections/base.style";
 import { parseTimeRange } from "../helpers/utils";
@@ -36,7 +37,8 @@ const ScheduleContainer = styled(BaseSection)`
     padding: 1em;
     display: flex;
     flex-direction: column;
-    height: calc(${({ maxBlocks }) => maxBlocks * 1.5}px + 4em);
+    // height: 100%;
+    // height: calc(${({ maxBlocks }) => maxBlocks * 1.5}px + 15em);
     // box-sizing: border-box;
 
     ${breakpoint.down("m")`
@@ -72,37 +74,38 @@ const DayBlock = styled.div`
 `;
 
 const ScheduleBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${props => props.colorInput};
+  height: ${props => props.size}px;
   box-sizing: border-box;
-  width: 100%;
-  height: ${props => props.size}%;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
   // box-shadow: ${BUTTON_SHADOW};
-  padding: 1em;
+  padding: 0.5em 0;
   transition: 0.1s all;
+  visibility: ${({ isFiller }) => (isFiller ? "hidden" : "visible")};
 
-  &:hover {
-    transform: translate(0, 2px);
-    // box-shadow: none;
-  }
+  .subject-content {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+    height: 100%;
+    padding: 1em;
+    align-items: center;
+    background-color: ${props => props.colorInput};
+    border-radius: 5px;
 
-  &:last-child {
-    margin-bottom: 0px;
-  }
+    &:hover {
+      transform: translate(0, 2px);
+      // box-shadow: none;
+    }
 
-  .subject-name {
-    font-weight: 600;
-    font-size: 1.1em;
-    margin-bottom: 0.3em;
-  }
-  .subject-time {
-    font-size: 1.1em;
-    font-weight: 500;
+    .subject-name {
+      font-weight: 600;
+      font-size: 1.1em;
+      margin-bottom: 0.3em;
+    }
+    .subject-time {
+      font-size: 1.1em;
+      font-weight: 500;
+    }
   }
 `;
 
@@ -110,6 +113,8 @@ const Schedule = ({ scheduleData, colorMap }) => {
   // Return null for empty schedule
   if (_.every(_.map(_.values(scheduleData), day => day.length === 0)))
     return <Fragment />;
+
+  console.log(scheduleData);
 
   const { M, T, W, Th, F } = scheduleData;
   const maxDurationInOneDay = _.max(
@@ -122,17 +127,21 @@ const Schedule = ({ scheduleData, colorMap }) => {
     const totalDurationInDay = _.sum(
       _.map(schedule, ({ duration }) => duration)
     );
+
     return (
       <DayBlock>
         {schedule.map(({ name, key, startTime, endTime, duration }, i) => (
           <ScheduleBlock
             key={i}
             colorInput={SUBJECTS_COLORS[colorMap.findIndex(k => k === key)]}
-            size={(duration * 100) / totalDurationInDay}
+            size={duration * 1.5}
+            isFiller={name === "filler"}
           >
-            <div className="subject-name">{name}</div>
-            <div className="subject-time">
-              {parseTimeRange(startTime, endTime)}
+            <div className="subject-content">
+              <div className="subject-name">{name}</div>
+              <div className="subject-time">
+                {parseTimeRange(startTime, endTime)}
+              </div>
             </div>
           </ScheduleBlock>
         ))}

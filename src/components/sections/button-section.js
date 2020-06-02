@@ -32,6 +32,7 @@ const ButtonContainer = styled.div`
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   width: 50%;
+  margin-bottom: 1em;
 
   .message {
     margin-bottom: 1rem;

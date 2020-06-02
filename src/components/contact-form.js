@@ -176,7 +176,7 @@ const ContactForm = ({
                 }}
               />{" "}
             </div>
-            <div className="input-text">or</div>{" "}
+            <div className="input-text">and</div>{" "}
             <div className="input-input">
               <input
                 type="text"
