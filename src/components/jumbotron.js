@@ -14,7 +14,7 @@ const Container = styled.div`
   color: ${WHITE};
 
   ${breakpoint.down("m")`
-    height: 330px;
+    padding: ${({ center }) => (center ? "4em 1.5em 2.5em 1.5em" : "5em 1.5em 1em 1.5em")};
   `}
 
   .content {
