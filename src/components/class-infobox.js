@@ -142,12 +142,12 @@ const Infobox = ({ data, widths = ["50%", "50%"] }) => {
               <p className="info-content">{type}</p>
             </div>
           )}
-          {numSessions && (
+          {/* {numSessions && (
             <div className="info-item">
               <h3 className="info-title">No. of Sessions</h3>
               <p className="info-content">{numSessions}</p>
             </div>
-          )}
+          )} */}
         </SubBox>
       </div>
     </Subjects>

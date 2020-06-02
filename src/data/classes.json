@@ -6,7 +6,7 @@
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-13 00:00",
-    "type": "Group (Zoom)",
+    "type": "Class (Virtual)",
     "numSessions": 32,
     "subjects": [
       {
@@ -45,7 +45,7 @@
     "category": "Standardized Testing Prep",
     "startDate": null,
     "endDate": null,
-    "type": "Individual (Zoom)",
+    "type": "Individual (Virtual)",
     "numSessions": null,
     "subjects": [
       {
@@ -93,12 +93,39 @@
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-02 00:00",
     "endDate": "2020-08-13 00:00",
-    "type": "Group (Zoom)",
+    "type": "Class (Virtual)",
     "numSessions": 13,
     "subjects": [
       {
-        "name": "Calculus AB + BC",
+        "name": "AP Calculus AB + BC",
         "key": "ap-calculus",
+        "schedule": {
+          "days": [],
+          "startTime": null,
+          "endTime": null
+        }
+      },
+      {
+        "name": "AP Biology",
+        "key": "ap-biology",
+        "schedule": {
+          "days": [],
+          "startTime": null,
+          "endTime": null
+        }
+      },
+      {
+        "name": "AP Chemistry",
+        "key": "ap-chemistry",
+        "schedule": {
+          "days": [],
+          "startTime": null,
+          "endTime": null
+        }
+      },
+      {
+        "name": "AP Physics",
+        "key": "ap-physics",
         "schedule": {
           "days": [],
           "startTime": null,
@@ -114,7 +141,7 @@
     "category": "Standardized Testing Prep",
     "startDate": null,
     "endDate": null,
-    "type": "Individual (Zoom)",
+    "type": "Individual (Virtual)",
     "numSessions": null,
     "subjects": [
       {
@@ -135,7 +162,7 @@
     "category": "Standardized Testing Prep",
     "startDate": null,
     "endDate": null,
-    "type": "Individual (Zoom)",
+    "type": "Individual (Virtual)",
     "numSessions": null,
     "subjects": [
       {
@@ -156,7 +183,7 @@
     "category": "Math + Science Competitions",
     "startDate": null,
     "endDate": null,
-    "type": "Individual (Zoom)",
+    "type": "Individual (Virtual)",
     "numSessions": null,
     "subjects": [
       {
@@ -204,7 +231,7 @@
     "category": "Math + Science Competitions",
     "startDate": null,
     "endDate": null,
-    "type": "Individual (Zoom)",
+    "type": "Individual (Virtual)",
     "numSessions": null,
     "subjects": [
       {
@@ -234,7 +261,7 @@
     "category": "School Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-12 00:00",
-    "type": "Group (Zoom)",
+    "type": "Class (Virtual)",
     "numSessions": 13,
     "subjects": [
       {
@@ -255,7 +282,7 @@
     "category": "School Prep",
     "startDate": "2020-07-02 00:00",
     "endDate": "2020-08-14 00:00",
-    "type": "Group (Zoom)",
+    "type": "Class (Virtual)",
     "numSessions": 13,
     "subjects": [
       {
@@ -276,7 +303,7 @@
     "category": "School Prep",
     "startDate": "2020-07-01 00:00",
     "endDate": "2020-08-12 00:00",
-    "type": "Group (Zoom)",
+    "type": "Class (Virtual)",
     "numSessions": 13,
     "subjects": [
       {
@@ -296,9 +323,9 @@
     "path": "/school-ap-calculus",
     "category": "School Prep",
     "startDate": "2020-07-03 00:00",
-    "endDate": "2020-08-14 00:00",
-    "type": "Group (Zoom)",
-    "numSessions": 7,
+    "endDate": "2020-08-13 00:00",
+    "type": "Class (Virtual)",
+    "numSessions": 13,
     "subjects": [
       {
         "name": "AP Calculus AB + BC",
@@ -318,7 +345,7 @@
     "category": "School Prep",
     "startDate": "2020-07-03 00:00",
     "endDate": "2020-08-14 00:00",
-    "type": "Group (Zoom)",
+    "type": "Class (Virtual)",
     "numSessions": 7,
     "subjects": [
       {
@@ -339,7 +366,7 @@
     "category": "School Prep",
     "startDate": "2020-07-03 00:00",
     "endDate": "2020-08-14 00:00",
-    "type": "Group (Zoom)",
+    "type": "Class (Virtual)",
     "numSessions": 7,
     "subjects": [
       {
@@ -360,7 +387,7 @@
     "category": "School Prep",
     "startDate": "2020-07-03 00:00",
     "endDate": "2020-08-14 00:00",
-    "type": "Group (Zoom)",
+    "type": "Class (Virtual)",
     "numSessions": 7,
     "subjects": [
       {
@@ -381,7 +408,7 @@
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
-    "type": "Individual (Zoom)",
+    "type": "Individual (Virtual)",
     "numSessions": null,
     "subjects": [
       {
@@ -402,7 +429,7 @@
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
-    "type": "Individual (Zoom)",
+    "type": "Individual (Virtual)",
     "numSessions": null,
     "subjects": [
       {
@@ -423,7 +450,7 @@
     "category": "Private Tutoring",
     "startDate": null,
     "endDate": null,
-    "type": "Individual (Zoom)",
+    "type": "Individual (Virtual)",
     "numSessions": null,
     "subjects": [
       {

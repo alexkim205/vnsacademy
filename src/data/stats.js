@@ -1,7 +1,7 @@
 export const generalStats = [
   {
     id: "newsat",
-    name: "New SAT",
+    name: "SAT",
     stat: 1550,
     outOf: 1600,
   },

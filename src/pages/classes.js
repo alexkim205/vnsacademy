@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-import { PINK, BLACK, DARK_PURPLE } from "../constants/theme";
+import { HIGHLIGHT_YELLOW, BLACK, DARK_PURPLE } from "../constants/theme";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -10,7 +10,7 @@ import ClassesSection from "../components/sections/classes-section";
 import ContainedSection from "../components/sections/contained-section";
 
 const HighlightSection = styled(ContainedSection)`
-  background-color: ${PINK};
+  background-color: ${HIGHLIGHT_YELLOW};
 
   .content {
     text-align: center;
