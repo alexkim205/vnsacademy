@@ -78,7 +78,6 @@ const ScheduleBlock = styled.div`
   box-sizing: border-box;
   // box-shadow: ${BUTTON_SHADOW};
   padding: 0.5em 0;
-  transition: 0.1s all;
   visibility: ${({ isFiller }) => (isFiller ? "hidden" : "visible")};
 
   .subject-content {
@@ -89,6 +88,7 @@ const ScheduleBlock = styled.div`
     height: 100%;
     padding: 1em;
     align-items: center;
+    transition: 0.1s all;
     background-color: ${props => props.colorInput};
     border-radius: 5px;
 

@@ -26,10 +26,10 @@ export const SUBJECTS_COLORS = [
   "#DBD5B2",
   "#F0A7A0",
   "#FFFECB",
-  "#4CC9F0",
   "#C8E0F4",
   "#E9D6EC",
   "#81968F",
+  "#b7e9f9",
   "#90C3C8",
   "#93C0A4",
 ];
