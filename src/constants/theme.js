@@ -30,6 +30,8 @@ export const SUBJECTS_COLORS = [
   "#C8E0F4",
   "#E9D6EC",
   "#81968F",
+  "#90C3C8",
+  "#93C0A4",
 ];
 
 export const BREAKPOINTS = {
