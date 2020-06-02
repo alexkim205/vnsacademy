@@ -6,6 +6,7 @@ export const BRIGHT_PURPLE = "#6415FF";
 export const LIGHT_PURPLE = "#EBE1FF";
 export const HIGHLIGHT_YELLOW = "#FFEB3B";
 export const RED = "#FF0054";
+export const PINK = "#FF7CA7";
 export const DARK_YELLOW = "#FFBD00";
 export const LIGHT_GRAY = "#DDDDDD";
 export const MEDIUM_GRAY = "#C4C4C4";

@@ -105,7 +105,7 @@ const SubBox = styled.div`
         font-weight: 500;
         line-height: 1.7em;
         font-size: 1em;
-        margin: 0.5em 0 0.3em 0;
+        margin: 0.5em 0 0 0;
       }
     }
   }

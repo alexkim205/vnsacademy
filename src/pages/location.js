@@ -5,7 +5,6 @@ import Img from "gatsby-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import BaseSection from "../components/sections/base.style";
 import { ExternalButton } from "../components/button";
 import ContainedSection from "../components/sections/contained-section";
 import { breakpoint, BOX_SHADOW } from "../constants/theme";

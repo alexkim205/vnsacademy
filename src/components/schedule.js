@@ -114,8 +114,6 @@ const Schedule = ({ scheduleData, colorMap }) => {
   if (_.every(_.map(_.values(scheduleData), day => day.length === 0)))
     return <Fragment />;
 
-  console.log(scheduleData);
-
   const { M, T, W, Th, F } = scheduleData;
   const maxDurationInOneDay = _.max(
     _.map(_.values(scheduleData), day =>

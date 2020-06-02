@@ -63,7 +63,6 @@ const makeScheduleFromSubjects = subjects => {
       moment(day[day.length - 1].endTime, "YYYY-MM-DD hh:mm")
     )
   );
-  console.log(initialStartTime, finalEndTime);
 
   var filledWeekdays = { M: [], T: [], W: [], Th: [], F: [] };
 
@@ -103,8 +102,6 @@ const makeScheduleFromSubjects = subjects => {
       }
     });
   });
-
-  // console.log(filledWeekdays);
 
   return filledWeekdays;
 };
