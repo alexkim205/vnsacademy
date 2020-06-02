@@ -7,7 +7,7 @@ const {
   getClasses,
   getPrograms,
   getProgramSchedule,
-  getFullProgramByKey
+  getFullProgramByKey,
 } = require("./src/helpers/dataUtils.js");
 
 exports.createPages = ({ actions: { createPage } }) => {

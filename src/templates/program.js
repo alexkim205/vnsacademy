@@ -33,7 +33,7 @@ const ProgramTemplate = ({ data }) => {
     <Layout title={programData.name}>
       <SEO title={programData.name} />
       <ContainedSection>
-        <Infobox data={programData} widths={["65%", "35%"]}/>
+        <Infobox data={programData} widths={["65%", "35%"]} />
       </ContainedSection>
       <ButtonSection buttons={buttons} />
       <ContainedSection>
