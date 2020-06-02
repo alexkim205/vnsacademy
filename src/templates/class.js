@@ -44,10 +44,10 @@ const ClassTemplate = ({ data }) => {
       <ContainedSection>
         <Infobox data={classData} />
       </ContainedSection>
-      <ButtonSection buttons={buttons} />
       <ContainedSection>
         <Schedule scheduleData={scheduleData} colorMap={colorMap} />
       </ContainedSection>
+      <ButtonSection buttons={buttons} />
     </Layout>
   );
 };

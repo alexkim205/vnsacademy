@@ -26,6 +26,8 @@ const ScheduleContainer = styled(BaseSection)`
   box-shadow: ${BOX_SHADOW};
   border-radius: 5px;
   padding: 3.5em 2.5em;
+  margin-top: -3em;
+  margin-bottom: -3em;
 
   ${breakpoint.down("s")`
   flex-direction: column;

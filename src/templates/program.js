@@ -35,10 +35,10 @@ const ProgramTemplate = ({ data }) => {
       <ContainedSection>
         <Infobox data={programData} widths={["65%", "35%"]} />
       </ContainedSection>
-      <ButtonSection buttons={buttons} />
       <ContainedSection>
         <Schedule scheduleData={scheduleData} colorMap={colorMap} />
       </ContainedSection>
+      <ButtonSection buttons={buttons} />
     </Layout>
   );
 };
