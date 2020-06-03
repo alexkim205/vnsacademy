@@ -1,7 +1,7 @@
 [
   {
     "key": "sat",
-    "name": "SAT",
+    "name": "SAT/ACT",
     "path": "/sat",
     "category": "Standardized Testing Prep",
     "startDate": "2020-07-01 00:00",
@@ -10,7 +10,7 @@
     "numSessions": 32,
     "subjects": [
       {
-        "name": "English + Writing",
+        "name": "SAT/ACT English + Writing",
         "key": "sat-english-writing",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
@@ -19,7 +19,7 @@
         }
       },
       {
-        "name": "Math",
+        "name": "SAT/ACT Math",
         "key": "sat-math",
         "schedule": {
           "days": ["M", "T", "W", "Th"],
@@ -28,7 +28,7 @@
         }
       },
       {
-        "name": "Full Practice Test",
+        "name": "SAT/ACT Full Practice Test",
         "key": "sat-practice",
         "schedule": {
           "days": ["F"],
