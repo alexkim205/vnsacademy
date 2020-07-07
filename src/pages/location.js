@@ -99,9 +99,7 @@ const LocationPage = () => {
               VnS Academy
               <br />
               211-63 46th Ave FL 1<br />
-              Bayside, NY
-              <br />
-              11361
+              Bayside, NY 11361
             </p>
             <ExternalButton href={dirLink} active="active" target="_blank">
               Get Directions
