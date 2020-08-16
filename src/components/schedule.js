@@ -116,7 +116,7 @@ const Schedule = ({ scheduleData, colorMap }) => {
   if (_.every(_.map(_.values(scheduleData), day => day.length === 0)))
     return <Fragment />;
 
-  const { M, T, W, Th, F } = scheduleData;
+  const { Sun, Sat } = scheduleData;
   const maxDurationInOneDay = _.max(
     _.map(_.values(scheduleData), day =>
       _.sum(_.map(day, ({ duration }) => duration))
@@ -149,10 +149,40 @@ const Schedule = ({ scheduleData, colorMap }) => {
     );
   };
 
+  console.log();
+
   return (
     <Fragment>
       <ScheduleContainer maxBlocks={maxDurationInOneDay}>
-        <div className="DOW Monday">
+        {Sun.length !== 0 && Sat.length !== 0 ? (
+          <Fragment>
+            <div className="DOW Saturday">
+            <h1>Sat</h1>
+              <div className="weekday-title"></div>
+              {renderScheduleByDay(Sat)}
+            </div>
+            <div className="DOW Sunday">
+              <div className="weekday-title"></div>
+              {renderScheduleByDay(Sun)}
+            </div>
+          </Fragment>
+        ) : Sun.length !== 0 ? (
+          <div className="DOW Sunday">
+            <div className="weekday-title">
+              <h1>Sat</h1>
+            </div>
+            {renderScheduleByDay(Sun)}
+          </div>
+        ) : (
+          <div className="DOW Saturday">
+            <div className="weekday-title">
+              <h1>Sat</h1>
+            </div>
+            {renderScheduleByDay(Sat)}
+          </div>
+        )}
+
+        {/* <div className="DOW Monday">
           <div className="weekday-title">
             <h1>M</h1>
           </div>
@@ -181,7 +211,13 @@ const Schedule = ({ scheduleData, colorMap }) => {
             <h1>F</h1>
           </div>
           {renderScheduleByDay(F)}
-        </div>
+        </div> */}
+        {/* <div className="DOW Saturday">
+          <div className="weekday-title">
+            <h1>Sat</h1>
+          </div>
+          {renderScheduleByDay(Sat)}
+        </div> */}
       </ScheduleContainer>
     </Fragment>
   );
@@ -189,11 +225,13 @@ const Schedule = ({ scheduleData, colorMap }) => {
 
 Schedule.propTypes = {
   /*
-		Indexing Key for scheduleData
+    Indexing Key for scheduleData
+    Sun: Sunday
 		M: Monday
 		T: Tuesday
 		...
-		F: Friday
+    F: Friday
+    Sat: Saturday
 
 		Indexing Key for scheduleData.{weekday}
 		0: name
@@ -203,11 +241,13 @@ Schedule.propTypes = {
 		4: key
 	*/
   scheduleData: PropTypes.shape({
-    M: PropTypes.arrayOf(PropTypes.object),
-    T: PropTypes.arrayOf(PropTypes.object),
-    W: PropTypes.arrayOf(PropTypes.object),
-    Th: PropTypes.arrayOf(PropTypes.object),
-    F: PropTypes.arrayOf(PropTypes.object),
+    Sun: PropTypes.arrayOf(PropTypes.object),
+    // M: PropTypes.arrayOf(PropTypes.object),
+    // T: PropTypes.arrayOf(PropTypes.object),
+    // W: PropTypes.arrayOf(PropTypes.object),
+    // Th: PropTypes.arrayOf(PropTypes.object),
+    // F: PropTypes.arrayOf(PropTypes.object),
+    Sat: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
   colorMap: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

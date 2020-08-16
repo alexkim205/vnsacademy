@@ -13,27 +13,27 @@
         "name": "SAT/ACT English + Writing",
         "key": "sat-english-writing",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 09:30",
+          "endTime": "2020-07-01 11:30"
         }
       },
       {
         "name": "SAT/ACT Math",
         "key": "sat-math",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 12:00",
-          "endTime": "2020-07-01 13:30"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 11:30",
+          "endTime": "2020-07-01 13:00"
         }
       },
       {
         "name": "SAT/ACT Full Practice Test",
         "key": "sat-practice",
         "schedule": {
-          "days": ["F"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 13:30"
+          "days": [],
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
@@ -268,9 +268,9 @@
         "name": "Geometry",
         "key": "school-geometry",
         "schedule": {
-          "days": ["M", "W"],
-          "startTime": "2020-07-01 14:30",
-          "endTime": "2020-07-01 16:00"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 13:30",
+          "endTime": "2020-07-01 15:30"
         }
       }
     ]
@@ -289,9 +289,9 @@
         "name": "Algebra 2 + Trigonometry",
         "key": "school-algebra-trig",
         "schedule": {
-          "days": ["T", "Th"],
-          "startTime": "2020-07-01 14:30",
-          "endTime": "2020-07-01 16:00"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 15:30",
+          "endTime": "2020-07-01 17:30"
         }
       }
     ]
@@ -310,9 +310,9 @@
         "name": "Pre-Calculus",
         "key": "school-pre-calculus",
         "schedule": {
-          "days": ["M", "W"],
-          "startTime": "2020-07-01 16:00",
-          "endTime": "2020-07-01 17:30"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 18:00",
+          "endTime": "2020-07-01 20:00"
         }
       }
     ]
@@ -331,9 +331,9 @@
         "name": "AP Calculus AB + BC",
         "key": "school-ap-calculus",
         "schedule": {
-          "days": ["T", "Th"],
-          "startTime": "2020-07-01 16:00",
-          "endTime": "2020-07-01 17:30"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 20:00",
+          "endTime": "2020-07-01 22:00"
         }
       }
     ]
@@ -352,9 +352,9 @@
         "name": "Biology",
         "key": "school-biology",
         "schedule": {
-          "days": ["F"],
-          "startTime": "2020-07-01 14:30",
-          "endTime": "2020-07-01 16:30"
+          "days": ["Sun"],
+          "startTime": "2020-07-01 11:30",
+          "endTime": "2020-07-01 13:30"
         }
       }
     ]
@@ -373,9 +373,9 @@
         "name": "Chemistry",
         "key": "school-chemistry",
         "schedule": {
-          "days": ["F"],
-          "startTime": "2020-07-01 16:30",
-          "endTime": "2020-07-01 18:30"
+          "days": ["Sun"],
+          "startTime": "2020-07-01 13:30",
+          "endTime": "2020-07-01 15:30"
         }
       }
     ]
@@ -394,9 +394,9 @@
         "name": "Physics",
         "key": "school-physics",
         "schedule": {
-          "days": ["F"],
-          "startTime": "2020-07-01 18:30",
-          "endTime": "2020-07-01 20:30"
+          "days": ["Sun"],
+          "startTime": "2020-07-01 15:30",
+          "endTime": "2020-07-01 17:30"
         }
       }
     ]

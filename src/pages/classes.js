@@ -38,8 +38,8 @@ const ClassesPage = () => {
       <HighlightSection>
         <span className="highlight">
           Register now for our{" "}
-          <Link to={"/programs/summer-program-2020"}>2020 Summer Program</Link>{" "}
-          (July 1 - August 14, 2020).
+          <Link to={"/programs/fall-program-2020"}>2020 Fall Program</Link>{" "}
+          (September 12 - January 23, 2020).
         </span>
       </HighlightSection>
       <ClassesSection />
