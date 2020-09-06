@@ -14,6 +14,7 @@ const ContactHirePage = ({ location }) => {
         reason={location?.state?.reason}
         reasons={HIRING_REASONS}
         subjects={HIRING_SUBJECTS}
+        isContactPage={false}
       />
     </Layout>
   );

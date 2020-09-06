@@ -28,18 +28,23 @@ const ContactForm = ({
   reason = null,
   reasons = ENROLL_REASONS,
   subjects = ENROLL_SUBJECTS,
+  isContactPage = true,
 }) => {
   const {
     register,
     handleSubmit,
     setValue,
     reset,
+    watch,
     clearError,
     triggerValidation,
     formState: { isSubmitting },
     errors,
   } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
+  const watchStudentName = watch("student_name");
+
+  console.log(watchStudentName);
 
   // On component mount, prefill with location state if it exists
   useEffect(() => {
@@ -50,7 +55,16 @@ const ContactForm = ({
     // setValue("subject", location.state.subject); // Don't set subject because its too tedious to map.
   }, [reason, setValue]);
 
-  const onSubmit = ({ reason, email, phone, subject, moreinfo }) => {
+  const onSubmit = ({
+    reason,
+    email,
+    phone,
+    subject,
+    moreinfo,
+    student_name,
+    student_grade,
+    school_name,
+  }) => {
     clearError("phone");
     clearError("email");
     if (isSubmitting) return;
@@ -59,6 +73,11 @@ const ContactForm = ({
     requestFormData.set("reason", reason);
     requestFormData.set("email", email);
     requestFormData.set("subject", subject);
+    if (isContactPage) {
+      requestFormData.set("student_name", student_name);
+      requestFormData.set("student_grade", student_grade);
+      requestFormData.set("school_name", school_name);
+    }
     requestFormData.set("phone", formatPhoneNumber(phone));
     requestFormData.set("moreinfo", moreinfo);
     requestFormData.set("_replyto", emailAddress);
@@ -161,6 +180,63 @@ const ContactForm = ({
             <div className="input-text append select">.</div>
             {/* <div className="input-error">{errors?.subject?.message}</div> */}
           </div>
+          {isContactPage && ( // Ask for student information if on contact us page
+            <>
+              <div className="input-wrapper">
+                <div className="input-text">The student's name is</div>{" "}
+                <div className="input-input">
+                  <input
+                    type="text"
+                    placeholder="Student Name"
+                    name="student_name"
+                    ref={register({
+                      required: "Student name is required.",
+                    })}
+                  />{" "}
+                </div>{" "}
+                <div className="input-text append">.</div>{" "}
+                <div className="input-error">
+                  {errors?.student_name?.message}
+                </div>
+              </div>
+              <div className="input-wrapper">
+                <div className="input-text">
+                  {watchStudentName ? `${watchStudentName} is ` : "They are "}in
+                  the
+                </div>{" "}
+                <div className="input-input">
+                  <Select
+                    name="student_grade"
+                    ref={register({
+                      required: "Student grade is required.",
+                    })}
+                    defaultValue={10}
+                  >
+                    {[6, 7, 8, 9, 10, 11, 12].map((grade, i) => (
+                      <option value={grade} key={i}>
+                        {grade}
+                      </option>
+                    ))}
+                  </Select>
+                </div>
+                <div className="input-text append select">th grade at</div>{" "}
+                <div className="input-input">
+                  <input
+                    type="text"
+                    placeholder="School"
+                    name="school_name"
+                    ref={register({
+                      required: "Student's school is required.",
+                    })}
+                  />
+                </div>{" "}
+                <div className="input-text append">.</div>{" "}
+                <div className="input-error">
+                  {errors?.student_grade?.message}
+                </div>
+              </div>
+            </>
+          )}
           <div className="input-wrapper">
             <div className="input-text">I'd like to be reached at</div>{" "}
             <div className="input-input">
