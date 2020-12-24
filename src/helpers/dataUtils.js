@@ -68,39 +68,41 @@ const makeScheduleFromSubjects = subjects => {
 
   _.keys(weekdays).forEach((weekday, weekday_i) => {
     var lastEndingTime = initialStartTime;
-    weekdays[weekday].forEach((block, block_i) => {
-      const currentStartTime = moment(block.startTime);
-      const diff = currentStartTime.diff(lastEndingTime, "minutes");
-      if (diff !== 0) {
-        // add filler block
-        const newBlock = {
-          name: "filler",
-          key: "filler",
-          startTime: null,
-          endTime: null,
-          duration: diff,
-        };
-        filledWeekdays[weekday].push(newBlock);
-      }
-      // add existing block
-      filledWeekdays[weekday].push(block);
-      lastEndingTime = moment(block.endTime, "YYYY-MM-DD hh:mm");
-
-      if (block_i === weekdays[weekday].length - 1) {
-        // last block
-        const lastDiff = finalEndTime.diff(lastEndingTime, "minutes");
-        if (lastDiff !== 0) {
+    _.orderBy(weekdays[weekday], ["startTime"], ["asc"]).forEach(
+      (block, block_i) => {
+        const currentStartTime = moment(block.startTime);
+        const diff = currentStartTime.diff(lastEndingTime, "minutes");
+        if (diff !== 0) {
+          // add filler block
           const newBlock = {
             name: "filler",
             key: "filler",
             startTime: null,
             endTime: null,
-            duration: lastDiff,
+            duration: diff,
           };
           filledWeekdays[weekday].push(newBlock);
         }
+        // add existing block
+        filledWeekdays[weekday].push(block);
+        lastEndingTime = moment(block.endTime, "YYYY-MM-DD hh:mm");
+
+        if (block_i === weekdays[weekday].length - 1) {
+          // last block
+          const lastDiff = finalEndTime.diff(lastEndingTime, "minutes");
+          if (lastDiff !== 0) {
+            const newBlock = {
+              name: "filler",
+              key: "filler",
+              startTime: null,
+              endTime: null,
+              duration: lastDiff,
+            };
+            filledWeekdays[weekday].push(newBlock);
+          }
+        }
       }
-    });
+    );
   });
 
   return filledWeekdays;
