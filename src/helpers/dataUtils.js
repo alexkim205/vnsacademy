@@ -8,19 +8,16 @@ const programsUnparsedData = require("../data/programs.json");
 
 /*
 {
-  Sun: []
   M: [{name, key, 10, 12, duration}, {name, key, 1, 2, duration}]
   T: []
   W: []
   Th: []
-  F: [] 
-  Sat: []       
+  F: []        
 }
 
 ->
 
 {
-  Sun: []
   M: [{filler, key, 9, 10, duration},
     {name, key, 10, 12, duration},
     {filler, key, 12, 1, duration},
@@ -30,12 +27,11 @@ const programsUnparsedData = require("../data/programs.json");
   T: [{filler, key, 9am, 12am, duration}]
   W: [{filler, key, 9am, 12am, duration}]
   Th: [{filler, key, 9am, 12am, duration}]
-  F: [{filler, key, 9am, 12am, duration}]      
-  Sat: []  
+  F: [{filler, key, 9am, 12am, duration}]        
 }
 */
 const makeScheduleFromSubjects = subjects => {
-  const weekdays = { Sun: [], Sat: [] };
+  const weekdays = { M: [], T: [], W: [], Th: [], F: [] };
 
   subjects.forEach(({ name, key, schedule: { days, startTime, endTime } }) => {
     days.forEach((day, day_i) => {
@@ -68,7 +64,7 @@ const makeScheduleFromSubjects = subjects => {
     )
   );
 
-  var filledWeekdays = { Sun: [], Sat: [] };
+  var filledWeekdays = { M: [], T: [], W: [], Th: [], F: [] };
 
   _.keys(weekdays).forEach((weekday, weekday_i) => {
     var lastEndingTime = initialStartTime;
