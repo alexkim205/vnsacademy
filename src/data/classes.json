@@ -262,18 +262,18 @@
     "name": "Geometry",
     "path": "/school-geometry",
     "category": "School Prep",
-    "startDate": null,
-    "endDate": null,
+    "startDate": "2021-01-30 00:00",
+    "endDate": "2021-06-05 00:00",
     "type": "Class (Virtual)",
-    "numSessions": 13,
+    "numSessions": 18,
     "subjects": [
       {
         "name": "Geometry",
         "key": "school-geometry",
         "schedule": {
-          "days": ["M", "W"],
-          "startTime": null,
-          "endTime": null
+          "days": ["Sat"],
+          "startTime": "2020-07-01 13:30",
+          "endTime": "2020-07-01 15:30"
         }
       }
     ]
@@ -284,9 +284,9 @@
     "path": "/school-algebra-trig",
     "category": "School Prep",
     "startDate": "2021-01-30 00:00",
-    "endDate": "2021-06-12 00:00",
+    "endDate": "2021-06-05 00:00",
     "type": "Class (Virtual)",
-    "numSessions": 19,
+    "numSessions": 18,
     "subjects": [
       {
         "name": "Algebra 2 + Trigonometry",
@@ -315,14 +315,14 @@
         "schedule": {
           "days": ["Sat"],
           "startTime": "2020-07-01 18:00",
-          "endTime": "2020-07-01 20:30"
+          "endTime": "2020-07-01 20:00"
         }
       }
     ]
   },
   {
     "key": "school-ap-calculus",
-    "name": "AP Calculus AB + BC",
+    "name": "AP Calculus BC",
     "path": "/school-ap-calculus",
     "category": "School Prep",
     "startDate": "2021-01-30 20:00",
@@ -331,7 +331,7 @@
     "numSessions": 14,
     "subjects": [
       {
-        "name": "AP Calculus AB + BC",
+        "name": "AP Calculus BC",
         "key": "school-ap-calculus",
         "schedule": {
           "days": ["Sat"],
@@ -355,7 +355,7 @@
         "name": "Biology",
         "key": "school-biology",
         "schedule": {
-          "days": ["F"],
+          "days": [],
           "startTime": null,
           "endTime": null
         }
