@@ -75,6 +75,13 @@ export const query = graphql`
               }
             }
             scheduleData {
+              Sun {
+                name
+                key
+                duration
+                startTime
+                endTime
+              }
               M {
                 name
                 key
@@ -104,6 +111,13 @@ export const query = graphql`
                 endTime
               }
               F {
+                name
+                key
+                duration
+                startTime
+                endTime
+              }
+              Sat {
                 name
                 key
                 duration

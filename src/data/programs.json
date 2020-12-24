@@ -1,21 +1,17 @@
 [
   {
-    "key": "summer-program-2020",
-    "name": "2020 Summer Program",
-    "path": "/summer-program-2020",
-    "category": "Summer",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-14 00:00",
+    "key": "spring-program-2021",
+    "name": "2021 Spring Program",
+    "path": "/spring-program-2021",
+    "category": "Spring",
+    "startDate": "2021-01-29 00:00",
+    "endDate": "2021-06-12 00:00",
     "type": "Group (Zoom)",
     "subjects": [
-      "sat-english-writing",
-      "sat-math",
-      "sat-practice",
-      "school-geometry",
+      "sat",
       "school-algebra-trig",
       "school-pre-calculus",
       "school-ap-calculus",
-      "school-biology",
       "school-chemistry",
       "school-physics"
     ]

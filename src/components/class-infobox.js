@@ -3,14 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { parseDateRange } from "../helpers/utils";
-import {
-  WHITE,
-  BOX_SHADOW,
-  BLACK,
-  breakpoint,
-  DARKER_BACKGROUND_WHITE,
-  SUBJECTS_COLORS,
-} from "../constants/theme";
+import { BOX_SHADOW, breakpoint, SUBJECTS_COLORS } from "../constants/theme";
 import BaseSection from "./sections/base.style";
 
 const Subjects = styled(BaseSection)`
@@ -112,7 +105,7 @@ const SubBox = styled.div`
 `;
 
 const Infobox = ({ data, widths = ["50%", "50%"] }) => {
-  const { subjects, startDate, endDate, type, numSessions } = data;
+  const { subjects, startDate, endDate, type } = data;
   const dateRange =
     startDate && endDate ? parseDateRange(startDate, endDate) : null;
 

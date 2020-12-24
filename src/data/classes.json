@@ -1,39 +1,42 @@
 [
   {
+    "key": "dummy",
+    "name": "Dummy Class",
+    "path": "/dummy",
+    "category": "Dummy",
+    "startDate": null,
+    "endDate": null,
+    "type": "Class (Virtual)",
+    "numSessions": 18,
+    "subjects": [
+      {
+        "name": "Dummy Class",
+        "key": "dummy",
+        "schedule": {
+          "days": ["Sun", "M", "T", "W", "Th", "F", "Sat"],
+          "startTime": "2020-07-01 09:30",
+          "endTime": "2020-07-01 13:00"
+        }
+      }
+    ]
+  },
+  {
     "key": "sat",
     "name": "SAT/ACT",
     "path": "/sat",
     "category": "Standardized Testing Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-13 00:00",
+    "startDate": "2021-01-30 00:00",
+    "endDate": "2021-5-29 00:00",
     "type": "Class (Virtual)",
-    "numSessions": 32,
+    "numSessions": 18,
     "subjects": [
       {
-        "name": "SAT/ACT English + Writing",
-        "key": "sat-english-writing",
+        "name": "SAT/ACT",
+        "key": "sat",
         "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 12:00"
-        }
-      },
-      {
-        "name": "SAT/ACT Math",
-        "key": "sat-math",
-        "schedule": {
-          "days": ["M", "T", "W", "Th"],
-          "startTime": "2020-07-01 12:00",
-          "endTime": "2020-07-01 13:30"
-        }
-      },
-      {
-        "name": "SAT/ACT Full Practice Test",
-        "key": "sat-practice",
-        "schedule": {
-          "days": ["F"],
-          "startTime": "2020-07-01 10:00",
-          "endTime": "2020-07-01 13:30"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 09:30",
+          "endTime": "2020-07-01 13:00"
         }
       }
     ]
@@ -91,8 +94,8 @@
     "name": "AP Tests",
     "path": "/ap",
     "category": "Standardized Testing Prep",
-    "startDate": "2020-07-02 00:00",
-    "endDate": "2020-08-13 00:00",
+    "startDate": null,
+    "endDate": null,
     "type": "Class (Virtual)",
     "numSessions": 13,
     "subjects": [
@@ -259,8 +262,8 @@
     "name": "Geometry",
     "path": "/school-geometry",
     "category": "School Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-12 00:00",
+    "startDate": null,
+    "endDate": null,
     "type": "Class (Virtual)",
     "numSessions": 13,
     "subjects": [
@@ -269,8 +272,8 @@
         "key": "school-geometry",
         "schedule": {
           "days": ["M", "W"],
-          "startTime": "2020-07-01 14:30",
-          "endTime": "2020-07-01 16:00"
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
@@ -280,18 +283,18 @@
     "name": "Algebra 2 + Trigonometry",
     "path": "/school-algebra-trig",
     "category": "School Prep",
-    "startDate": "2020-07-02 00:00",
-    "endDate": "2020-08-14 00:00",
+    "startDate": "2021-01-30 00:00",
+    "endDate": "2021-06-12 00:00",
     "type": "Class (Virtual)",
-    "numSessions": 13,
+    "numSessions": 19,
     "subjects": [
       {
         "name": "Algebra 2 + Trigonometry",
         "key": "school-algebra-trig",
         "schedule": {
-          "days": ["T", "Th"],
-          "startTime": "2020-07-01 14:30",
-          "endTime": "2020-07-01 16:00"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 15:30",
+          "endTime": "2020-07-01 17:30"
         }
       }
     ]
@@ -301,18 +304,18 @@
     "name": "Pre-Calculus",
     "path": "/school-pre-calculus",
     "category": "School Prep",
-    "startDate": "2020-07-01 00:00",
-    "endDate": "2020-08-12 00:00",
+    "startDate": "2021-01-30 00:00",
+    "endDate": "2021-06-05 00:00",
     "type": "Class (Virtual)",
-    "numSessions": 13,
+    "numSessions": 19,
     "subjects": [
       {
         "name": "Pre-Calculus",
         "key": "school-pre-calculus",
         "schedule": {
-          "days": ["M", "W"],
-          "startTime": "2020-07-01 16:00",
-          "endTime": "2020-07-01 17:30"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 18:00",
+          "endTime": "2020-07-01 20:30"
         }
       }
     ]
@@ -322,18 +325,18 @@
     "name": "AP Calculus AB + BC",
     "path": "/school-ap-calculus",
     "category": "School Prep",
-    "startDate": "2020-07-02 00:00",
-    "endDate": "2020-08-13 00:00",
+    "startDate": "2021-01-30 20:00",
+    "endDate": "2020-05-01 22:00",
     "type": "Class (Virtual)",
-    "numSessions": 13,
+    "numSessions": 14,
     "subjects": [
       {
         "name": "AP Calculus AB + BC",
         "key": "school-ap-calculus",
         "schedule": {
-          "days": ["T", "Th"],
-          "startTime": "2020-07-01 16:00",
-          "endTime": "2020-07-01 17:30"
+          "days": ["Sat"],
+          "startTime": "2020-07-01 20:00",
+          "endTime": "2020-07-01 22:00"
         }
       }
     ]
@@ -343,8 +346,8 @@
     "name": "Biology",
     "path": "/school-biology",
     "category": "School Prep",
-    "startDate": "2020-07-03 00:00",
-    "endDate": "2020-08-14 00:00",
+    "startDate": null,
+    "endDate": null,
     "type": "Class (Virtual)",
     "numSessions": 7,
     "subjects": [
@@ -353,8 +356,8 @@
         "key": "school-biology",
         "schedule": {
           "days": ["F"],
-          "startTime": "2020-07-01 14:30",
-          "endTime": "2020-07-01 16:30"
+          "startTime": null,
+          "endTime": null
         }
       }
     ]
@@ -364,18 +367,18 @@
     "name": "Chemistry",
     "path": "/school-chemistry",
     "category": "School Prep",
-    "startDate": "2020-07-03 00:00",
-    "endDate": "2020-08-14 00:00",
+    "startDate": "2021-01-29 00:00",
+    "endDate": "2021-05-28 00:00",
     "type": "Class (Virtual)",
-    "numSessions": 7,
+    "numSessions": 18,
     "subjects": [
       {
         "name": "Chemistry",
         "key": "school-chemistry",
         "schedule": {
           "days": ["F"],
-          "startTime": "2020-07-01 16:30",
-          "endTime": "2020-07-01 18:30"
+          "startTime": "2020-07-01 17:00",
+          "endTime": "2020-07-01 19:00"
         }
       }
     ]
@@ -385,8 +388,8 @@
     "name": "Physics",
     "path": "/school-physics",
     "category": "School Prep",
-    "startDate": "2020-07-03 00:00",
-    "endDate": "2020-08-14 00:00",
+    "startDate": "2021-01-29 00:00",
+    "endDate": "2021-05-28 00:00",
     "type": "Class (Virtual)",
     "numSessions": 7,
     "subjects": [
@@ -395,8 +398,8 @@
         "key": "school-physics",
         "schedule": {
           "days": ["F"],
-          "startTime": "2020-07-01 18:30",
-          "endTime": "2020-07-01 20:30"
+          "startTime": "2020-07-01 19:00",
+          "endTime": "2020-07-01 21:00"
         }
       }
     ]

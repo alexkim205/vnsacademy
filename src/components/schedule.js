@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import styled from "styled-components";
-import moment from "moment";
 
 import BaseSection from "../components/sections/base.style";
 import { parseTimeRange } from "../helpers/utils";
@@ -116,7 +115,8 @@ const Schedule = ({ scheduleData, colorMap }) => {
   if (_.every(_.map(_.values(scheduleData), day => day.length === 0)))
     return <Fragment />;
 
-  const { M, T, W, Th, F } = scheduleData;
+  const { M, T, W, Th, F, Sat, Sun } = scheduleData;
+  console.log("DAYS", M, T, W, Th, F, Sat, Sun);
   const maxDurationInOneDay = _.max(
     _.map(_.values(scheduleData), day =>
       _.sum(_.map(day, ({ duration }) => duration))
@@ -124,10 +124,6 @@ const Schedule = ({ scheduleData, colorMap }) => {
   );
 
   const renderScheduleByDay = schedule => {
-    const totalDurationInDay = _.sum(
-      _.map(schedule, ({ duration }) => duration)
-    );
-
     return (
       <DayBlock>
         {schedule.map(({ name, key, startTime, endTime, duration }, i) => (
@@ -152,36 +148,62 @@ const Schedule = ({ scheduleData, colorMap }) => {
   return (
     <Fragment>
       <ScheduleContainer maxBlocks={maxDurationInOneDay}>
-        <div className="DOW Monday">
-          <div className="weekday-title">
-            <h1>M</h1>
+        {!!Sun.length && (
+          <div className="DOW Sunday">
+            <div className="weekday-title">
+              <h1>Sun</h1>
+            </div>
+            {renderScheduleByDay(Sun)}
           </div>
-          {renderScheduleByDay(M)}
-        </div>
-        <div className="DOW Tuesday">
-          <div className="weekday-title">
-            <h1>T</h1>
+        )}
+        {!!M.length && (
+          <div className="DOW Monday">
+            <div className="weekday-title">
+              <h1>M</h1>
+            </div>
+            {renderScheduleByDay(M)}
           </div>
-          {renderScheduleByDay(T)}
-        </div>
-        <div className="DOW Wednesday">
-          <div className="weekday-title">
-            <h1>W</h1>
+        )}
+        {!!T.length && (
+          <div className="DOW Tuesday">
+            <div className="weekday-title">
+              <h1>T</h1>
+            </div>
+            {renderScheduleByDay(T)}
           </div>
-          {renderScheduleByDay(W)}
-        </div>
-        <div className="DOW Thursday">
-          <div className="weekday-title">
-            <h1>Th</h1>
+        )}
+        {!!W.length && (
+          <div className="DOW Wednesday">
+            <div className="weekday-title">
+              <h1>W</h1>
+            </div>
+            {renderScheduleByDay(W)}
           </div>
-          {renderScheduleByDay(Th)}
-        </div>
-        <div className="DOW Friday">
-          <div className="weekday-title">
-            <h1>F</h1>
+        )}
+        {!!Th.length && (
+          <div className="DOW Thursday">
+            <div className="weekday-title">
+              <h1>Th</h1>
+            </div>
+            {renderScheduleByDay(Th)}
           </div>
-          {renderScheduleByDay(F)}
-        </div>
+        )}
+        {!!F.length && (
+          <div className="DOW Friday">
+            <div className="weekday-title">
+              <h1>F</h1>
+            </div>
+            {renderScheduleByDay(F)}
+          </div>
+        )}
+        {!!Sat.length && (
+          <div className="DOW Saturday">
+            <div className="weekday-title">
+              <h1>Sat</h1>
+            </div>
+            {renderScheduleByDay(Sat)}
+          </div>
+        )}
       </ScheduleContainer>
     </Fragment>
   );
