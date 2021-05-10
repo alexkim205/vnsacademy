@@ -7,7 +7,7 @@ import NoticeSection from "../components/sections/notice-section";
 import CarouselSection from "../components/sections/carousel-section";
 import StatsSection from "../components/sections/stats-section";
 import ContainedSection from "../components/sections/contained-section";
-import HighlightSection from "../components/sections/highlight-section";
+import ProgramSection from "../components/sections/program-section";
 import useCollegeImages from "../helpers/useCollegeImages";
 
 import { generalStats, specificStats } from "../data/stats";
@@ -21,19 +21,30 @@ const IndexPage = () => {
     <Layout title={title}>
       <SEO title={title} />
       <NoticeSection>
-        Due to COVID-19, we’ve closed our physical center in Bayside. For the
-        health and safety of our students and teachers, we are providing video
-        tutoring sessions for individual and group classes. Thank you for your
-        understanding and please stay safe.
+        <h2 style={{ textAlign: "center", lineHeight: "2rem" }}>
+          COVID-19 Update: Our physical center is now open for our students! In
+          order to ensure the safety of our students and teachers:
+        </h2>
+        <ul>
+          <li>
+            All students must present his/her CDC vaccination card before the
+            first day of class.
+          </li>
+          <li>
+            All students and faculty must wear a mask at all times in the
+            building.
+          </li>
+          <li>
+            Body temperature will be checked every day before entering the
+            classroom.
+          </li>
+          <li>
+            Students who have COVID-19 symptoms will be asked to attend the
+            class online.
+          </li>
+        </ul>
       </NoticeSection>
-      <HighlightSection light>
-        <span className="highlight">
-          Register now for our{" "}
-          <Link to={"/programs/spring-program-2021"}>2021 Spring Program</Link>{" "}
-          (starts January 29, 2021). <br />
-          Early Bird Registration by January 9, 2021.
-        </span>
-      </HighlightSection>
+      <ProgramSection />
       <CarouselSection
         title={"Our students have been accepted into"}
         items={collegeImages}

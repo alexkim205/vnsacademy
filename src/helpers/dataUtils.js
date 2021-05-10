@@ -2,9 +2,7 @@ const _ = require("lodash");
 const moment = require("moment");
 
 // TODO: Implement error handling (wrong key, empty class, etc.)
-
-const classesUnparsedData = require("../data/classes.json");
-const programsUnparsedData = require("../data/programs.json");
+const getData = require("./fetchFromFirestore");
 
 /*
 {
@@ -108,64 +106,95 @@ const makeScheduleFromSubjects = subjects => {
   return filledWeekdays;
 };
 
+// Global variables
+let classesData, subjectsData;
+let programsData;
+
+const assignVars = async () => {
+  const { classes, programs } = await getData();
+  classesData = classes;
+  subjectsData = _.flatten(_.map(classesData, c => c.subjects));
+  programsData = programs;
+};
+
 // Classes
-const classesData = classesUnparsedData;
-
-const subjectsData = _.flatten(_.map(classesData, c => c.subjects));
-
-const getClasses = () => classesData;
-
-const getClassKeys = () => _.map(classesData, c => c.key);
-
-const getClassByKey = classKey => {
-  if (!classKey) return null;
-  return _.find(classesData, ["key", classKey]);
+const getClasses = async () => {
+  if (classesData) {
+    return classesData;
+  }
+  await assignVars();
+  return classesData;
 };
 
-const getSubjectKeysInClass = classKey => {
-  if (!classKey) return null;
-  return _.find(classesData, ["key", classKey]).subjects.map(s => s.key);
+const getSubjects = async () => {
+  if (subjectsData) {
+    return subjectsData;
+  }
+  await assignVars();
+  return classesData;
 };
 
-const getSubjectKeys = () => _.map(subjectsData, s => s.key);
+const getClassKeys = async () => {
+  return _.map(await getClasses(), c => c.key);
+};
 
-const getSubjectByKey = subjectKey => {
+const getClassByKey = async classKey => {
+  if (!classKey) return null;
+  return _.find(await getClasses(), ["key", classKey]);
+};
+
+const getSubjectKeysInClass = async classKey => {
+  if (!classKey) return null;
+  return _.find(await getClasses(), ["key", classKey]).subjects.map(s => s.key);
+};
+
+const getSubjectKeys = async () => {
+  _.map(await getSubjects(), s => s.key);
+};
+
+const getSubjectByKey = async subjectKey => {
   if (!subjectKey) return null;
-  return _.find(subjectsData, ["key", subjectKey]);
+  return _.find(await getSubjects(), ["key", subjectKey]);
 };
 
-const getClassSchedule = classKey => {
+const getClassSchedule = async classKey => {
   if (!classKey) return null;
-  const subjects = getClassByKey(classKey).subjects;
+  const subjects = (await getClassByKey(classKey)).subjects;
   return makeScheduleFromSubjects(subjects);
 };
 
 // Programs
 
-const programsData = programsUnparsedData;
-
-const getPrograms = () => programsData;
-
-const getProgramByKey = programKey => {
-  if (!programKey) return null;
-  return _.find(programsData, ["key", programKey]);
+const getPrograms = async () => {
+  if (programsData) {
+    return programsData;
+  }
+  await assignVars();
+  return programsData;
 };
 
-const getFullProgramByKey = programKey => {
+const getProgramByKey = async programKey => {
   if (!programKey) return null;
-  const foundProgram = _.find(programsData, ["key", programKey]);
+  return _.find(await getPrograms(), ["key", programKey]);
+};
+
+const getFullProgramByKey = async programKey => {
+  if (!programKey) return null;
+  const foundProgram = _.find(await getPrograms(), ["key", programKey]);
 
   return _.assign({}, foundProgram, {
-    subjects: foundProgram.subjects.map(subjectKey =>
-      getSubjectByKey(subjectKey)
+    subjects: await Promise.all(
+      foundProgram.subjects.map(subjectKey => getSubjectByKey(subjectKey))
     ),
   });
 };
 
-const getProgramSchedule = programKey => {
+const getProgramSchedule = async programKey => {
   if (!programKey) return null;
-  const subjects = getProgramByKey(programKey).subjects.map(subjectKey =>
-    getSubjectByKey(subjectKey)
+  const subjects = await Promise.all(
+    (await getProgramByKey(programKey)).subjects.map(subjectKey =>
+      getSubjectByKey(subjectKey)
+    )
   );
   return makeScheduleFromSubjects(subjects);
 };

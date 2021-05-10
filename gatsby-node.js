@@ -10,32 +10,52 @@ const {
   getFullProgramByKey,
 } = require("./src/helpers/dataUtils.js");
 
-exports.createPages = ({ actions: { createPage } }) => {
+exports.createPages = async ({ actions: { createPage } }) => {
   const classTemplate = path.resolve("./src/templates/class.js");
-  const classesData = getClasses();
+  const classesData = await getClasses();
 
-  classesData.forEach(classData => {
-    createPage({
-      path: `/classes/${classData.key}`,
-      component: classTemplate,
-      context: {
-        classData,
-        scheduleData: getClassSchedule(classData.key),
-      },
-    });
-  });
+  console.log("classesDat", classesData);
+
+  let classPageData;
+  try {
+    classPageData = await Promise.all(
+      classesData.map(async classData => ({
+        path: `/classes/${classData.key}`,
+        component: classTemplate,
+        context: {
+          classData,
+          scheduleData: await getClassSchedule(classData.key),
+        },
+      }))
+    );
+  } catch (error) {
+    throw new Error("Error fetching classes data " + error.message);
+  }
+
+  for (const c of classPageData) {
+    createPage(c);
+  }
 
   const programTemplate = path.resolve("./src/templates/program.js");
-  const programsData = getPrograms();
+  const programsData = await getPrograms();
 
-  programsData.forEach(programData => {
-    createPage({
-      path: `/programs/${programData.key}`,
-      component: programTemplate,
-      context: {
-        programData: getFullProgramByKey(programData.key),
-        scheduleData: getProgramSchedule(programData.key),
-      },
-    });
-  });
+  let programPageData;
+  try {
+    programPageData = await Promise.all(
+      programsData.map(async programData => ({
+        path: `/programs/${programData.key}`,
+        component: programTemplate,
+        context: {
+          programData: await getFullProgramByKey(programData.key),
+          scheduleData: await getProgramSchedule(programData.key),
+        },
+      }))
+    );
+  } catch (error) {
+    console.log(error);
+  }
+
+  for (const p of programPageData) {
+    createPage(p);
+  }
 };
