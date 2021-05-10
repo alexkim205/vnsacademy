@@ -7,7 +7,7 @@
   "dependencies": {
     "@humblebee/styled-components-breakpoint": "^2.1.4",
     "animejs": "^3.2.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.10.7",
     "firebase": "^8.5.0",
     "gatsby": "^2.21.37",
