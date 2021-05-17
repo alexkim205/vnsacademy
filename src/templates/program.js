@@ -10,6 +10,7 @@ import Infobox from "../components/class-infobox";
 import ContainedSection from "../components/sections/contained-section";
 import ButtonSection from "../components/sections/button-section";
 import Schedule from "../components/schedule";
+import ClickableBox from "../components/clickable-box";
 
 const ProgramTemplate = ({ data }) => {
   const { programData, scheduleData } = data.allSitePage.edges[0].node.context;
@@ -29,9 +30,16 @@ const ProgramTemplate = ({ data }) => {
       routerState: { reason: ENROLL_REASONS.PRIVATE },
     },
   ];
+
+  console.log("ProgramData", programData);
   return (
     <Layout title={programData.name}>
       <SEO title={programData.name} />
+      <ContainedSection padding="3em 1.5em 0 1.5em">
+        <ClickableBox textAlign="center" href={programData.imageUrl}>
+          <h2>Download the full schedule.</h2>
+        </ClickableBox>
+      </ContainedSection>
       <ContainedSection>
         <Infobox data={programData} widths={["65%", "35%"]} />
       </ContainedSection>
@@ -59,6 +67,7 @@ export const query = graphql`
               startDate
               endDate
               type
+              imageUrl
               subjects {
                 name
                 key

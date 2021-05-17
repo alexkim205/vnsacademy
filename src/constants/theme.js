@@ -19,6 +19,7 @@ export const BLACK = "#000000";
 
 export const BUTTON_SHADOW = "0px 4px 4px 0px rgba(0,0,0,0.25)";
 export const BOX_SHADOW = "0px 24px 48px 0px rgba(176,176,176,0.28)";
+export const BOX_SHADOW_HOVER = "0px 24px 48px 0px rgba(50,50,50,0.25)";
 
 export const SUBJECTS_COLORS = [
   "#ADD7F6",

@@ -10,7 +10,7 @@ const Container = styled(BaseSection)`
     css`
       background-color: ${backgroundColor};
     `}
-  padding: 3em 1.5em;
+  padding: ${({ padding }) => padding};
 
   .content {
     width: 100%;
@@ -31,9 +31,15 @@ const ContainedSection = ({
   children,
   backgroundColor = null,
   align = "left",
+  padding = "3em 1.5em",
   ...otherProps
 }) => (
-  <Container backgroundColor={backgroundColor} align={align} {...otherProps}>
+  <Container
+    backgroundColor={backgroundColor}
+    align={align}
+    padding={padding}
+    {...otherProps}
+  >
     <div className="content">{children}</div>
   </Container>
 );
