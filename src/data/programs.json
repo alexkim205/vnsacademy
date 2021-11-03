@@ -1,12 +1,12 @@
 [
   {
-    "key": "spring-program-2021",
-    "name": "2021 Spring Program",
-    "path": "/spring-program-2021",
-    "category": "Spring",
-    "startDate": "2021-01-29 00:00",
-    "endDate": "2021-06-05 00:00",
-    "type": "Group (Zoom)",
+    "key": "fall-program-2021",
+    "name": "2021 Fall Program",
+    "path": "/fall-program-2021",
+    "category": "Fall",
+    "startDate": "2021-09-11 00:00",
+    "endDate": "2021-01-29 00:00",
+    "type": "Group",
     "subjects": [
       "sat",
       "school-algebra-trig",

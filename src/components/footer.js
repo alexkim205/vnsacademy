@@ -57,14 +57,14 @@ const Footer = () => {
       <div className="contact">
         <a href={`mailto:${emailAddress}`}>vnsacademy@gmail.com</a>
         <br />
-        217-04 Northern Blvd. FL 2, #6 & 8<br />
-        Bayside, NY 11361
+        48-64 Oceania St, Lower Level<br />
+        Bayside, NY 11364
         <br />
         (718) 888-0671
       </div>
       <div className="copyright">
         <br />
-        2001-2020 © VnS Academy{" "}
+        2001-2021 © VnS Academy{" "}
       </div>
     </Container>
   );

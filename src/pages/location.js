@@ -98,8 +98,8 @@ const LocationPage = () => {
             <p>
               VnS Academy
               <br />
-              217-04 Northern Blvd. FL 2, #6 & 8<br />
-              Bayside, NY 11361
+              48-64 Oceania St, Lower Level<br />
+              Bayside, NY 11364
             </p>
             <ExternalButton href={dirLink} active="active" target="_blank">
               Get Directions

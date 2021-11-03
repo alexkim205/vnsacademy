@@ -116,7 +116,6 @@ const Schedule = ({ scheduleData, colorMap }) => {
     return <Fragment />;
 
   const { M, T, W, Th, F, Sat, Sun } = scheduleData;
-  console.log("DAYS", M, T, W, Th, F, Sat, Sun);
   const maxDurationInOneDay = _.max(
     _.map(_.values(scheduleData), day =>
       _.sum(_.map(day, ({ duration }) => duration))

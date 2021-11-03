@@ -31,7 +31,6 @@ const ProgramTemplate = ({ data }) => {
     },
   ];
 
-  console.log("ProgramData", programData);
   return (
     <Layout title={programData.name}>
       <SEO title={programData.name} />
@@ -40,12 +39,12 @@ const ProgramTemplate = ({ data }) => {
           <h2>Download the full schedule.</h2>
         </ClickableBox>
       </ContainedSection>
-      <ContainedSection>
-        <Infobox data={programData} widths={["65%", "35%"]} />
-      </ContainedSection>
-      <ContainedSection>
-        <Schedule scheduleData={scheduleData} colorMap={colorMap} />
-      </ContainedSection>
+      {/*<ContainedSection>*/}
+      {/*  <Infobox data={programData} widths={["65%", "35%"]} />*/}
+      {/*</ContainedSection>*/}
+      {/*<ContainedSection>*/}
+      {/*  <Schedule scheduleData={scheduleData} colorMap={colorMap} />*/}
+      {/*</ContainedSection>*/}
       <ButtonSection buttons={buttons} />
     </Layout>
   );
