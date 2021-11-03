@@ -13,8 +13,8 @@ import Schedule from "../components/schedule";
 import ClickableBox from "../components/clickable-box";
 
 const ProgramTemplate = ({ data }) => {
-  const { programData, scheduleData } = data.allSitePage.edges[0].node.context;
-  const colorMap = _.map(programData.subjects, s => s.key);
+  const { programData /* scheduleData */ } = data.allSitePage.edges[0].node.context;
+  // const colorMap = _.map(programData.subjects, s => s.key);
   // const isPrivate = programData.key.startsWith("private");
   const buttons = [
     {

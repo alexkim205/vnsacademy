@@ -31,6 +31,10 @@ const getData = require("./fetchFromFirestore");
 const makeScheduleFromSubjects = subjects => {
   const weekdays = { M: [], T: [], W: [], Th: [], F: [], Sat: [], Sun: [] };
 
+  if (!subjects || subjects[0] === null) {
+    return weekdays;
+  }
+
   subjects.forEach(({ name, key, schedule: { days, startTime, endTime } }) => {
     days.forEach((day, day_i) => {
       weekdays[day] = [
@@ -179,6 +183,7 @@ const getProgramByKey = async programKey => {
 };
 
 const getFullProgramByKey = async programKey => {
+  console.log("program key", programKey)
   if (!programKey) return null;
   const foundProgram = _.find(await getPrograms(), ["key", programKey]);
 

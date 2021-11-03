@@ -14,8 +14,6 @@ exports.createPages = async ({ actions: { createPage } }) => {
   const classTemplate = path.resolve("./src/templates/class.js");
   const classesData = await getClasses();
 
-  console.log("classesDat", classesData);
-
   let classPageData;
   try {
     classPageData = await Promise.all(
@@ -42,18 +40,22 @@ exports.createPages = async ({ actions: { createPage } }) => {
   let programPageData;
   try {
     programPageData = await Promise.all(
-      programsData.map(async programData => ({
-        path: `/programs/${programData.key}`,
-        component: programTemplate,
-        context: {
-          programData: await getFullProgramByKey(programData.key),
-          scheduleData: await getProgramSchedule(programData.key),
-        },
-      }))
+      programsData.map(async programData => {
+        return ({
+          path: `/programs/${programData.key}`,
+          component: programTemplate,
+          context: {
+            programData: await getFullProgramByKey(programData.key),
+            scheduleData: await getProgramSchedule(programData.key),
+          },
+        })
+      })
     );
   } catch (error) {
     console.log(error);
   }
+
+  console.log("programdata",  programPageData);
 
   for (const p of programPageData) {
     createPage(p);
