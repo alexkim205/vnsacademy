@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { Map, Marker } from "pigeon-maps";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -10,6 +9,7 @@ import ContainedSection from "../components/sections/contained-section";
 import { breakpoint, BOX_SHADOW } from "../constants/theme";
 
 const dirLink = "https://goo.gl/maps/E8sx1qKjh9MDk8wS6";
+const coordinates = [40.752902810610934, -73.77127862901847]
 
 const LocationContainer = styled.div`
   display: flex;
@@ -67,32 +67,14 @@ const InfoBox = styled.div`
 `;
 
 const LocationPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logoImage: file(relativePath: { eq: "vns-location.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
   return (
     <Layout title="Location">
       <SEO title="Location" />
       <ContainedSection>
         <LocationContainer>
-          <Img
-            fluid={data.logoImage.childImageSharp.fluid}
-            alt="location"
-            style={{
-              width: "100%",
-              height: "100%",
-              borderRadius: "5px",
-              boxShadow: BOX_SHADOW,
-            }}
-          />
+          <Map height={500} defaultCenter={coordinates} defaultZoom={14}>
+            <Marker width={50} anchor={coordinates} />
+          </Map>
           <InfoBox>
             <h3 className="location-title">Address</h3>
             <p>
