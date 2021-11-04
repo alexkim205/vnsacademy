@@ -41,6 +41,8 @@ const ContactForm = ({
   } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
 
+  console.log("SUBJECTs", subjects)
+
   // On component mount, prefill with location state if it exists
   useEffect(() => {
     if (!reason) {
@@ -151,7 +153,7 @@ const ContactForm = ({
                 ref={register({ required: "Subject is required." })}
               >
                 {subjects &&
-                  _.values(subjects).map((subject, i) => (
+                  _.values(subjects).map((subject, i) => subject !== 'Dummy Class' && (
                     <option value={subject} key={i}>
                       {subject}
                     </option>

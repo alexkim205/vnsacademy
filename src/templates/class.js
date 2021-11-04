@@ -10,6 +10,7 @@ import Infobox from "../components/class-infobox";
 import ContainedSection from "../components/sections/contained-section";
 import ButtonSection from "../components/sections/button-section";
 import Schedule from "../components/schedule";
+import ProgramSection from "../components/sections/program-section";
 
 const ClassTemplate = ({ data }) => {
   const { classData, scheduleData } = data.allSitePage.edges[0].node.context;
@@ -41,6 +42,7 @@ const ClassTemplate = ({ data }) => {
   return (
     <Layout title={classData.name}>
       <SEO title={classData.name} />
+      <ProgramSection/>
       <ContainedSection>
         <Infobox data={classData} />
       </ContainedSection>

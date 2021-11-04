@@ -9,7 +9,7 @@ import { ExternalButton } from "../components/button";
 import ContainedSection from "../components/sections/contained-section";
 import { breakpoint, BOX_SHADOW } from "../constants/theme";
 
-const dirLink = "https://goo.gl/maps/kXpRAXkyMMAevK7a7";
+const dirLink = "https://goo.gl/maps/E8sx1qKjh9MDk8wS6";
 
 const LocationContainer = styled.div`
   display: flex;

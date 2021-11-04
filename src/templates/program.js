@@ -13,9 +13,9 @@ import Schedule from "../components/schedule";
 import ClickableBox from "../components/clickable-box";
 
 const ProgramTemplate = ({ data }) => {
-  const { programData /* scheduleData */ } = data.allSitePage.edges[0].node.context;
-  // const colorMap = _.map(programData.subjects, s => s.key);
-  // const isPrivate = programData.key.startsWith("private");
+  const { programData, scheduleData } = data.allSitePage.edges[0].node.context;
+  const colorMap = _.map(programData.subjects, s => s.key);
+  const isPrivate = programData.key.startsWith("private");
   const buttons = [
     {
       message: "Interested in enrolling?",
@@ -39,12 +39,12 @@ const ProgramTemplate = ({ data }) => {
           <h2>Download the full schedule.</h2>
         </ClickableBox>
       </ContainedSection>
-      {/*<ContainedSection>*/}
-      {/*  <Infobox data={programData} widths={["65%", "35%"]} />*/}
-      {/*</ContainedSection>*/}
-      {/*<ContainedSection>*/}
-      {/*  <Schedule scheduleData={scheduleData} colorMap={colorMap} />*/}
-      {/*</ContainedSection>*/}
+      <ContainedSection>
+        <Infobox data={programData} widths={["65%", "35%"]} />
+      </ContainedSection>
+      <ContainedSection>
+        <Schedule scheduleData={scheduleData} colorMap={colorMap} />
+      </ContainedSection>
       <ButtonSection buttons={buttons} />
     </Layout>
   );

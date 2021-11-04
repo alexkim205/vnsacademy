@@ -10,8 +10,9 @@ import {
   BUTTON_SHADOW,
   BOX_SHADOW,
   SUBJECTS_COLORS,
-  breakpoint,
+  breakpoint, BLACK
 } from "../constants/theme";
+import { Link } from "gatsby";
 
 const ScheduleContainer = styled(BaseSection)`
   display: flex;
@@ -72,6 +73,11 @@ const DayBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
+
+  a {
+    color: ${BLACK};
+    text-decoration: none;
+  }
 `;
 
 const ScheduleBlock = styled.div`
@@ -110,6 +116,9 @@ const ScheduleBlock = styled.div`
   }
 `;
 
+const ConditionalWrapper = ({ condition, wrapper, children }) =>
+  condition ? wrapper(children) : children;
+
 const Schedule = ({ scheduleData, colorMap }) => {
   // Return null for empty schedule
   if (_.every(_.map(_.values(scheduleData), day => day.length === 0)))
@@ -125,21 +134,28 @@ const Schedule = ({ scheduleData, colorMap }) => {
   const renderScheduleByDay = schedule => {
     return (
       <DayBlock>
-        {schedule.map(({ name, key, startTime, endTime, duration }, i) => (
-          <ScheduleBlock
-            key={i}
-            colorInput={SUBJECTS_COLORS[colorMap.findIndex(k => k === key)]}
-            size={duration * 1.5}
-            isFiller={name === "filler"}
-          >
-            <div className="subject-content">
-              <div className="subject-name">{name}</div>
-              <div className="subject-time">
-                {parseTimeRange(startTime, endTime)}
-              </div>
-            </div>
-          </ScheduleBlock>
-        ))}
+        {schedule.map(({ name, key, startTime, endTime, duration }, i) => {
+          return (
+            <ConditionalWrapper
+              condition={name !== 'filler'}
+              wrapper={children => <Link to={`/classes/${key}`}>{children}</Link>}
+            >
+              <ScheduleBlock
+                key={i}
+                colorInput={SUBJECTS_COLORS[colorMap.findIndex(k => k === key)]}
+                size={duration * 1.5}
+                isFiller={name === "filler"}
+              >
+                <div className="subject-content">
+                  <div className="subject-name">{name}</div>
+                  <div className="subject-time">
+                    {parseTimeRange(startTime, endTime)}
+                  </div>
+                </div>
+              </ScheduleBlock>
+            </ConditionalWrapper>
+          )
+        })}
       </DayBlock>
     );
   };
@@ -147,14 +163,6 @@ const Schedule = ({ scheduleData, colorMap }) => {
   return (
     <Fragment>
       <ScheduleContainer maxBlocks={maxDurationInOneDay}>
-        {!!Sun.length && (
-          <div className="DOW Sunday">
-            <div className="weekday-title">
-              <h1>Sun</h1>
-            </div>
-            {renderScheduleByDay(Sun)}
-          </div>
-        )}
         {!!M.length && (
           <div className="DOW Monday">
             <div className="weekday-title">
@@ -201,6 +209,14 @@ const Schedule = ({ scheduleData, colorMap }) => {
               <h1>Sat</h1>
             </div>
             {renderScheduleByDay(Sat)}
+          </div>
+        )}
+        {!!Sun.length && (
+          <div className="DOW Sunday">
+            <div className="weekday-title">
+              <h1>Sat</h1>
+            </div>
+            {renderScheduleByDay(Sun)}
           </div>
         )}
       </ScheduleContainer>
