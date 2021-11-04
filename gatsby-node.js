@@ -55,8 +55,6 @@ exports.createPages = async ({ actions: { createPage } }) => {
     console.log(error);
   }
 
-  console.log("programdata",  programPageData);
-
   for (const p of programPageData) {
     createPage(p);
   }

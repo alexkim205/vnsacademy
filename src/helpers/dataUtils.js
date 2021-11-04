@@ -183,7 +183,6 @@ const getProgramByKey = async programKey => {
 };
 
 const getFullProgramByKey = async programKey => {
-  console.log("program key", programKey)
   if (!programKey) return null;
   const foundProgram = _.find(await getPrograms(), ["key", programKey]);
 
