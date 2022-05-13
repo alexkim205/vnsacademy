@@ -38,10 +38,6 @@ const IndexPage = () => {
             Body temperature will be checked every day before entering the
             classroom.
           </li>
-          <li>
-            Students who have COVID-19 symptoms will be asked to attend the
-            class online.
-          </li>
         </ul>
       </NoticeSection>
       <ProgramSection />

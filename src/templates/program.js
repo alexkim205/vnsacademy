@@ -11,6 +11,7 @@ import ContainedSection from "../components/sections/contained-section";
 import ButtonSection from "../components/sections/button-section";
 import Schedule from "../components/schedule";
 import ClickableBox from "../components/clickable-box";
+import NoticeSection from "../components/sections/notice-section";
 
 const ProgramTemplate = ({ data }) => {
   const { programData, scheduleData } = data.allSitePage.edges[0].node.context;
@@ -34,6 +35,11 @@ const ProgramTemplate = ({ data }) => {
   return (
     <Layout title={programData.name}>
       <SEO title={programData.name} />
+        <NoticeSection>
+            <h3 style={{ textAlign: "center", lineHeight: "2rem" }}>
+                Note: The schedule is subject to change before the start date.
+            </h3>
+        </NoticeSection>
       <ContainedSection padding="3em 1.5em 0 1.5em">
         <ClickableBox textAlign="center" href={programData.imageUrl}>
           <h2>Download the full schedule.</h2>
