@@ -8,8 +8,8 @@ const ProgramSection = () => {
     <HighlightSection light>
       <span className="highlight">
         Register now for our{" "}
-        <Link to={"/programs/fall-program-2021"}>2021 Fall Program</Link>{" "}
-        (starts September 11, 2021).
+        <Link to={"/programs/summer-program-2022"}>2022 Summer Program</Link>{" "}
+        (starts July 05, 2022).
       </span>
     </HighlightSection>
   );
