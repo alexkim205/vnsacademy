@@ -40,7 +40,7 @@ const IndexPage = () => {
           </li>
         </ul>
       </NoticeSection>
-      <ProgramSection />
+      {/* <ProgramSection /> */}
       <CarouselSection
         title={"Our students have been accepted into"}
         items={collegeImages}
