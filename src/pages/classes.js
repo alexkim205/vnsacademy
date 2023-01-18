@@ -10,7 +10,7 @@ const ClassesPage = () => {
   return (
     <Layout title="Classes">
       <SEO title="Classes" />
-      <ProgramSection />
+      {/* <ProgramSection /> */}
       <ClassesSection />
     </Layout>
   );
