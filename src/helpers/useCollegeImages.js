@@ -1,5 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby";
-import _ from "lodash";
+import map from "lodash/fp/map";
+import flow from "lodash/fp/flow";
+import value from "lodash/fp/value"
 
 const filenameToName = {
   columbia: ["Columbia", "University"],
@@ -34,12 +36,13 @@ const useCollegeData = () => {
   `);
 
   // Return array of [{name, fluid}, {name, fluid}, ...]
-  return _(data.allFile.edges)
-    .map(({ node: { name, childImageSharp: { fixed } } }) => ({
+  return flow(
+    map(({ node: { name, childImageSharp: { fixed } } }) => ({
       name: filenameToName[name],
       fixed,
-    }))
-    .value();
+    })),
+    value
+  )(data.allFile.edges)
 };
 
 export default useCollegeData;
