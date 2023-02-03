@@ -123,12 +123,12 @@ const Infobox = ({ data, widths = ["50%", "50%"] }) => {
         </SubBox>
         <div className="spacer"></div>
         <SubBox className="info-list" width={widths[1]}>
-          {dateRange && (
-            <div className="info-item">
-              <h3 className="info-title">When</h3>
-              <p className="info-content">{dateRange}</p>
-            </div>
-          )}
+          {/*{dateRange && (*/}
+          {/*  <div className="info-item">*/}
+          {/*    <h3 className="info-title">When</h3>*/}
+          {/*    <p className="info-content">{dateRange}</p>*/}
+          {/*  </div>*/}
+          {/*)}*/}
           {type && (
             <div className="info-item">
               <h3 className="info-title">Type</h3>

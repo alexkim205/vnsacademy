@@ -17,7 +17,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   let classPageData;
   try {
     classPageData = await Promise.all(
-      classesData.map(async classData => ({
+      classesData.filter(({key}) => !['school-chemistry', 'school-biology', 'school-physics'].includes(key)).map(async classData => ({
         path: `/classes/${classData.key}`,
         component: classTemplate,
         context: {
