@@ -4,9 +4,6 @@
   "description": "A simple website for VnS Academy.",
   "version": "0.1.0",
   "author": "Alex Gyujin Kim",
-  "engines" : {
-    "node" : "10.24.1"
-  },
   "dependencies": {
     "@humblebee/styled-components-breakpoint": "^2.1.4",
     "animejs": "^3.2.0",
