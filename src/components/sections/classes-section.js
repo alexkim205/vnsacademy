@@ -107,6 +107,9 @@ const ClassesSection = ({ children, ...otherProps }) => {
   const parseByCategory = () => {
     let categories = {};
     classesData.forEach(({ category, key, name, path }, i) => {
+      if (['school-chemistry', 'school-biology', 'school-physics'].includes(key)) {
+        return
+      }
       const thisCategory = categories[category];
       const thisClass = { key, name, path };
       categories[category] = thisCategory
